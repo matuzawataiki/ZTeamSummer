@@ -1,19 +1,20 @@
 #pragma once
-#include "Scene/SceneBase.h"
-class SceneManager
+
+class SceneBase;
+class SceneManager : public Noncopyable
 {
 private:
 	std::unique_ptr<SceneBase> m_currentScene;	//現在のシーン
 	std::unique_ptr<SceneBase> m_nextScene;		//次のシーン
 
 public:
+	~SceneManager();
+
 	/**
 	 * @brief 次のシーンをセット
 	 * @param scene 
 	 */
-	void ChangeScene(std::unique_ptr<SceneBase> scene) {
-		m_nextScene = std::move(scene);
-	}
+	void ChangeScene(std::unique_ptr<SceneBase> scene);
 
 	/**
 	 * @brief 更新処理

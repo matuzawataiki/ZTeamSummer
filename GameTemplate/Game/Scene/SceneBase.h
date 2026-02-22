@@ -1,4 +1,5 @@
 #pragma once
+
 class SceneManager;
 class SceneBase : public Noncopyable
 {
@@ -8,7 +9,7 @@ public:
 	/**
 	 * @brief 初期化関数
 	 */
-	virtual void Initialize() = 0;
+	virtual void Initialize(){}
 
 	/**
 	 * @brief 更新関数
@@ -25,6 +26,6 @@ public:
 	/**
 	 * @brief 終了関数
 	 */
-	virtual void Finalize() = 0;
+	virtual void Finalize(){}
 };
 

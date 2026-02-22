@@ -1,5 +1,15 @@
 #include "stdafx.h"
 #include "SceneManager.h"
+#include "Scene/SceneBase.h"
+
+SceneManager::~SceneManager()
+{
+}
+
+void SceneManager::ChangeScene(std::unique_ptr<SceneBase> scene)
+{
+	m_nextScene = std::move(scene);
+}
 
 void SceneManager::Update()
 {

@@ -32,6 +32,7 @@ namespace nsK2EngineLow {
 		enButtonE,
 		enButtonQ,
 		enButtonR,
+		enButtonF,
 		enButtonShift,
 		enButtonControl,
 		enButtonLMouse,
