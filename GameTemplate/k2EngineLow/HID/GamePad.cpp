@@ -68,6 +68,7 @@ namespace nsK2EngineLow {
 			{ enButtonE			, 'E',			0xFFFFFFFF	},
 			{ enButtonQ			, 'Q',			0xFFFFFFFF	},
 			{ enButtonR			, 'R',			0xFFFFFFFF	},
+			{ enButtonF			, 'F',			0xFFFFFFFF	},
 			{ enButtonLMouse	, VK_LBUTTON,	0xFFFFFFFF	},
 			{ enButtonRMouse	, VK_RBUTTON,	0xFFFFFFFF	},
 			{ enButtonShift		, VK_SHIFT,		0xFFFFFFFF	},
