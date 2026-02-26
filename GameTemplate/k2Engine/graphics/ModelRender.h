@@ -94,6 +94,8 @@ namespace nsK2Engine {
 		/// </summary>
 		void Draw(RenderContext& rc);
 
+		void ForwardDraw(RenderContext& rc);
+
 		/// <summary>
 		/// アニメーション再生。
 		/// </summary>
@@ -339,6 +341,10 @@ namespace nsK2Engine {
 		/// <param name="rc"></param>
 		void OnTlanslucentRender(RenderContext& rc) override;
 		/// <summary>
+		/// 最後に描画させる処理。
+		/// </summary>
+		void OnEndRender(RenderContext& rc) override;
+		/// <summary>
 		/// 各種モデルのワールド行列を更新する。
 		/// </summary>
 		void UpdateWorldMatrixInModes();
@@ -453,6 +459,6 @@ namespace nsK2Engine {
 		StructuredBuffer			m_worldMatrixArraySB;				// ワールド行列の配列のストラクチャードバッファ。
 		std::vector< GemometryData > m_geometryDatas;					// ジオメトリ情報。
 		std::unique_ptr<int[]>		m_instanceNoToWorldMatrixArrayIndexTable;	// インスタンス番号からワールド行列の配列のインデックスに変換するテーブル。
-
+		Camera* m_FRCamera = nullptr;
 	};
 }

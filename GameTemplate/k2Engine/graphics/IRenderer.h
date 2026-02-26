@@ -66,6 +66,15 @@ namespace nsK2Engine {
 		{
 
 		}
+
+		/// <summary>
+		/// 最後に描画させる処理。
+		/// </summary>
+		/// <param name="rc"></param>
+		virtual void OnEndRender(RenderContext& rc)
+		{
+
+		}
 		/// <summary>
 		/// レンダラーが描画するオブジェクトの最大座標と最小座標を取得。
 		/// </summary>

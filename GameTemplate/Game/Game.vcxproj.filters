@@ -7,6 +7,12 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{6af1cb52-0495-4534-8f56-5ed1143fb3ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{8899b4cd-d411-4793-9f09-d2780a5887d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Graphics">
+      <UniqueIdentifier>{4df5709e-942f-4d2b-8e85-6085cbb7aa76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -27,6 +33,9 @@
     <ClCompile Include="Scene\GameScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Graphics\ViewModelComponent.cpp">
+      <Filter>Component\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -45,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="Scene\GameScene.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Graphics\ViewModelComponent.h">
+      <Filter>Component\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
