@@ -101,6 +101,7 @@ static const int MAX_BONE = 512;	// ƒ{[ƒ“‚ÌÅ‘å”B
 #include "physics/CharacterController.h"
 #include "physics/PhysicsStaticObject.h"
 
+#include "gameObject/Component.h"
 #include "gameObject/GameObjectManager.h"
 #include "gameObject/IGameObject.h"
 
