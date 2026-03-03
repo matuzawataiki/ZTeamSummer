@@ -132,6 +132,14 @@ namespace nsK2Engine {
         /// 描画オブジェクトを追加。
         /// </summary>
         /// <param name="renderObject"></param>
+        void SetForwardModel(IRenderer* renderObject)
+        {
+            m_forwardModel = renderObject;
+        }
+        /// <summary>
+        /// 描画オブジェクトを追加。
+        /// </summary>
+        /// <param name="renderObject"></param>
         void AddRenderObject(IRenderer* renderObject)
         {
             m_renderObjects.push_back(renderObject);
@@ -655,6 +663,7 @@ namespace nsK2Engine {
         SIBLData m_iblData;                                             // IBLデータ。
         bool m_isEnableRaytracing = true;                               // レイトレーシングが有効？
         GaussianBlur m_giTextureBlur[eGITextureBlur_Num];                                // GIテクスチャにブラーをかける処理。
+        IRenderer* m_forwardModel = nullptr;
         /// <summary>
         /// イベントリスナーのデータ。
         /// </summary>

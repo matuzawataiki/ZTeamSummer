@@ -110,6 +110,11 @@ namespace nsK2Engine {
 		// m_addRaytracingWorldModel = &m_forwardRenderModel;
 		// 各種ワールド行列を更新する。
 		UpdateWorldMatrixInModes();
+
+		m_FRCamera = new Camera;
+
+		m_FRCamera->SetPosition(Vector3::Zero);
+		m_FRCamera->SetTarget(Vector3::AxisX);
 	}
 
 	void ModelRender::Init(const char* filePath,
@@ -462,6 +467,15 @@ namespace nsK2Engine {
 			}
 		}
 	}
+
+	void ModelRender::ForwardDraw(RenderContext& rc)
+	{
+
+		if (m_geometryDatas[0].IsInViewFrustum()) {
+			// ビューフラスタムに含まれている。
+			g_renderingEngine->SetForwardModel(this);
+		}
+	}
 	
 	void ModelRender::RemoveInstance(int instanceNo)
 	{		
@@ -522,6 +536,12 @@ namespace nsK2Engine {
 	{
 		if (m_translucentModel.IsInited()) {
 			m_translucentModel.Draw(rc, 1);
+		}
+	}
+	void ModelRender::OnEndRender(RenderContext& rc)
+	{
+		if (m_forwardRenderModel.IsInited()) {
+			m_forwardRenderModel.Draw(rc, *m_FRCamera, 1);
 		}
 	}
 }

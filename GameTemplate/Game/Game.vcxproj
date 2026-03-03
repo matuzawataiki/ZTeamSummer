@@ -223,7 +223,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
@@ -237,7 +237,7 @@
     <ClCompile Include="Scene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
