@@ -7,6 +7,9 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{6af1cb52-0495-4534-8f56-5ed1143fb3ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{a0f23fbe-958b-48a6-baa5-5d069b4552f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -27,6 +30,9 @@
     <ClCompile Include="Scene\GameScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Component\StatusComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -45,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="Scene\GameScene.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\StatusComponent.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
