@@ -6,6 +6,9 @@
 
 #include <list>
 #include <string>
+#include "gameObject/Component.h"
+
+
 namespace nsK2EngineLow {
 	class RenderContext;
 
@@ -121,12 +124,16 @@ namespace nsK2EngineLow {
 			}
 		}
 
-		void UpdateWrapper()
+		void UpdateWrapper() 
 		{
 			if (m_isActive && m_isStart && !m_isDead) {
 				Update();
+				for (auto component : m_componentList) {
+					component.second->UpdateWrapper();
+				}
 			}
 		}
+
 		void StartWrapper()
 		{
 			if (m_isActive && !m_isStart && !m_isDead) {
@@ -136,6 +143,14 @@ namespace nsK2EngineLow {
 				}
 			}
 		}
+
+		//template <typename T>
+		//void AddComponent() {
+		//	T* = new T;
+		//	m_componentList.emplace(T::ID(), T*);
+		//}
+
+
 		friend class CGameObjectManager;
 	protected:
 		std::string m_name = "default";					//ゲームオブジェクトの名前
@@ -145,5 +160,8 @@ namespace nsK2EngineLow {
 		bool m_isNewFromGameObjectManager;	//GameObjectManagerでnewされた。
 		bool m_isRegist = false;							//GameObjectManagerに登録されている？
 		bool m_isActive = true;							//Activeフラグ。
+
+		std::unordered_map<uint8_t, Component*> m_componentList;
 	};
+
 }

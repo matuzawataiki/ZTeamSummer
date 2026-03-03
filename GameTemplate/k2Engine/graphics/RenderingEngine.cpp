@@ -481,7 +481,9 @@ namespace nsK2Engine {
             renderObj->OnTlanslucentRender(rc);
         }
 
-        m_forwardModel->OnEndRender(rc);
+        if(m_forwardModel){
+            m_forwardModel->OnEndRender(rc);
+        }
 
         // メインレンダリングターゲットへの書き込み終了待ち
         rc.WaitUntilFinishDrawingToRenderTarget(m_mainRenderTarget);
