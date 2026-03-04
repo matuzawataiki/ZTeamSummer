@@ -3,6 +3,14 @@
 #include "Scene/SceneManager.h"
 #include "Scene/GameScene.h"
 
+TitleScene::TitleScene()
+{
+}
+
+TitleScene::~TitleScene()
+{
+}
+
 void TitleScene::Initialize()
 {
 	m_titleImage = std::make_unique<SpriteRender>();
@@ -12,13 +20,13 @@ void TitleScene::Initialize()
 void TitleScene::Update(SceneManager& manager)
 {
 	if (g_pad[0]->IsPress(enButtonF)) {
-		manager.ChangeScene(std::make_unique<GameScene>());
+		manager.ChangeScene<GameScene>();
 	}
 }
 
-void TitleScene::Draw(RenderContext& rc)
+void TitleScene::Draw()
 {
-	m_titleImage->Draw(rc);
+	m_titleImage->Draw();
 }
 
 void TitleScene::Finalize()

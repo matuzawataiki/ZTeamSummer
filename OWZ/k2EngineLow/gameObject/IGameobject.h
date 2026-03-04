@@ -128,9 +128,6 @@ namespace nsK2EngineLow {
 		{
 			if (m_isActive && m_isStart && !m_isDead) {
 				Update();
-				for (auto component : m_componentList) {
-					component.second->UpdateWrapper();
-				}
 			}
 		}
 
@@ -144,13 +141,6 @@ namespace nsK2EngineLow {
 			}
 		}
 
-		template <typename T>
-		void AddComponent() {
-			T* component = new T;
-			m_componentList.emplace(T::ID(), component);
-		}
-
-
 		friend class CGameObjectManager;
 	protected:
 		std::string m_name = "default";					//ゲームオブジェクトの名前
@@ -160,8 +150,6 @@ namespace nsK2EngineLow {
 		bool m_isNewFromGameObjectManager;				//GameObjectManagerでnewされた。
 		bool m_isRegist = false;						//GameObjectManagerに登録されている？
 		bool m_isActive = true;							//Activeフラグ。
-
-		std::unordered_map<uint32_t, Component*> m_componentList;
 	};
 
 }

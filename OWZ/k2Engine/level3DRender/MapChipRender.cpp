@@ -75,6 +75,6 @@ namespace nsK2Engine {
 
 	void MapChipRender::Draw(RenderContext& rc)
 	{
-		m_modelRender.Draw(rc);
+		m_modelRender.Draw();
 	}
 }

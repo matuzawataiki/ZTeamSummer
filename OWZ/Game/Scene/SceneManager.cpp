@@ -2,13 +2,12 @@
 #include "SceneManager.h"
 #include "Scene/SceneBase.h"
 
-SceneManager::~SceneManager()
+SceneManager::SceneManager()
 {
 }
 
-void SceneManager::ChangeScene(std::unique_ptr<SceneBase> scene)
+SceneManager::~SceneManager()
 {
-	m_nextScene = std::move(scene);
 }
 
 void SceneManager::Update()
@@ -28,10 +27,10 @@ void SceneManager::Update()
 	}
 }
 
-void SceneManager::Draw(RenderContext& rc)
+void SceneManager::Draw()
 {
 	//描画処理
 	if (m_currentScene) {
-		m_currentScene->Draw(rc);
+		m_currentScene->Draw();
 	}
 }

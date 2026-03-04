@@ -29,7 +29,7 @@ public:
 
 	void AddAnimation(const char* filePath,int num ,bool isLoop = true);
 
-	void Draw(RenderContext& rc);
+	void Draw();
 
 	void SetDrawFlag(bool drawFlag) {
 		m_isDraw = drawFlag;
