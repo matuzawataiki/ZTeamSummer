@@ -144,11 +144,11 @@ namespace nsK2EngineLow {
 			}
 		}
 
-		//template <typename T>
-		//void AddComponent() {
-		//	T* = new T;
-		//	m_componentList.emplace(T::ID(), T*);
-		//}
+		template <typename T>
+		void AddComponent() {
+			T* component = new T;
+			m_componentList.emplace(T::ID(), component);
+		}
 
 
 		friend class CGameObjectManager;
@@ -157,11 +157,11 @@ namespace nsK2EngineLow {
 		bool m_isStart = false;							//Startの開始フラグ。
 		bool m_isDead = false;							//死亡フラグ。
 		bool m_isRegistDeadList = false;				//死亡リストに積まれている。
-		bool m_isNewFromGameObjectManager;	//GameObjectManagerでnewされた。
-		bool m_isRegist = false;							//GameObjectManagerに登録されている？
+		bool m_isNewFromGameObjectManager;				//GameObjectManagerでnewされた。
+		bool m_isRegist = false;						//GameObjectManagerに登録されている？
 		bool m_isActive = true;							//Activeフラグ。
 
-		std::unordered_map<uint8_t, Component*> m_componentList;
+		std::unordered_map<uint32_t, Component*> m_componentList;
 	};
 
 }

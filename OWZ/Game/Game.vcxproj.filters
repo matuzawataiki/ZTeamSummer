@@ -13,6 +13,9 @@
     <Filter Include="Component\Graphics">
       <UniqueIdentifier>{4df5709e-942f-4d2b-8e85-6085cbb7aa76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{d127166f-e643-4bd0-88b6-66524e50f70d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Component\Graphics\ViewModelComponent.h">
       <Filter>Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CRC32.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
