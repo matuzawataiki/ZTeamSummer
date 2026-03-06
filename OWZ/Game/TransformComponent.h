@@ -92,9 +92,19 @@ private:
 		}
 	}
 
-	Vector3 GetWorldPosition() {
-		Vector4 vec = GetWorldMatrix().v[4];
-		return Vector3(vec.x, vec.y, vec.z);
+	Vector3 GetPotition() {
+		Update();
+		return m_worldMatrix.GetTranslation();
+	}
+
+	Quaternion GetRotation() {
+		Update();
+		return m_worldMatrix.GetRotation();
+	}
+
+	Vector3 GetScale() {
+		Update();
+		return m_worldMatrix.GetScale();
 	}
 
 };
