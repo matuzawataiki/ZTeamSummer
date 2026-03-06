@@ -18,8 +18,6 @@ namespace nsK2EngineLow
 
 	public:
 		virtual ~Component() = default;
-		virtual bool Start() { return false; }
-		virtual void Update() {}
 
 		void UpdateWrapper();
 
@@ -33,6 +31,9 @@ namespace nsK2EngineLow
 		void SetOwner(IGameObject* gameObject) {
 			m_owner = gameObject;
 		}
-	};
 
+	private:
+		virtual bool Start() { return false; }
+		virtual void Update() {}
+	};
 }

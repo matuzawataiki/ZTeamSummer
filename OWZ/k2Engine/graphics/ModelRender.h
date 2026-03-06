@@ -92,9 +92,9 @@ namespace nsK2Engine {
 		/// <summary>
 		/// 描画処理。
 		/// </summary>
-		void Draw(RenderContext& rc);
+		void Draw();
 
-		void ForwardDraw(RenderContext& rc);
+		void ForwardDraw();
 
 		/// <summary>
 		/// アニメーション再生。

@@ -39,7 +39,7 @@ void ViewModelComponent::AddAnimation(const char* filePath, int num, bool isLoop
 	m_animation.emplace(num, animationClip);
 }
 
-void ViewModelComponent::Draw(RenderContext& rc)
+void ViewModelComponent::Draw()
 {
-	m_model->ForwardDraw(rc);
+	m_model->ForwardDraw();
 }

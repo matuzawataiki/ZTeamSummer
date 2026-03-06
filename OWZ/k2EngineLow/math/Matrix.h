@@ -308,6 +308,42 @@ namespace nsK2EngineLow {
 			);
 		}
 
+		Vector3 GetTranslation() {
+			DirectX::XMVECTOR trans;
+			DirectX::XMVECTOR rotation;
+			DirectX::XMVECTOR scale;
+			Vector3 vec;
+
+			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMStoreFloat3(&vec.vec, trans);
+
+			return vec;
+		}
+
+		Quaternion GetRotation() {
+			DirectX::XMVECTOR trans;
+			DirectX::XMVECTOR rotation;
+			DirectX::XMVECTOR scale;
+			Quaternion vec;
+
+			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMStoreFloat4(&vec.vec, rotation);
+
+			return vec;
+		}
+
+		Vector3 GetScale() {
+			DirectX::XMVECTOR trans;
+			DirectX::XMVECTOR rotation;
+			DirectX::XMVECTOR scale;
+			Vector3 vec;
+
+			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMStoreFloat3(&vec.vec, scale);
+
+			return vec;
+		}
+		
 	};
 	/// <summary>
 	/// çsóÒìØémÇÃèÊéZ

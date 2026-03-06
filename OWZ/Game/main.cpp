@@ -4,7 +4,7 @@
 #include<InitGUID.h>
 #include<dxgidebug.h>
 
-
+#include "GameManager.h"
 
 
 void ReportLiveObjects()
@@ -32,6 +32,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	// ここから初期化を行うコードを記述する。
 	//////////////////////////////////////
 
+	GameManager* gameManager = new GameManager;
+
 	//////////////////////////////////////
 	// 初期化を行うコードを書くのはここまで！！！
 	//////////////////////////////////////
@@ -42,6 +44,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		if (g_pad[0]->IsTrigger(enButtonA) ){
 			g_pad[0]->SetVibration(/*durationSec=*/0.5f, /*normalizedPower=*/1.0f);
 		}
+
+		gameManager->Update();
+		gameManager->Draw();
+
 		K2Engine::GetInstance()->Execute();
 	}
 

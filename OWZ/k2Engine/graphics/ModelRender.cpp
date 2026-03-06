@@ -451,7 +451,7 @@ namespace nsK2Engine {
 		m_animation.Progress(g_gameTime->GetFrameDeltaTime() * m_animationSpeed);
 
 	}
-	void ModelRender::Draw(RenderContext& rc)
+	void ModelRender::Draw()
 	{
 		if (m_isEnableInstancingDraw) {
 			// インスタンシング描画はビューフラスタムカリングは行わない。
@@ -468,7 +468,7 @@ namespace nsK2Engine {
 		}
 	}
 
-	void ModelRender::ForwardDraw(RenderContext& rc)
+	void ModelRender::ForwardDraw()
 	{
 
 		if (m_geometryDatas[0].IsInViewFrustum()) {
