@@ -10,7 +10,7 @@ namespace nsK2EngineLow
 	public:
 		virtual bool Start() { return true; }
 		virtual void Update() {}
-		virtual void Render(){}
+		virtual void Render() {}
 
 	public:
 		bool IsStart() const {return m_isStart;}
@@ -42,8 +42,7 @@ namespace nsK2EngineLow
 
 		template <typename T>
 		void AddComponent() {
-			T* component = new T;
-			m_componentList.emplace(T::ID(), component);
+			m_componentList.emplace(T::ID(), std::make_shared<T>());
 		}
 
 
@@ -52,7 +51,7 @@ namespace nsK2EngineLow
 		bool m_isStart = false;							//Startの開始フラグ。
 		bool m_isActive = true;							//Activeフラグ。
 
-		std::unordered_map<uint32_t, Component*> m_componentList;
+		std::unordered_map < uint32_t, std::shared_ptr<Component> > m_componentList;
 	};
 
 }
