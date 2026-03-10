@@ -66,6 +66,7 @@
     <ClCompile Include="level2DRender\MapChip2DRender.cpp" />
     <ClCompile Include="level3DRender\LevelRender.cpp" />
     <ClCompile Include="level3DRender\MapChipRender.cpp" />
+    <ClCompile Include="Memory\Array.cpp" />
     <ClCompile Include="nature\SkyCube.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,7 @@
     <ClInclude Include="level2DRender\MapChip2DRender.h" />
     <ClInclude Include="level3DRender\LevelRender.h" />
     <ClInclude Include="level3DRender\MapChipRender.h" />
+    <ClInclude Include="Memory\Array.h" />
     <ClInclude Include="nature\SkyCube.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
