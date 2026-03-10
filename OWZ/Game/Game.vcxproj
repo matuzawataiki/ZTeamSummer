@@ -237,7 +237,8 @@
     </ClCompile>
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
-    <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="Component\Math\TransformComponent.cpp" />
+    <ClCompile Include="system\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
@@ -249,7 +250,8 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
-    <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Component\Math\TransformComponent.h" />
+    <ClInclude Include="system\Math\Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

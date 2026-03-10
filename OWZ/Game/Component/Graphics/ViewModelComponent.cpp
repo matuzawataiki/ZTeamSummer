@@ -26,17 +26,22 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	//シーンライト
 	modelInitData.m_expandConstantBuffer = &m_forwardLight;
 	modelInitData.m_expandConstantBufferSize = sizeof(ForwardLight);
+
+	m_animations.Create(m_animationData.size());
+	int num = 0;
+	for (auto it: m_animationData) {
+		m_animations[num].Load(it.filePath);
+		m_animations[num].SetLoopFlag(it.loopFlag);
+		num++;
+	}
+
 	m_model->InitForwardRendering(modelInitData);
 	m_model->Update();
 }
 
-void ViewModelComponent::AddAnimation(const char* filePath, int num, bool isLoop)
+void ViewModelComponent::AddAnimation(const char* filePath, int num, bool loopFlag)
 {
-	AnimationClip* animationClip = new AnimationClip;
-	animationClip->Load(filePath);
-	animationClip->SetLoopFlag(isLoop);
-
-	m_animation.emplace(num, animationClip);
+	m_animationData.push_back(AnimationData(filePath, loopFlag));
 }
 
 void ViewModelComponent::Draw()

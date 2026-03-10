@@ -22,6 +22,12 @@
     <Filter Include="InGameObject\Character\Playable">
       <UniqueIdentifier>{a8a7a2bb-edcc-4151-ab84-35c2c6fa053e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="system\Math">
+      <UniqueIdentifier>{a6343b21-199b-47a9-b6fe-4166c15762d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Math">
+      <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -48,7 +54,12 @@
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp">
       <Filter>InGameObject\Character\Playable</Filter>
     </ClCompile>
-    <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="Component\Math\TransformComponent.cpp">
+      <Filter>Component\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="system\Math\Transform.cpp">
+      <Filter>system\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -74,6 +85,11 @@
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h">
       <Filter>InGameObject\Character\Playable</Filter>
     </ClInclude>
-    <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Component\Math\TransformComponent.h">
+      <Filter>Component\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Math\Transform.h">
+      <Filter>system\Math</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,12 +11,22 @@ struct ForwardLight
 	int pad4 = 0;
 };
 
+struct AnimationData
+{
+	const char* filePath;
+	bool loopFlag;
+
+	AnimationData(const char* f, bool l) :filePath(f),loopFlag(l){}
+
+};
+
 class ViewModelComponent : public Component
 {
-	appState(ViewModelComponent);
+	appClass(ViewModelComponent);
 private:
 	std::unique_ptr<ModelRender> m_model;
-	std::map<int, AnimationClip*> m_animation;
+	std::vector<AnimationData> m_animationData;
+	AllocatedArray<AnimationClip> m_animations;
 	Skeleton m_skeleton;
 	ForwardLight m_forwardLight;
 
@@ -27,7 +37,7 @@ public:
 
 	void SetModel(const char* filePath, bool isAnimation = false);
 
-	void AddAnimation(const char* filePath,int num ,bool isLoop = true);
+	void AddAnimation(const char* filePath,int num ,bool loopFlag = true);
 
 	void Draw();
 

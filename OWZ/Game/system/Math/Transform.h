@@ -1,26 +1,23 @@
 #pragma once
-class TransformComponent : public Component
+class Transform
 {
 public:
-	TransformComponent();
-	~TransformComponent();
+	Transform();
+	~Transform();
 
 private:
 	Vector3		m_localPosition = Vector3::Zero;
 	Quaternion	m_localRotation = Quaternion::Identity;
-	Vector3		m_localScale	= Vector3::One;
+	Vector3		m_localScale = Vector3::One;
 
-	std::shared_ptr<TransformComponent> m_parent;
-	std::vector<std::shared_ptr<TransformComponent>> m_childern;
+	std::shared_ptr<Transform> m_parent;
+	std::vector<std::shared_ptr<Transform>> m_children;
 
 	Matrix m_worldMatrix;
 	bool m_isDirty;
 
-
 public:
-
-private:
-	void Update() override{
+	void Update()  {
 		if (m_isDirty) {
 			UpdateWorldMatrix();
 			m_isDirty = false;
@@ -30,7 +27,7 @@ private:
 	void SetDirty() {
 		if (!m_isDirty) {
 			m_isDirty = true;
-			for (auto childern : m_childern) {
+			for (auto childern : m_children) {
 				childern->SetDirty();
 			}
 		}
@@ -66,11 +63,11 @@ private:
 		SetDirty();
 	}
 
-	void SetParent(TransformComponent* parent);
+	void SetParent(std::shared_ptr<Transform> parent, std::shared_ptr<Transform> children);
 
-	std::shared_ptr<TransformComponent> GetParent()const { return m_parent; }
+	std::shared_ptr<Transform> GetParent()const { return m_parent; }
 
-	Matrix GetLocalMatrix() const {
+	Matrix GetLocalMatrix() {
 		Matrix tMatrix, rMatrix, sMatrix;
 		tMatrix.MakeTranslation(m_localPosition);
 		rMatrix.MakeRotationFromQuaternion(m_localRotation);
@@ -85,14 +82,14 @@ private:
 
 	void UpdateWorldMatrix() {
 		if (m_parent) {
-			m_worldMatrix = m_parent->GetLocalMatrix() * GetLocalMatrix();
+			m_worldMatrix = m_parent->GetWorldMatrix() * GetLocalMatrix();
 		}
 		else {
 			m_worldMatrix = GetLocalMatrix();
 		}
 	}
 
-	Vector3 GetPotition() {
+	Vector3 GetPosition() {
 		Update();
 		return m_worldMatrix.GetTranslation();
 	}
