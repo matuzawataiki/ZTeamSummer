@@ -13,7 +13,7 @@ struct ForwardLight
 
 class ViewModelComponent : public Component
 {
-	appState(ViewModelComponent);
+	appClass(ViewModelComponent);
 private:
 	std::unique_ptr<ModelRender> m_model;
 	std::map<int, AnimationClip*> m_animation;

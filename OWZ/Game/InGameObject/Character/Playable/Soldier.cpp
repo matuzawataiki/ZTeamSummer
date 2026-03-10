@@ -4,6 +4,7 @@
 
 Soldier::Soldier()
 {
+	AddComponent<TransformComponent>();
 	AddComponent<ViewModelComponent>();
 }
 
