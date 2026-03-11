@@ -28,6 +28,9 @@
     <Filter Include="Component\Math">
       <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Parameter">
+      <UniqueIdentifier>{8eb60bb0-bdfd-4257-8e3a-031f1b35e93c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -60,6 +63,10 @@
     <ClCompile Include="system\Math\Transform.cpp">
       <Filter>system\Math</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
+    <ClCompile Include="Component\Parameter\ParameterComponent.cpp">
+      <Filter>Component\Parameter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -90,6 +97,10 @@
     </ClInclude>
     <ClInclude Include="system\Math\Transform.h">
       <Filter>system\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h" />
+    <ClInclude Include="Component\Parameter\ParameterComponent.h">
+      <Filter>Component\Parameter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

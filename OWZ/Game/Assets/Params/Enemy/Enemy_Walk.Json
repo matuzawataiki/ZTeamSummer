@@ -1,0 +1,9 @@
+{
+  "Commnet": "Enemy_Walk用のパラメータ",
+  "Status": {
+    "Name"："Enemy_Walk",
+    "HP"：50,
+    "Speed" : 5,
+    "AttackPower": 5,
+  }
+}
