@@ -13,23 +13,26 @@ struct ForwardLight
 
 class ViewModelComponent : public Component
 {
-	appState(ViewModelComponent);
+	appClass(ViewModelComponent);
+
+public:
+	~ViewModelComponent();
+
 private:
 	std::unique_ptr<ModelRender> m_model;
-	std::map<int, AnimationClip*> m_animation;
+	std::vector<AnimationData> m_animationData;
+	AllocatedArray<AnimationClip> m_animations;
 	Skeleton m_skeleton;
 	ForwardLight m_forwardLight;
 
 	bool m_isDraw = false;
 
 public:
-	~ViewModelComponent();
-
 	void SetModel(const char* filePath, bool isAnimation = false);
 
-	void AddAnimation(const char* filePath,int num ,bool isLoop = true);
+	void AddAnimation(const char* filePath,bool loopFlag = true);
 
-	void Draw(RenderContext& rc);
+	void Draw();
 
 	void SetDrawFlag(bool drawFlag) {
 		m_isDraw = drawFlag;

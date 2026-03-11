@@ -8,13 +8,17 @@ private:
 	std::unique_ptr<SceneBase> m_nextScene;		//次のシーン
 
 public:
+	SceneManager();
 	~SceneManager();
 
 	/**
 	 * @brief 次のシーンをセット
 	 * @param scene 
 	 */
-	void ChangeScene(std::unique_ptr<SceneBase> scene);
+	template <typename T>
+	void ChangeScene() {
+		m_nextScene = std::make_unique<T>();
+	}
 
 	/**
 	 * @brief 更新処理
@@ -23,8 +27,7 @@ public:
 
 	/**
 	 * @brief 描画処理
-	 * @param rc 
 	 */
-	void Draw(RenderContext& rc);
+	void Draw();
 };
 

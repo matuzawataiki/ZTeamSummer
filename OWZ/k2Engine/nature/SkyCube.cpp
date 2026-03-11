@@ -67,6 +67,6 @@ namespace nsK2Engine {
 
 	void SkyCube::Render(RenderContext& rc)
 	{
-		m_modelRender.Draw(rc);
+		m_modelRender.Draw();
 	}
 }

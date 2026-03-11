@@ -5,4 +5,4 @@
 using namespace nsK2EngineLow;
 using namespace nsK2Engine;
 
-#include "Component/Graphics/ViewModelComponent.h"
+#include "Component/Math/TransformComponent.h"

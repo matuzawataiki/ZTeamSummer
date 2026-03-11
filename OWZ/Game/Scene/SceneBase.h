@@ -1,10 +1,10 @@
 #pragma once
-
 class SceneManager;
 class SceneBase : public Noncopyable
 {
 public:
-	virtual ~SceneBase() = default;
+	SceneBase();
+	virtual ~SceneBase();
 
 	/**
 	 * @brief 初期化関数
@@ -19,9 +19,8 @@ public:
 
 	/**
 	 * @brief 描画関数
-	 * @param rc 
 	 */
-	virtual void Draw(RenderContext& rc) = 0;
+	virtual void Draw() = 0;
 
 	/**
 	 * @brief 終了関数

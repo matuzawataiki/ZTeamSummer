@@ -26,7 +26,7 @@ namespace nsK2Engine {
 		/// <param name="renderContext">レンダーコンテキスト。</param>
 		void Draw(RenderContext& renderContext)
 		{
-			m_spriteRender.Draw(renderContext);
+			m_spriteRender.Draw();
 		}
 	private:
 		SpriteRender m_spriteRender;			//スプライト。

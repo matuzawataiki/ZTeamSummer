@@ -1,7 +1,7 @@
 #pragma once
 #include "util/CRC32.h"
 
-#define appState(name)	\
+#define appClass(name)	\
 public:\
 	static constexpr uint32_t ID() { return Hash32(#name); }
 
@@ -18,8 +18,6 @@ namespace nsK2EngineLow
 
 	public:
 		virtual ~Component() = default;
-		virtual bool Start() { return false; }
-		virtual void Update() {}
 
 		void UpdateWrapper();
 
@@ -33,6 +31,9 @@ namespace nsK2EngineLow
 		void SetOwner(IGameObject* gameObject) {
 			m_owner = gameObject;
 		}
-	};
 
+	private:
+		virtual bool Start() { return false; }
+		virtual void Update() {}
+	};
 }

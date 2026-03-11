@@ -234,6 +234,9 @@
     <ClCompile Include="gameObject\Component.cpp">
       <Filter>gameObject</Filter>
     </ClCompile>
+    <ClCompile Include="gameObject\GameObject.cpp">
+      <Filter>gameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k2EngineLowPreCompile.h" />
@@ -518,6 +521,9 @@
       <Filter>HID</Filter>
     </ClInclude>
     <ClInclude Include="gameObject\Component.h">
+      <Filter>gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\GameObject.h">
       <Filter>gameObject</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,8 +13,20 @@
     <Filter Include="Component\Graphics">
       <UniqueIdentifier>{4df5709e-942f-4d2b-8e85-6085cbb7aa76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Util">
-      <UniqueIdentifier>{d127166f-e643-4bd0-88b6-66524e50f70d}</UniqueIdentifier>
+    <Filter Include="InGameObject">
+      <UniqueIdentifier>{939f6e96-7779-496c-aa28-cc087878e938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Character">
+      <UniqueIdentifier>{f3cd40db-b282-4ca1-aba1-85817e78872f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Character\Playable">
+      <UniqueIdentifier>{a8a7a2bb-edcc-4151-ab84-35c2c6fa053e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system\Math">
+      <UniqueIdentifier>{a6343b21-199b-47a9-b6fe-4166c15762d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Math">
+      <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
     </Filter>
     <Filter Include="Json">
       <UniqueIdentifier>{83ff4a48-b8d9-4057-8d03-6e19406639c0}</UniqueIdentifier>
@@ -41,6 +53,16 @@
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp">
       <Filter>Component\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp">
+      <Filter>InGameObject\Character\Playable</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Math\TransformComponent.cpp">
+      <Filter>Component\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="system\Math\Transform.cpp">
+      <Filter>system\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -62,8 +84,15 @@
     <ClInclude Include="Component\Graphics\ViewModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Util\CRC32.h">
-      <Filter>Util</Filter>
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="InGameObject\Character\Playable\Soldier.h">
+      <Filter>InGameObject\Character\Playable</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Math\TransformComponent.h">
+      <Filter>Component\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Math\Transform.h">
+      <Filter>system\Math</Filter>
     </ClInclude>
     <ClInclude Include="Json\json.hpp">
       <Filter>Json</Filter>

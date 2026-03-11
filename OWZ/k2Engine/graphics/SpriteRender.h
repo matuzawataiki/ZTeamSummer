@@ -109,7 +109,7 @@ namespace nsK2Engine {
 		/// 描画処理。
 		/// </summary>
 		/// <param name="rc">レンダーコンテキスト。</param>
-		void Draw(RenderContext& rc);
+		void Draw();
 
 	private:
 		/// <summary>

@@ -19,7 +19,7 @@ namespace nsK2Engine {
 		m_sprite.Init(initData);
 	}
 
-	void SpriteRender::Draw(RenderContext& rc)
+	void SpriteRender::Draw()
 	{
 		g_renderingEngine->AddRenderObject(this);
 	}
