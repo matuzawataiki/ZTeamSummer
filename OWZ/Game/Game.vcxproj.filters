@@ -16,6 +16,9 @@
     <Filter Include="Util">
       <UniqueIdentifier>{d127166f-e643-4bd0-88b6-66524e50f70d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Json">
+      <UniqueIdentifier>{83ff4a48-b8d9-4057-8d03-6e19406639c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -60,6 +63,12 @@
       <Filter>Component\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Util\CRC32.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Json\json.hpp">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Json.h">
       <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
