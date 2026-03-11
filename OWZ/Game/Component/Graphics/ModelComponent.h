@@ -4,6 +4,10 @@
 class ModelComponent : public Component
 {
 	appClass(ModelComponent);
+
+public:
+	~ModelComponent();
+
 private:
 	std::unique_ptr<ModelRender>m_model;
 	std::vector<AnimationData>m_animationData;
@@ -12,11 +16,9 @@ private:
 	bool m_isDraw = false;
 
 public:
-	~ModelComponent();
-
 	void SetModel(const char* filePath, bool isAnimation = false);
 
-	void AddAnimation(const char* filePath, int num, bool loopFlag = true);
+	void AddAnimation(const char* filePath, bool loopFlag = true);
 
 	void Draw();
 
