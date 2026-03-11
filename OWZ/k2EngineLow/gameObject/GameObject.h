@@ -44,9 +44,12 @@ namespace nsK2EngineLow
 		void AddComponent() {
 			m_componentList.emplace(T::ID(), std::make_shared<T>());
 		}
+		template <typename T>
+		std::shared_ptr<T> GetComponent() {
+			std::shared_ptr<Component> c = m_componentList.find(T::ID())->second;
+			return std::dynamic_pointer_cast<T>(c);
+		}
 
-
-		friend class CGameObjectManager;
 	protected:
 		bool m_isStart = false;							//Startの開始フラグ。
 		bool m_isActive = true;							//Activeフラグ。
