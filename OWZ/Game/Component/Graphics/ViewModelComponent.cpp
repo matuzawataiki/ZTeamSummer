@@ -15,6 +15,15 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	modelInitData.m_vsEntryPointFunc = "VSMain";
 	modelInitData.m_vsSkinEntryPointFunc = "VSMain";
 	if (isAnimation) {
+
+		m_animations.Create(m_animationData.size());
+		int num = 0;
+		for (auto it : m_animationData) {
+			m_animations[num].Load(it.filePath);
+			m_animations[num].SetLoopFlag(it.loopFlag);
+			num++;
+		}
+
 		// アニメーションあり。
 		modelInitData.m_vsSkinEntryPointFunc = "VSSkinMain";
 		modelInitData.m_skeleton = &m_skeleton;
@@ -26,14 +35,6 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	//シーンライト
 	modelInitData.m_expandConstantBuffer = &m_forwardLight;
 	modelInitData.m_expandConstantBufferSize = sizeof(ForwardLight);
-
-	m_animations.Create(m_animationData.size());
-	int num = 0;
-	for (auto it: m_animationData) {
-		m_animations[num].Load(it.filePath);
-		m_animations[num].SetLoopFlag(it.loopFlag);
-		num++;
-	}
 
 	m_model->InitForwardRendering(modelInitData);
 	m_model->Update();
