@@ -40,7 +40,7 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	m_model->Update();
 }
 
-void ViewModelComponent::AddAnimation(const char* filePath, int num, bool loopFlag)
+void ViewModelComponent::AddAnimation(const char* filePath, bool loopFlag)
 {
 	m_animationData.push_back(AnimationData(filePath, loopFlag));
 }

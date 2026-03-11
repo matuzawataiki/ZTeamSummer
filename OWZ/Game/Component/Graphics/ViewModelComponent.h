@@ -30,7 +30,7 @@ private:
 public:
 	void SetModel(const char* filePath, bool isAnimation = false);
 
-	void AddAnimation(const char* filePath,int num ,bool loopFlag = true);
+	void AddAnimation(const char* filePath,bool loopFlag = true);
 
 	void Draw();
 
