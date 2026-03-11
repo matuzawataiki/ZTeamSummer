@@ -225,6 +225,7 @@
   <ItemGroup>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
+    <ClCompile Include="Component\Parameter\ParameterComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -244,6 +245,7 @@
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
+    <ClInclude Include="Component\Parameter\ParameterComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
