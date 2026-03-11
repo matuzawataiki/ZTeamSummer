@@ -114,8 +114,9 @@ namespace nsK2Engine {
 
 		m_FRCamera = new Camera;
 
-		m_FRCamera->SetPosition(Vector3::Zero);
-		m_FRCamera->SetTarget(Vector3::AxisX);
+		m_FRCamera->SetPosition(Vector3(0.0f, 175.0f, -1.0f));
+		m_FRCamera->SetTarget(Vector3(0.0f, 175.0f, 0.0f));
+		m_FRCamera->Update();
 	}
 
 	void ModelRender::Init(const char* filePath,
