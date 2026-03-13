@@ -28,26 +28,29 @@ private:
 	std::unique_ptr<ModelRender> m_model;
 	std::vector<AnimationData> m_animationData;
 	AllocatedArray<AnimationClip> m_animations;
-	Skeleton m_skeleton;
 	ForwardLight m_forwardLight;
 
-	bool m_isDraw = false;
+	bool m_drawFlag = false;
 
 public:
 	~ViewModelComponent();
+
+	void Update() override;
 
 	void SetModel(const char* filePath, bool isAnimation = false);
 
 	void AddAnimation(const char* filePath,bool loopFlag = true);
 
+	void PlayAnimation(int num);
+
 	void Draw();
 
 	void SetDrawFlag(bool drawFlag) {
-		m_isDraw = drawFlag;
+		m_drawFlag = drawFlag;
 	}
 
 	bool IsDraw() const {
-		return m_isDraw;
+		return m_drawFlag;
 	}
 };
 

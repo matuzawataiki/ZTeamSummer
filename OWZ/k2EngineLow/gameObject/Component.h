@@ -33,7 +33,7 @@ namespace nsK2EngineLow
 		}
 
 	private:
-		virtual bool Start() { return false; }
+		virtual bool Start() { return true; }
 		virtual void Update() {}
 	};
 }

@@ -11,7 +11,5 @@ private:
 
 public:
 	void Render()override;
-
-
 };
 

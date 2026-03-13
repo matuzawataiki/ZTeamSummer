@@ -210,9 +210,9 @@ float4 PSMain( SPSIn psIn) : SV_Target0
     localNormal = (localNormal - 0.5) * 2.0f;
     psIn.normal = psIn.tangent * localNormal.x + psIn.biNormal * localNormal.y + psIn.normal * localNormal.z;
     
-    float3 finalLig;
+    float3 finalLig = float3(1.0f,1.0f,1.0f);
 	//ディレクションライトの計算
-    finalLig = CalcDirectionLight(psIn);
+    //finalLig = CalcDirectionLight(psIn);
 	
     //環境光の設定
     finalLig += m_ambientLight;

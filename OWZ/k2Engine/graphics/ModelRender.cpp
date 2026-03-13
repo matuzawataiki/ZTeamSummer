@@ -91,31 +91,30 @@ namespace nsK2Engine {
 	{
 		//インスタンシング描画用のデータを初期化。
 		InitInstancingDraw(1);
-		InitSkeleton(initData.m_tkmFilePath);
-		InitAnimation(animation, size, enModelUpAxisZ);
+		if(size != 0){
+			InitSkeleton(initData.m_tkmFilePath);
+			initData.m_skeleton = &m_skeleton;
+			InitAnimation(animation, size, initData.m_modelUpAxis);
+		}
 
 		// todo アニメーション済み頂点バッファの計算処理を初期化。
-		InitComputeAnimatoinVertexBuffer(initData.m_tkmFilePath, initData.m_modelUpAxis);
+		//InitComputeAnimatoinVertexBuffer(initData.m_tkmFilePath, initData.m_modelUpAxis);
 
 		initData.m_colorBufferFormat[0] = DXGI_FORMAT_R16G16B16A16_FLOAT;
 		//作成した初期化データをもとにモデルを初期化する。
 		m_forwardRenderModel.Init(initData);
-		//ZPrepass描画用のモデルを初期化。
-		//InitModelOnZprepass(*g_renderingEngine, initData.m_tkmFilePath, initData.m_modelUpAxis);
-		//シャドウマップ描画用のモデルを初期化。
-		InitModelOnShadowMap(*g_renderingEngine, initData.m_tkmFilePath, initData.m_modelUpAxis, false);
+
 		// 幾何学データを初期化。
 		InitGeometryDatas(1);
-		// レイトレワールドに追加。
-		// g_renderingEngine->AddModelToRaytracingWorld(m_forwardRenderModel);
-		// m_addRaytracingWorldModel = &m_forwardRenderModel;
 		// 各種ワールド行列を更新する。
 		UpdateWorldMatrixInModes();
 
 		m_FRCamera = new Camera;
 
-		m_FRCamera->SetPosition(Vector3(0.0f, 175.0f, -1.0f));
+		m_FRCamera->SetPosition(Vector3(0.0f, 175.0f, -10.0f));
 		m_FRCamera->SetTarget(Vector3(0.0f, 175.0f, 0.0f));
+		m_FRCamera->SetFar(10000.0f);
+		m_FRCamera->SetNear(1.0f);
 		m_FRCamera->Update();
 	}
 
@@ -472,7 +471,6 @@ namespace nsK2Engine {
 
 	void ModelRender::ForwardDraw()
 	{
-
 		if (m_geometryDatas[0].IsInViewFrustum()) {
 			// ビューフラスタムに含まれている。
 			g_renderingEngine->SetForwardModel(this);

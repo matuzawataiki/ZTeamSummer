@@ -42,7 +42,10 @@ namespace nsK2EngineLow
 
 		template <typename T>
 		void AddComponent() {
-			m_componentList.emplace(T::ID(), std::make_shared<T>());
+			std::shared_ptr<T> t = std::make_shared<T>();
+			t->OnActive();
+			m_componentList.emplace(T::ID(), t);
+
 		}
 		template <typename T>
 		std::shared_ptr<T> GetComponent() {

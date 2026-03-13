@@ -8,9 +8,10 @@ Soldier::Soldier()
 	AddComponent<ViewModelComponent>();
 
 	m_model = GetComponent<ViewModelComponent>();
-	//m_model->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Idle.tka", true);
-	m_model->SetModel("Assets/Character/Playable/soldier76/model/soldierViewModel.tkm");
+	m_model->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Idle.tka", true);
+	m_model->SetModel("Assets/Character/Playable/soldier76/model/soldierViewModel.tkm",true);
 	m_model->SetDrawFlag(true);
+	m_model->PlayAnimation(0);
 }
 
 Soldier::~Soldier()
