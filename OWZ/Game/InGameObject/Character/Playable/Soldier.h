@@ -10,6 +10,7 @@ private:
 	std::shared_ptr<ViewModelComponent> m_model;
 
 public:
-	void Render()override;
+	void Update() override;
+	void Render() override;
 };
 

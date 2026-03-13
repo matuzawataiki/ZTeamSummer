@@ -111,8 +111,8 @@ namespace nsK2Engine {
 
 		m_FRCamera = new Camera;
 
-		m_FRCamera->SetPosition(Vector3(0.0f, 175.0f, -10.0f));
-		m_FRCamera->SetTarget(Vector3(0.0f, 175.0f, 0.0f));
+		m_FRCamera->SetPosition(Vector3(0.0f, 50.0f, -10.0f));
+		m_FRCamera->SetTarget(Vector3(0.0f, 50.0f, 0.0f));
 		m_FRCamera->SetFar(10000.0f);
 		m_FRCamera->SetNear(1.0f);
 		m_FRCamera->Update();
