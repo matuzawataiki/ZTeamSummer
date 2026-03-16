@@ -225,6 +225,7 @@
   <ItemGroup>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
+    <ClCompile Include="Component\Parameter\EnemyStatus.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -244,6 +245,7 @@
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
+    <ClInclude Include="Component\Parameter\EnemyStatus.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
@@ -254,6 +256,8 @@
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="system\Math\Transform.h" />
+    <ClInclude Include="Util\Json\Json.h" />
+    <ClInclude Include="Util\Json\json.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
