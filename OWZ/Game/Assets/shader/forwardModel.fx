@@ -212,7 +212,7 @@ float4 PSMain( SPSIn psIn) : SV_Target0
     
     float3 finalLig = float3(1.0f,1.0f,1.0f);
 	//ディレクションライトの計算
-    //finalLig = CalcDirectionLight(psIn);
+    finalLig = CalcDirectionLight(psIn);
 	
     //環境光の設定
     finalLig += m_ambientLight;

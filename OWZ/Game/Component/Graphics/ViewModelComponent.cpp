@@ -17,6 +17,7 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	m_model = std::make_unique<ModelRender>();
 
 	ModelInitData modelInitData;
+	modelInitData.m_modelUpAxis = enModelUpAxisZ;
 	modelInitData.m_tkmFilePath = filePath;
 	modelInitData.m_fxFilePath = "Assets/shader/forwardModel.fx";
 	modelInitData.m_vsEntryPointFunc = "VSMain";
@@ -44,6 +45,7 @@ void ViewModelComponent::SetModel(const char* filePath, bool isAnimation)
 	m_model->InitForwardRendering(modelInitData, m_animations.data(), m_animations.size());
 	m_model->Update();
 	m_drawFlag = true;
+
 }
 
 void ViewModelComponent::AddAnimation(const char* filePath, bool loopFlag)

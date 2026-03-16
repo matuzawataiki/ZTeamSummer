@@ -4,7 +4,6 @@ struct ForwardLight
 	Vector3 direction	= Vector3::Zero;
 	int pad1 = 0;
 	Vector4 color		= Vector4::White;
-	int pad2 = 0;
 	Vector3 position	= Vector3::Zero;
 	int pad3 = 0;
 	Vector3 ambientcolor = Vector3::Zero;

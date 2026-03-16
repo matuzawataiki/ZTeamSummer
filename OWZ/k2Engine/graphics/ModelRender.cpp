@@ -111,8 +111,8 @@ namespace nsK2Engine {
 
 		m_FRCamera = new Camera;
 
-		m_FRCamera->SetPosition(Vector3(0.0f, 50.0f, -10.0f));
-		m_FRCamera->SetTarget(Vector3(0.0f, 50.0f, 0.0f));
+		m_FRCamera->SetPosition(Vector3(0.0f, 175.0f, -10.0f));
+		m_FRCamera->SetTarget(Vector3(0.0f, 175.0f, 0.0f));
 		m_FRCamera->SetFar(10000.0f);
 		m_FRCamera->SetNear(1.0f);
 		m_FRCamera->Update();
@@ -445,7 +445,12 @@ namespace nsK2Engine {
 		UpdateWorldMatrixInModes();
 
 		if (m_skeleton.IsInited()) {
-			m_skeleton.Update(m_zprepassModel.GetWorldMatrix());
+			if (m_forwardRenderModel.IsInited()) {
+				m_skeleton.Update(m_forwardRenderModel.GetWorldMatrix());				
+			}
+			else {
+				m_skeleton.Update(m_zprepassModel.GetWorldMatrix());
+			}
 		}
 
 		//アニメーションを進める。
