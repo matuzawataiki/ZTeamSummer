@@ -10,7 +10,7 @@ private:
 	Quaternion	m_localRotation = Quaternion::Identity;
 	Vector3		m_localScale = Vector3::One;
 
-	std::shared_ptr<Transform> m_parent;
+	std::weak_ptr<Transform> m_parent;
 	std::vector<std::shared_ptr<Transform>> m_children;
 
 	Matrix m_worldMatrix;
@@ -65,7 +65,7 @@ public:
 
 	void SetParent(std::shared_ptr<Transform> parent, std::shared_ptr<Transform> children);
 
-	std::shared_ptr<Transform> GetParent()const { return m_parent; }
+	std::shared_ptr<Transform> GetParent()const { return m_parent.lock(); }
 
 	Matrix GetLocalMatrix() {
 		Matrix tMatrix, rMatrix, sMatrix;
@@ -81,8 +81,8 @@ public:
 	}
 
 	void UpdateWorldMatrix() {
-		if (m_parent) {
-			m_worldMatrix = m_parent->GetWorldMatrix() * GetLocalMatrix();
+		if (std::shared_ptr<Transform> parentPtr = m_parent.lock()) {
+			m_worldMatrix = parentPtr->GetWorldMatrix() * GetLocalMatrix();
 		}
 		else {
 			m_worldMatrix = GetLocalMatrix();
