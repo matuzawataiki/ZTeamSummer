@@ -1,6 +1,12 @@
 #include "stdafx.h"
 #include "InteractComponent.h"
 
+namespace {
+    const float REQUIRED_INTERACT_TIME = 2.0f;    // 起動に必要な長押し時間
+    const float INTERACTABLE_DISTANCE = 100.0f;   // アクセス可能な距離
+    const float INTERACTABLE_ANGLE_LIMIT = 0.5f;  // 向いていると見なす内積の閾値
+}
+
 InteractComponent::InteractComponent()
 {
 }
@@ -17,7 +23,7 @@ void InteractComponent::Update()
     }
 
     // プレイヤーがアクセス可能な距離にいるかチェック
-    if (CheckPlayerDistance()) {
+    if (CheckPlayerDistanceAndDirection()) {
         if (g_pad[0]->IsPress(enButtonF)) {
             StartInteract();
         }
@@ -68,7 +74,7 @@ bool InteractComponent::GetIsActivated() const
     return m_currentState == enActivated;
 }
 
-bool InteractComponent::CheckPlayerDistance()
+bool InteractComponent::CheckPlayerDistanceAndDirection()
 {
     //　仮の実装
     //　動作確認のために常にtrueを返す

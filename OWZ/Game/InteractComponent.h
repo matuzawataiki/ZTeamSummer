@@ -8,6 +8,8 @@ enum EnInteractState {
 
 class InteractComponent : public Component
 {
+    appClass(InteractComponent);
+
 public:
     InteractComponent();
     ~InteractComponent();
@@ -15,13 +17,12 @@ public:
 private:
     EnInteractState m_currentState=enIdle;
     float m_interactProgressTime = 0.0f;        // 現在の長押し時間
-    const float REQUIRED_INTERACT_TIME = 2.0f;  // 起動に必要な時間
-    float m_interactableDistance = 50.0f;       // アクセス可能な距離
     
-    bool CheckPlayerDistance();                 // プレイヤーとの距離判定
+    void Update();
+
+    bool CheckPlayerDistanceAndDirection();                 // プレイヤーとの距離と向き判定
 
 public:
-    void Update();
     void StartInteract();
     void CancelInteract();
     bool GetIsActivated() const;
