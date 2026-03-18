@@ -1,0 +1,11 @@
+{
+  {
+    "Comment": "Enemy_Walk用のパラメータ",
+    "Name": "Enemy_Walk",
+    "HP": 50,
+    "Armor": 0,
+    "Shield": 0,
+    "Speed": 5,
+    "Melee": 5
+  },
+}

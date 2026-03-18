@@ -28,6 +28,9 @@
     <Filter Include="Component\Math">
       <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Parameter">
+      <UniqueIdentifier>{8eb60bb0-bdfd-4257-8e3a-031f1b35e93c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -60,6 +63,13 @@
     <ClCompile Include="system\Math\Transform.cpp">
       <Filter>system\Math</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
+    <ClCompile Include="Status\Enemy\EnemyStatus.cpp">
+      <Filter>Component\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="Status\HP\HPData.cpp" />
+    <ClCompile Include="Parameter\ParameterManager.cpp" />
+    <ClCompile Include="Parameter\IMasterParameter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -91,5 +101,14 @@
     <ClInclude Include="system\Math\Transform.h">
       <Filter>system\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h" />
+    <ClInclude Include="Status\Enemy\EnemyStatus.h">
+      <Filter>Component\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Json\Json.h" />
+    <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Status\HP\HPData.h" />
+    <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="Parameter\IMasterParameter.h" />
   </ItemGroup>
 </Project>
