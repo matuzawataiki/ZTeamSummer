@@ -254,6 +254,7 @@
     <ClCompile Include="AI\PathFinding\NaviMesh.cpp" />
     <ClCompile Include="AI\PathFinding\Path.cpp" />
     <ClCompile Include="AI\PathFinding\PathFinding.cpp" />
+    <ClCompile Include="CanvasComponent.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="gameObject\Component.cpp" />
     <ClCompile Include="gameObject\Gameobjectmanager.cpp" />
@@ -334,12 +335,15 @@
     <ClCompile Include="tkFile\TkmFile.cpp" />
     <ClCompile Include="tkFile\TknFile.cpp" />
     <ClCompile Include="tkFile\TksFile.cpp" />
+    <ClCompile Include="UIFactory.cpp" />
+    <ClCompile Include="UISystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI\PathFinding\Cell.h" />
     <ClInclude Include="AI\PathFinding\NaviMesh.h" />
     <ClInclude Include="AI\PathFinding\Path.h" />
     <ClInclude Include="AI\PathFinding\PathFinding.h" />
+    <ClInclude Include="CanvasComponent.h" />
     <ClInclude Include="dbg\MyAssert.h" />
     <ClInclude Include="dbg\MyLog.h" />
     <ClInclude Include="gameObject\GameObject.h" />
@@ -432,6 +436,8 @@
     <ClInclude Include="tkFile\TkmFile.h" />
     <ClInclude Include="tkFile\TknFile.h" />
     <ClInclude Include="tkFile\TksFile.h" />
+    <ClInclude Include="UIFactory.h" />
+    <ClInclude Include="UISystem.h" />
     <ClInclude Include="util\TResourceBank.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

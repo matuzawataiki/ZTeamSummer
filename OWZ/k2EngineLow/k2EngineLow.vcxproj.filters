@@ -234,9 +234,16 @@
     <ClCompile Include="gameObject\Component.cpp">
       <Filter>gameObject</Filter>
     </ClCompile>
+    <ClCompile Include="UISystem.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
     <ClCompile Include="gameObject\GameObject.cpp">
       <Filter>gameObject</Filter>
     </ClCompile>
+    <ClCompile Include="CanvasComponent.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k2EngineLowPreCompile.h" />
@@ -523,9 +530,16 @@
     <ClInclude Include="gameObject\Component.h">
       <Filter>gameObject</Filter>
     </ClInclude>
+    <ClInclude Include="UISystem.h">
+      <Filter>UI</Filter>
+    </ClInclude>
     <ClInclude Include="gameObject\GameObject.h">
       <Filter>gameObject</Filter>
     </ClInclude>
+    <ClInclude Include="CanvasComponent.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="graphics">
@@ -587,6 +601,9 @@
     </Filter>
     <Filter Include="dxc">
       <UniqueIdentifier>{496d48ba-26ca-419f-9db8-b1cea244c1c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{635de614-abf8-4323-9ff1-d45ceb4c31f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
