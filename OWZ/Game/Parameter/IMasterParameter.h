@@ -1,5 +1,6 @@
 #pragma once
-#include "Util/Json/Json.h"
+#include "Util/Json.h"
+#include "Util/CRC32.h"
 
 
 /**
@@ -10,15 +11,15 @@
 #endif
 
 
-  /**
-	* NOTE: ホットリロードを使わない時は "#define APP_PARAM_HOT_RELOAD" をコメントアウトする。
-	*/
+/**
+  * NOTE: ホットリロードを使わない時は "#define APP_PARAM_HOT_RELOAD" をコメントアウトする。
+  */
 #ifdef APP_PARAM_HOT_RELOAD
 
 #define appParameter(name) \
 public:\
 static constexpr uint32_t ID() {return appHash(#name);}\
-std::functioin<void(const nlohmann::json& j, name& p)> load;
+std::function<void(const nlohmann::json& j, name& p)> Load; \
 
 
 #else
@@ -36,9 +37,9 @@ class IMasterParameter
 public:
 	virtual ~IMasterParameter() = default;
 #ifdef APP_PARAM_HOT_RELOAD
-	virtual void Load(const nlohmann::json& j) {};
-	std::string m_path;         // パラメーターのファイルパス（ホットリロード用）
-	time_t m_lastWriteTime;     // 最終更新時刻
+	std::string m_path;								// パラメーターのファイルパス（ホットリロード用）
+	time_t m_lastWriteTime = 0;							// 最終更新時刻
+	virtual void Load(const nlohmann::json& j) {}
 #endif // APP_PARAM_HOT_RELOAD
 
 

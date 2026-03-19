@@ -1,9 +1,9 @@
 #pragma once
+#include "IMasterParameter.h"
 
-
-class ParameterManager : public IMasterParameter
+class ParameterManager : public IGameObject
 {
-private:
+public:
 	ParameterManager();
 	~ParameterManager();
 
@@ -21,37 +21,7 @@ private:
 
 
 public:
-	void Update()
-	{
-#ifdef APP_PARAM_HOT_RELOAD
-		for (auto paramPair : m_parameterMap)
-		{
-			for (auto param : paramPair.second)
-			{
-				if (CheckFileModified(param))
-				{
-					std::ifstream file(param->m_path);
-					if (!file.is_open())
-					{
-						return;
-					}
-
-					nlohmann::json jsonRoot;
-					file >> jsonRoot;
-
-					ParameterVector parameters;
-
-					for (const auto& j : jsonRoot)
-					{
-						param->m_lastWriteTime = GetFileLastWriteTime(param->m_path.c_str());
-						param->Load(j);
-					}
-				}
-			}
-		}
-#endif
-	}
-
+	void Update();
 
 
 	/** パラメーター読み込み */
@@ -72,7 +42,7 @@ public:
 #ifdef APP_PARAM_HOT_RELOAD
 			parameter->m_path = std::string(path);
 			parameter->m_lastWriteTime = GetFileLastWriteTime(path);
-			parameter->load = func;
+			
 #endif
 			func(j, *parameter);
 			parameters.push_back(static_cast<IMasterParameter*>(parameter));
@@ -163,12 +133,19 @@ public:
 #endif // APP_PARAM_HOT_RELOAD
 
 
-	/** シングルトン */ 
+	/** シングルトン */
 public:
 	/** インスタンスの取得 */
+	static ParameterManager* GetInstance()
+	{
+		return m_instance;
+	}
+
+
+	/** インスタンスの生成 */
 	static void CreateInstance()
 	{
-		if (m_instance == nullptr) 
+		if (m_instance == nullptr)
 		{
 			m_instance = new ParameterManager();
 		}
@@ -178,7 +155,7 @@ public:
 	/**	インスタンスの破棄 */
 	static void DestroyInstance()
 	{
-		if (m_instance != nullptr) 
+		if (m_instance != nullptr)
 		{
 			delete m_instance;
 			m_instance = nullptr;

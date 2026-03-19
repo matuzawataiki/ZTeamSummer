@@ -13,13 +13,4 @@ private:
 	HPData m_hpData;	// HPデータ
 
 
-public:
-	/** 更新処理 */
-	void Update() override {};
-
-
-	/** Jsonファイルからパラメータを読み込む */
-	void LoadStatus(const char* path, const std::function<void(const nlohmann::json& j)>& func);
-
-
 };
