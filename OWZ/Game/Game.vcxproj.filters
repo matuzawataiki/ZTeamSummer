@@ -31,6 +31,9 @@
     <Filter Include="Component\Logic">
       <UniqueIdentifier>{f2082c54-bab4-44c2-9fcb-c6f81884dbb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\State">
+      <UniqueIdentifier>{7fac0082-7f31-43b6-817d-6ae7b751a8ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -71,6 +74,13 @@
     </ClCompile>
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
+    <ClCompile Include="Component\State\StateMachineComponent.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\IState.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -113,5 +123,12 @@
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="Util\Json\Json.h" />
+    <ClInclude Include="Component\Graphics\ModelComponent.h" />
+    <ClInclude Include="Component\State\StateMachineComponent.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\IState.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
