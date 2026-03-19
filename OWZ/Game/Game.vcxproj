@@ -225,6 +225,8 @@
   <ItemGroup>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
+    <ClCompile Include="CoreTower.cpp" />
+    <ClCompile Include="DestructibleCore.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
@@ -247,6 +249,8 @@
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
+    <ClInclude Include="CoreTower.h" />
+    <ClInclude Include="DestructibleCore.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
