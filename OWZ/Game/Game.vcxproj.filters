@@ -28,6 +28,9 @@
     <Filter Include="Component\Math">
       <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Logic">
+      <UniqueIdentifier>{f2082c54-bab4-44c2-9fcb-c6f81884dbb2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -60,6 +63,12 @@
     <ClCompile Include="system\Math\Transform.cpp">
       <Filter>system\Math</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
+      <Filter>Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractComponent.cpp">
+      <Filter>Component\Logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -90,6 +99,12 @@
     </ClInclude>
     <ClInclude Include="system\Math\Transform.h">
       <Filter>system\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h">
+      <Filter>Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractComponent.h">
+      <Filter>Component\Logic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
