@@ -225,6 +225,9 @@
   <ItemGroup>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
+    <ClCompile Include="Component\State\General\FlyState.cpp" />
+    <ClCompile Include="Component\State\General\IdleState.cpp" />
+    <ClCompile Include="Component\State\StateControllerComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
@@ -247,7 +250,12 @@
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
+    <ClInclude Include="Component\State\General\FlyState.h" />
+    <ClInclude Include="Component\State\General\IdleState.h" />
+    <ClInclude Include="Component\State\IState.h" />
+    <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />

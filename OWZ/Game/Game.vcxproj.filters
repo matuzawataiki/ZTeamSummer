@@ -34,6 +34,9 @@
     <Filter Include="Component\State">
       <UniqueIdentifier>{7fac0082-7f31-43b6-817d-6ae7b751a8ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\State\General">
+      <UniqueIdentifier>{ee62705f-bc75-44b3-8977-176465252457}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -79,6 +82,15 @@
     <ClCompile Include="Component\State\IState.cpp">
       <Filter>Component\State</Filter>
     </ClCompile>
+    <ClCompile Include="Component\State\General\FlyState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\IdleState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\StateControllerComponent.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -113,14 +125,23 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="InteractComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h">
       <Filter>Component\State</Filter>
     </ClInclude>
+    <ClInclude Include="InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\FlyState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\IdleState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
     <ClInclude Include="Component\State\IState.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\StateControllerComponent.h">
       <Filter>Component\State</Filter>
     </ClInclude>
   </ItemGroup>
