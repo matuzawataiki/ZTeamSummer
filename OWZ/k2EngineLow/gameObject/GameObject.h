@@ -1,7 +1,7 @@
 #pragma once
 namespace nsK2EngineLow
 {
-	class GameObject : public Noncopyable
+	class GameObject : public Noncopyable, public std::enable_shared_from_this<GameObject>
 	{
 	public:
 		virtual ~GameObject()
@@ -40,11 +40,13 @@ namespace nsK2EngineLow
 			}
 		}
 
-		template <typename T, class... Args>
-		void AddComponent(Args&&... args) {
-			std::shared_ptr<T> t = std::make_shared<T>(std::forward<Args>(args)...);
+		template <typename T>
+		void AddComponent() {
+			std::shared_ptr<T> t = std::make_shared<T>();
+			t->SetOwner(shared_from_this());
 			t->OnActive();
 			m_componentList.emplace(T::ID(), t);
+
 		}
 		template <typename T>
 		std::shared_ptr<T> GetComponent() {

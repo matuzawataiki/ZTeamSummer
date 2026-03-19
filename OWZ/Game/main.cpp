@@ -37,7 +37,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	//////////////////////////////////////
 	// 初期化を行うコードを書くのはここまで！！！
 	//////////////////////////////////////
-	
+	g_renderingEngine->DisableTonemap();
+
 	// ここからゲームループ。
 	while (DispatchWindowMessage())
 	{
