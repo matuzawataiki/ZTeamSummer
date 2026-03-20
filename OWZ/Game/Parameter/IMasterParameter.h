@@ -18,15 +18,20 @@
 
 #define appParameter(name) \
 public:\
-static constexpr uint32_t ID() {return appHash(#name);}\
-std::function<void(const nlohmann::json& j, name& p)> Load; \
+static constexpr uint32_t ID() {return Hash32(#name);}\
+std::function<void(const nlohmann::json& j, name& p)> LoadFunc; \
+void Load(const nlohmann::json& j) override { \
+	if (LoadFunc) { \
+		LoadFunc(j, *this); \
+	} \
+}\
 
 
 #else
 
 #define appParameter(name) \
 public:\
-static constexpr uint32_t ID() {return appHash(#name);}\
+static constexpr uint32_t ID() {return Hash32(#name);}\
 
 #endif
 

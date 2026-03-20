@@ -4,7 +4,9 @@
 
 class EnemyStatus : public Component
 {
-private:
+public:
+	appClass(EnemyStatus);
+
 	EnemyStatus();
 	~EnemyStatus();
 };

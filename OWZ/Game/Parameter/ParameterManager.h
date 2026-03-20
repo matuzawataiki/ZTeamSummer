@@ -48,7 +48,14 @@ public:
 			parameters.push_back(static_cast<IMasterParameter*>(parameter));
 		}
 
-		m_parameterMap.emplace(T::ID(), parameters);
+		auto insertResult = m_parameterMap.emplace({ T::ID(), parameters });
+		if (!insertResult.second)
+		{
+			for (auto* p : parameters)
+			{
+				delete p;
+			}
+		}
 	}
 
 
@@ -98,8 +105,8 @@ public:
 	void ForEach(std::function<void(const T&)> func) const
 	{
 		const std::vector<T*> parameters = GetParameters<T>();
-		for (const T* paramter : parameters) {
-			func(*paramter);
+		for (const T* parameter : parameters) {
+			func(*parameter);
 		}
 	}
 
