@@ -7,11 +7,11 @@ public:\
 
 namespace nsK2EngineLow
 {
-	class IGameObject;
+	class GameObject;
 	class Component : public Noncopyable
 	{
 	protected:
-		IGameObject* m_owner = nullptr;
+		std::weak_ptr<GameObject> m_owner;
 
 		bool m_isActive = false;
 		bool m_isStart = false;
@@ -28,12 +28,20 @@ namespace nsK2EngineLow
 		void OnStart() { m_isStart = true; }
 		bool IsStart() { return m_isStart; }
 
-		void SetOwner(IGameObject* gameObject) {
+		void SetOwner(std::shared_ptr<GameObject> gameObject) {
 			m_owner = gameObject;
+		}
+		std::shared_ptr<GameObject> GetOwner() {
+			return m_owner.lock();
+		}
+
+		template <typename T>
+		std::shared_ptr<T> GetComponent() {
+			return m_owner.lock()->GetComponent<T>();
 		}
 
 	private:
-		virtual bool Start() { return false; }
+		virtual bool Start() { return true; }
 		virtual void Update() {}
 	};
 }

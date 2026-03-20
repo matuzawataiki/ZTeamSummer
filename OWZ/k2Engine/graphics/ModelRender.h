@@ -460,5 +460,6 @@ namespace nsK2Engine {
 		std::vector< GemometryData > m_geometryDatas;					// ジオメトリ情報。
 		std::unique_ptr<int[]>		m_instanceNoToWorldMatrixArrayIndexTable;	// インスタンス番号からワールド行列の配列のインデックスに変換するテーブル。
 		Camera* m_FRCamera = nullptr;
+
 	};
 }
