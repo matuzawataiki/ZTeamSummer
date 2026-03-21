@@ -34,6 +34,9 @@
     <Filter Include="Component\State">
       <UniqueIdentifier>{7fac0082-7f31-43b6-817d-6ae7b751a8ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="InGameObject\Object">
+      <UniqueIdentifier>{73370bc0-edd5-408a-bc6b-1c6fdce1bd1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -66,18 +69,21 @@
     <ClCompile Include="system\Math\Transform.cpp">
       <Filter>system\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
-      <Filter>Component\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractComponent.cpp">
-      <Filter>Component\Logic</Filter>
-    </ClCompile>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp">
       <Filter>Component\State</Filter>
     </ClCompile>
     <ClCompile Include="Component\State\IState.cpp">
       <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Logic\InteractComponent.cpp">
+      <Filter>Component\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
+      <Filter>Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DestructibleTower.cpp">
+      <Filter>InGameObject\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,18 +116,18 @@
     <ClInclude Include="system\Math\Transform.h">
       <Filter>system\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Component\Graphics\ModelComponent.h">
-      <Filter>Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h">
       <Filter>Component\State</Filter>
     </ClInclude>
-    <ClInclude Include="Component\State\IState.h">
-      <Filter>Component\State</Filter>
+    <ClInclude Include="Component\Logic\InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h">
+      <Filter>Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DestructibleTower.h">
+      <Filter>InGameObject\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -225,11 +225,10 @@
   <ItemGroup>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
-    <ClCompile Include="CoreTower.cpp" />
-    <ClCompile Include="DestructibleCore.cpp" />
+    <ClCompile Include="Component\Logic\InteractComponent.cpp" />
+    <ClCompile Include="DestructibleTower.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
-    <ClCompile Include="InteractComponent.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
@@ -249,8 +248,8 @@
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
-    <ClInclude Include="CoreTower.h" />
-    <ClInclude Include="DestructibleCore.h" />
+    <ClInclude Include="Component\Logic\InteractComponent.h" />
+    <ClInclude Include="DestructibleTower.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />

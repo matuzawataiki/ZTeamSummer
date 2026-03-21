@@ -2,13 +2,11 @@
 #include "GameScene.h"
 #include "Scene/SceneManager.h"
 #include "InGameObject/Character/Playable/Soldier.h"
-#include "DestructibleCore.h"
-#include "CoreTower.h"
+#include "DestructibleTower.h"
 
 
 GameScene::GameScene()
 {
-	m_test = new Soldier;
 }
 
 GameScene::~GameScene()
@@ -17,21 +15,9 @@ GameScene::~GameScene()
 
 void GameScene::Initialize()
 {
-	Vector3 spawnPositions[3] = {
-		Vector3(0.0f, 0.0f, 100.0f),
-		Vector3(100.0f, 0.0f, 0.0f),
-		Vector3(-100.0f, 0.0f, 0.0f)
-	};
-
-	for (int i = 0; i < 3; ++i) {
-		auto core = std::make_unique<DestructibleCore>();
-		core->Init(spawnPositions[i]);
-		m_cores.push_back(std::move(core));
-
-		auto tower = std::make_unique<CoreTower>();
-		tower->Init(spawnPositions[i]);
-		m_towers.push_back(std::move(tower));
-	}
+	m_test = new Soldier;
+	m_tower = new DestructibleTower;
+	m_tower->SetPosition(Vector3(50.0f, 0.0f, 0.0f));
 }
 
 void GameScene::Update(SceneManager& manager)
@@ -39,8 +25,9 @@ void GameScene::Update(SceneManager& manager)
 	m_test->StartWrapper();
 	m_test->UpdateWrapper();
 
-	for (auto& core : m_cores) {
-		core->Update();
+	if (m_tower) {
+		m_tower->StartWrapper();
+		m_tower->UpdateWrapper();
 	}
 }
 
@@ -48,14 +35,16 @@ void GameScene::Draw()
 {
 	m_test->Render();
 
-	for (auto& tower : m_towers) {
-		tower->Draw();
-	}
-	for (auto& core : m_cores) {
-		core->Draw();
+	if (m_tower) {
+		m_tower->Render();
 	}
 }
 
 void GameScene::Finalize()
 {
+	delete m_test;
+	m_test = nullptr;
+
+	delete m_tower;
+	m_tower = nullptr;
 }

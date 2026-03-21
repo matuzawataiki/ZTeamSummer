@@ -34,7 +34,7 @@ namespace nsK2EngineLow
 
 		template <typename T>
 		std::shared_ptr<T> GetComponent() {
-			return m_owner.lock()->GetComponent<T>();
+			return m_owner.lock()->templateGetComponent<T>();
 		}
 
 	private:
