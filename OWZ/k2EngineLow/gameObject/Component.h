@@ -8,7 +8,7 @@ public:\
 namespace nsK2EngineLow
 {
 	class GameObject;
-	class Component : public Noncopyable
+	class Component : public Noncopyable, public std::enable_shared_from_this<Component>
 	{
 	protected:
 		std::weak_ptr<GameObject> m_owner;
@@ -37,7 +37,7 @@ namespace nsK2EngineLow
 
 		template <typename T>
 		std::shared_ptr<T> GetComponent() {
-			return m_owner.lock()->GetComponent<T>();
+			return m_owner.lock()->template GetComponent<T>();
 		}
 
 	private:

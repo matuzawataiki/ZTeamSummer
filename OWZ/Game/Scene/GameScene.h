@@ -8,7 +8,7 @@ public:
 	GameScene();
 	~GameScene();
 private:
-	Soldier* m_test = nullptr;
+	std::shared_ptr<Soldier> m_test;
 
 public:
 	void Initialize() override;

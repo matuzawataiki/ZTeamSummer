@@ -11,6 +11,15 @@ ColliderComponent::~ColliderComponent()
 	}
 }
 
+bool ColliderComponent::Start()
+{
+	return false;
+}
+
+void ColliderComponent::Update()
+{
+}
+
 void ColliderComponent::CreateBox(const Vector3& size)
 {
 	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();

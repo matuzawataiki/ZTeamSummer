@@ -4,6 +4,10 @@
 
 Soldier::Soldier()
 {
+}
+
+bool Soldier::Start()
+{
 	AddComponent<TransformComponent>();
 	AddComponent<ViewModelComponent>();
 
@@ -13,6 +17,7 @@ Soldier::Soldier()
 	m_model->SetModel("Assets/Character/Playable/soldier76/model/soldierViewModel.tkm",true);
 	m_model->SetDrawFlag(true);
 
+	return true;
 }
 
 Soldier::~Soldier()

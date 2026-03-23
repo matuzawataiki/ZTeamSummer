@@ -6,7 +6,7 @@
 
 GameScene::GameScene()
 {
-	m_test = new Soldier;
+	m_test = std::make_shared<Soldier>();
 }
 
 GameScene::~GameScene()

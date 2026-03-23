@@ -9,6 +9,14 @@
 
 
 namespace nsK2EngineLow {
+	struct AnimationData
+	{
+		const char* filePath;
+		bool loopFlag;
+
+		AnimationData(const char* f, bool l) :filePath(f), loopFlag(l) {}
+	};
+
 	class Skeleton;
 	using AnimationEventListener = std::function<void(const wchar_t* clipName, const wchar_t* eventName)>;
 
