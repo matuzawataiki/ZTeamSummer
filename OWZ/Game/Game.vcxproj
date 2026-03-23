@@ -223,6 +223,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component\Collision\CollisionManager.cpp" />
+    <ClCompile Include="Component\Collision\ColliderComponent.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="Component\State\General\FlyState.cpp" />
@@ -231,6 +233,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
+    <ClCompile Include="Component\Collision\Quadtree.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
@@ -245,9 +248,11 @@
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
-    <ClCompile Include="system\Math\Transform.cpp" />
+    <ClCompile Include="Component\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\Collision\CollisionManager.h" />
+    <ClInclude Include="Component\Collision\ColliderComponent.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="Component\State\General\FlyState.h" />
@@ -256,6 +261,7 @@
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InteractComponent.h" />
+    <ClInclude Include="Component\Collision\Quadtree.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
@@ -265,7 +271,8 @@
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
-    <ClInclude Include="system\Math\Transform.h" />
+    <ClInclude Include="Component\Collision\CollisionDefine.h" />
+    <ClInclude Include="Component\Math\Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

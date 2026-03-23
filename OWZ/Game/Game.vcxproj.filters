@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="system">
@@ -22,9 +22,6 @@
     <Filter Include="InGameObject\Character\Playable">
       <UniqueIdentifier>{a8a7a2bb-edcc-4151-ab84-35c2c6fa053e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="system\Math">
-      <UniqueIdentifier>{a6343b21-199b-47a9-b6fe-4166c15762d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Math">
       <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,12 @@
     </Filter>
     <Filter Include="Component\State\General">
       <UniqueIdentifier>{ee62705f-bc75-44b3-8977-176465252457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision">
+      <UniqueIdentifier>{b3a4e1c2-5d6f-7890-abcd-ef1234567890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision\AI">
+      <UniqueIdentifier>{07db87b2-d42c-4b7d-95b6-b98f422eb77a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +69,6 @@
     <ClCompile Include="Component\Math\TransformComponent.cpp">
       <Filter>Component\Math</Filter>
     </ClCompile>
-    <ClCompile Include="system\Math\Transform.cpp">
-      <Filter>system\Math</Filter>
-    </ClCompile>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp">
       <Filter>Component\Graphics</Filter>
     </ClCompile>
@@ -91,6 +91,12 @@
     <ClCompile Include="Component\State\StateControllerComponent.cpp">
       <Filter>Component\State</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Collision\ColliderComponent.cpp" />
+    <ClCompile Include="Component\Collision\CollisionManager.cpp" />
+    <ClCompile Include="Component\Math\Transform.cpp">
+      <Filter>Component\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Collision\Quadtree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -119,9 +125,6 @@
     <ClInclude Include="Component\Math\TransformComponent.h">
       <Filter>Component\Math</Filter>
     </ClInclude>
-    <ClInclude Include="system\Math\Transform.h">
-      <Filter>system\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
@@ -144,5 +147,14 @@
     <ClInclude Include="Component\State\StateControllerComponent.h">
       <Filter>Component\State</Filter>
     </ClInclude>
+    <ClInclude Include="Component\Collision\CollisionDefine.h">
+      <Filter>Component\Collision\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\ColliderComponent.h" />
+    <ClInclude Include="Component\Collision\CollisionManager.h" />
+    <ClInclude Include="Component\Math\Transform.h">
+      <Filter>Component\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\Quadtree.h" />
   </ItemGroup>
 </Project>
