@@ -176,6 +176,96 @@ bool CollisionManager::Raycast(const Vector3& origin, const Vector3& direction, 
 	return true;
 }
 
+bool CollisionManager::SphereCast(const Vector3& origin, const Vector3& direction, float maxDistance, float radius, HitResult& outResult, EnCollisionCategory mask)
+{
+	// レイの終点を計算
+	Vector3 rayEnd = origin;
+	Vector3 dir = direction;
+	dir.Scale(maxDistance);
+	rayEnd.Add(dir);
+
+	// btSphereShapeを作成（スイープする球）
+	btSphereShape sphereShape(radius);
+
+	// 始点と終点のトランスフォームを設定
+	btTransform fromTransform;
+	fromTransform.setIdentity();
+	fromTransform.setOrigin(btVector3(origin.x, origin.y, origin.z));
+
+	btTransform toTransform;
+	toTransform.setIdentity();
+	toTransform.setOrigin(btVector3(rayEnd.x, rayEnd.y, rayEnd.z));
+
+	// カスタムConvexResultCallback：最も近いヒットを記録
+	struct SphereCastCallback : public btCollisionWorld::ClosestConvexResultCallback {
+		Vector3 m_hitPos;
+		const btCollisionObject* m_hitCollisionObject = nullptr;
+
+		SphereCastCallback(const btVector3& from, const btVector3& to)
+			: ClosestConvexResultCallback(from, to)
+		{
+		}
+
+		btScalar addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace) override
+		{
+			// 最も近い結果のみを保持
+			btScalar result = ClosestConvexResultCallback::addSingleResult(convexResult, normalInWorldSpace);
+			if (hasHit()) {
+				m_hitPos.x = m_hitPointWorld.x();
+				m_hitPos.y = m_hitPointWorld.y();
+				m_hitPos.z = m_hitPointWorld.z();
+				m_hitCollisionObject = convexResult.m_hitCollisionObject;
+			}
+			return result;
+		}
+	};
+
+	SphereCastCallback callback(
+		btVector3(origin.x, origin.y, origin.z),
+		btVector3(rayEnd.x, rayEnd.y, rayEnd.z)
+	);
+
+	// ConvexSweepTestを実行
+	PhysicsWorld::GetInstance()->ConvexSweepTest(
+		&sphereShape,
+		fromTransform,
+		toTransform,
+		callback
+	);
+
+	if (!callback.hasHit()) {
+		return false;
+	}
+
+	outResult.hitPos = callback.m_hitPos;
+
+	// ヒットしたbtCollisionObjectから、登録済みColliderを特定する
+	for (auto& weak_collider : m_colliders) {
+		std::shared_ptr<ColliderComponent> collider = weak_collider.lock();
+		if (!collider) {
+			continue;
+		}
+		if (!collider->IsCreated() || !collider->IsActive()) {
+			continue;
+		}
+		// マスクチェック
+		if ((mask & collider->GetCategory()) == 0) {
+			continue;
+		}
+		// btCollisionObjectの一致で特定
+		if (collider->GetGhostObject().IsSelf(*callback.m_hitCollisionObject)) {
+			outResult.hitObject = collider->GetOwner();
+			outResult.hitCategory = collider->GetCategory();
+			return true;
+		}
+	}
+
+	// 物理ワールドの何かに当たったが、登録済みColliderではなかった
+	outResult.hitObject = nullptr;
+	outResult.hitCategory = enCollisionCat_None;
+	return true;
+}
+
 void CollisionManager::SetQuadtreeConfig(const Quadtree::Config& config)
 {
 	m_quadtree.Init(config);

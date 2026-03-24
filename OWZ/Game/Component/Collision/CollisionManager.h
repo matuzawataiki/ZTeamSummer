@@ -62,6 +62,27 @@ public:
 	);
 
 	/// <summary>
+	/// 半径付きレイキャスト（SphereCast）を行う。
+	/// 球体をレイに沿ってスイープし、最初にヒットしたオブジェクトを返す。
+	/// 射撃判定で弾道に太さを持たせたい場合に使う。
+	/// </summary>
+	/// <param name="origin">レイの始点</param>
+	/// <param name="direction">レイの方向（正規化済み）</param>
+	/// <param name="maxDistance">最大距離</param>
+	/// <param name="radius">球の半径（レイの太さ）</param>
+	/// <param name="outResult">ヒット結果の出力先</param>
+	/// <param name="mask">衝突対象カテゴリマスク</param>
+	/// <returns>ヒットした場合true</returns>
+	bool SphereCast(
+		const Vector3& origin,
+		const Vector3& direction,
+		float maxDistance,
+		float radius,
+		HitResult& outResult,
+		EnCollisionCategory mask = enCollisionCat_All
+	);
+
+	/// <summary>
 	/// Quadtreeの設定を変更する（ワールドサイズ等）。
 	/// 呼ばなければデフォルト値が使われる。
 	/// </summary>
