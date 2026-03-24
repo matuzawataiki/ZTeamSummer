@@ -29,5 +29,12 @@ public:
 	bool IsDraw()const {
 		return m_isDraw;
 	}
+
+	void SetPosition(const Vector3& position) {
+		if (m_model) {
+			m_model->SetPosition(position);
+			m_model->Update(); // 座標を変えたらUpdateを呼ぶ
+		}
+	}
 };
 
