@@ -31,6 +31,9 @@ namespace nsK2EngineLow
 		void SetOwner(std::shared_ptr<GameObject> gameObject) {
 			m_owner = gameObject;
 		}
+		std::shared_ptr<GameObject> GetOwner() {
+			return m_owner.lock();
+		}
 
 		template <typename T>
 		std::shared_ptr<T> GetComponent() {
