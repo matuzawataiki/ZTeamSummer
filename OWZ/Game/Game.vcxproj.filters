@@ -37,6 +37,9 @@
     <Filter Include="InGameObject\Object">
       <UniqueIdentifier>{73370bc0-edd5-408a-bc6b-1c6fdce1bd1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mission">
+      <UniqueIdentifier>{62f97d35-f8ac-419d-a606-64927ed4f4a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -82,8 +85,11 @@
     <ClCompile Include="Component\Graphics\ModelComponent.cpp">
       <Filter>Component\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="DestructibleTower.cpp">
+    <ClCompile Include="DestructibleObject.cpp">
       <Filter>InGameObject\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionBase.cpp">
+      <Filter>Mission</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,8 +132,11 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="DestructibleTower.h">
+    <ClInclude Include="DestructibleObject.h">
       <Filter>InGameObject\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionBase.h">
+      <Filter>Mission</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

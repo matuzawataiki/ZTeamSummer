@@ -1,8 +1,9 @@
 #pragma once
 #include "Scene/SceneBase.h"
 
-class DestructibleTower;
+class DestructibleObject;
 class Soldier;
+class MissionBase;
 class GameScene : public SceneBase
 {
 public:
@@ -10,7 +11,10 @@ public:
 	~GameScene();
 private:
 	Soldier* m_test = nullptr;
-	DestructibleTower* m_tower = nullptr;
+	DestructibleObject* m_tower = nullptr;
+	DestructibleObject* m_tower2 = nullptr;
+
+	MissionBase* m_currentMission = nullptr; // 現在進行中のミッション
 
 public:
 	void Initialize() override;
