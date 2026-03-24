@@ -75,6 +75,8 @@
     <ClCompile Include="InteractComponent.cpp">
       <Filter>Component\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="Parameter\ParameterManager.cpp" />
+    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp">
       <Filter>Component\State</Filter>
@@ -125,6 +127,14 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter\IMasterParameter.h" />
+    <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
+    <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h">
       <Filter>Component\State</Filter>

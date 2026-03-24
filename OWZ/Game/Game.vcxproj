@@ -231,11 +231,13 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
+    <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
+    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -256,16 +258,22 @@
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InteractComponent.h" />
+    <ClInclude Include="Parameter\IMasterParameter.h" />
+    <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
+    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="system\Math\Transform.h" />
+    <ClInclude Include="Util\Json\Json.h" />
+    <ClInclude Include="Util\Json\json.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
