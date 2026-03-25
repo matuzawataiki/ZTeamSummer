@@ -34,6 +34,11 @@
     <Filter Include="Component\State">
       <UniqueIdentifier>{7fac0082-7f31-43b6-817d-6ae7b751a8ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="InGameObject\Object">
+      <UniqueIdentifier>{73370bc0-edd5-408a-bc6b-1c6fdce1bd1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mission">
+      <UniqueIdentifier>{62f97d35-f8ac-419d-a606-64927ed4f4a2}</UniqueIdentifier>
     <Filter Include="Component\State\General">
       <UniqueIdentifier>{ee62705f-bc75-44b3-8977-176465252457}</UniqueIdentifier>
     </Filter>
@@ -78,6 +83,8 @@
     <ClCompile Include="InteractComponent.cpp">
       <Filter>Component\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="Parameter\ParameterManager.cpp" />
+    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp">
       <Filter>Component\State</Filter>
@@ -85,6 +92,17 @@
     <ClCompile Include="Component\State\IState.cpp">
       <Filter>Component\State</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Logic\InteractComponent.cpp">
+      <Filter>Component\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
+      <Filter>Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DestructibleObject.cpp">
+      <Filter>InGameObject\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionBase.cpp">
+      <Filter>Mission</Filter>
     <ClCompile Include="Component\State\General\FlyState.cpp">
       <Filter>Component\State\General</Filter>
     </ClCompile>
@@ -146,10 +164,29 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter\IMasterParameter.h" />
+    <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
+    <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h">
       <Filter>Component\State</Filter>
     </ClInclude>
+    <ClInclude Include="Component\Logic\InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h">
+      <Filter>Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DestructibleObject.h">
+      <Filter>InGameObject\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionBase.h">
+      <Filter>Mission</Filter>
     <ClInclude Include="InteractComponent.h">
       <Filter>Component\Logic</Filter>
     </ClInclude>

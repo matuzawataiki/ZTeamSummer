@@ -6,3 +6,4 @@ using namespace nsK2EngineLow;
 using namespace nsK2Engine;
 
 #include "Component/Math/TransformComponent.h"
+#include "Component/Graphics/ModelComponent.h"
