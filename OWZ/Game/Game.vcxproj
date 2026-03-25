@@ -234,8 +234,6 @@
     <ClCompile Include="Component\State\General\FlyState.cpp" />
     <ClCompile Include="Component\State\General\IdleState.cpp" />
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
@@ -272,11 +270,9 @@
     <ClInclude Include="Component\State\General\IdleState.h" />
     <ClInclude Include="Component\State\IState.h" />
     <ClInclude Include="Component\State\StateControllerComponent.h" />
-    <ClInclude Include="GameManager.h" />
     <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
-    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
