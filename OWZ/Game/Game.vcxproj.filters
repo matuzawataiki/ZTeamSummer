@@ -1,185 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="system">
-      <UniqueIdentifier>{22dd8095-74f9-46df-81a1-36675a040b1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{6af1cb52-0495-4534-8f56-5ed1143fb3ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component">
-      <UniqueIdentifier>{8899b4cd-d411-4793-9f09-d2780a5887d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\Graphics">
-      <UniqueIdentifier>{4df5709e-942f-4d2b-8e85-6085cbb7aa76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="InGameObject">
-      <UniqueIdentifier>{939f6e96-7779-496c-aa28-cc087878e938}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="InGameObject\Character">
-      <UniqueIdentifier>{f3cd40db-b282-4ca1-aba1-85817e78872f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="InGameObject\Character\Playable">
-      <UniqueIdentifier>{a8a7a2bb-edcc-4151-ab84-35c2c6fa053e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="system\Math">
-      <UniqueIdentifier>{a6343b21-199b-47a9-b6fe-4166c15762d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\Math">
-      <UniqueIdentifier>{5a381a00-4e65-4bfd-8439-4f653ed73825}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\Logic">
-      <UniqueIdentifier>{f2082c54-bab4-44c2-9fcb-c6f81884dbb2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\State">
-      <UniqueIdentifier>{7fac0082-7f31-43b6-817d-6ae7b751a8ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="InGameObject\Object">
-      <UniqueIdentifier>{73370bc0-edd5-408a-bc6b-1c6fdce1bd1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mission">
-      <UniqueIdentifier>{62f97d35-f8ac-419d-a606-64927ed4f4a2}</UniqueIdentifier>
-    <Filter Include="Component\State\General">
-      <UniqueIdentifier>{ee62705f-bc75-44b3-8977-176465252457}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="system\system.cpp">
-      <Filter>system</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\TitleScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\SceneManager.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\SceneBase.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\GameScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Graphics\ViewModelComponent.cpp">
-      <Filter>Component\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp">
-      <Filter>InGameObject\Character\Playable</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Math\TransformComponent.cpp">
-      <Filter>Component\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="system\Math\Transform.cpp">
-      <Filter>system\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
-      <Filter>Component\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractComponent.cpp">
-      <Filter>Component\Logic</Filter>
-    </ClCompile>
-    <ClCompile Include="Parameter\ParameterManager.cpp" />
-    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
-    <ClCompile Include="Component\State\StateMachineComponent.cpp">
-      <Filter>Component\State</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\State\IState.cpp">
-      <Filter>Component\State</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Logic\InteractComponent.cpp">
-      <Filter>Component\Logic</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Graphics\ModelComponent.cpp">
-      <Filter>Component\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="DestructibleObject.cpp">
-      <Filter>InGameObject\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="MissionBase.cpp">
-      <Filter>Mission</Filter>
-    <ClCompile Include="Component\State\General\FlyState.cpp">
-      <Filter>Component\State\General</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\State\General\IdleState.cpp">
-      <Filter>Component\State\General</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\State\StateControllerComponent.cpp">
-      <Filter>Component\State</Filter>
-    </ClCompile>
+    <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
+    <ClCompile Include="Component\Logic\InteractComponent.cpp" />
+    <ClCompile Include="DestructibleObject.cpp" />
+    <ClCompile Include="Component\State\General\FlyState.cpp" />
+    <ClCompile Include="Component\State\General\IdleState.cpp" />
+    <ClCompile Include="Component\State\StateControllerComponent.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Component\State\IState.cpp" />
+    <ClCompile Include="Parameter\ParameterManager.cpp" />
+    <ClCompile Include="Scene\GameScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene\SceneBase.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+    <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
+    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
+    <ClCompile Include="Component\State\StateMachineComponent.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="system\system.cpp" />
+    <ClCompile Include="Scene\TitleScene.cpp" />
+    <ClCompile Include="Component\Math\TransformComponent.cpp" />
+    <ClCompile Include="system\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="system\system.h">
-      <Filter>system</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\TitleScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\SceneManager.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\SceneBase.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\GameScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Graphics\ViewModelComponent.h">
-      <Filter>Component\Graphics</Filter>
-    </ClInclude>
+    <ClInclude Include="Component\Graphics\ModelComponent.h" />
+    <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
+    <ClInclude Include="Component\Logic\InteractComponent.h" />
+    <ClInclude Include="DestructibleObject.h" />
+    <ClInclude Include="Component\State\General\FlyState.h" />
+    <ClInclude Include="Component\State\General\IdleState.h" />
+    <ClInclude Include="Component\State\IState.h" />
+    <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="InGameObject\Character\Playable\Soldier.h">
-      <Filter>InGameObject\Character\Playable</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Math\TransformComponent.h">
-      <Filter>Component\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="system\Math\Transform.h">
-      <Filter>system\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Graphics\ModelComponent.h">
-      <Filter>Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="Scene\GameScene.h" />
+    <ClInclude Include="Scene\SceneBase.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
+    <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
-    <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Component\State\StateMachineComponent.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="system\system.h" />
+    <ClInclude Include="Scene\TitleScene.h" />
+    <ClInclude Include="Component\Math\TransformComponent.h" />
+    <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
-    <ClInclude Include="Component\Graphics\ModelComponent.h" />
-    <ClInclude Include="Component\State\StateMachineComponent.h">
-      <Filter>Component\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Logic\InteractComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Graphics\ModelComponent.h">
-      <Filter>Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="DestructibleObject.h">
-      <Filter>InGameObject\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="MissionBase.h">
-      <Filter>Mission</Filter>
-    <ClInclude Include="InteractComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\State\General\FlyState.h">
-      <Filter>Component\State\General</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\State\General\IdleState.h">
-      <Filter>Component\State\General</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\State\IState.h">
-      <Filter>Component\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\State\StateControllerComponent.h">
-      <Filter>Component\State</Filter>
-    </ClInclude>
+    <ClInclude Include="Util\Json\json.hpp" />
   </ItemGroup>
 </Project>
