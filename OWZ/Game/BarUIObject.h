@@ -16,6 +16,8 @@ private:
 	float m_rate = 1.0f;
 
 public:
+
+
 	void Init(
 		const char* bgTex,
 		const char* fillTex,

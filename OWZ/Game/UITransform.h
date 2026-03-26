@@ -2,6 +2,7 @@
 
 class UITransformBase :public Component
 {
+	appClass(Component);
 protected:
 	Vector3 m_localPosition = Vector3::Zero;			//
 	Vector3 m_renderPosition = Vector3::Zero;   // 最終的に表示する画面の座標。
@@ -74,6 +75,8 @@ public:
 class WorldUITransformComponent :public UITransformBase
 {
 private:
+	appClass(WorldUITransformComponent);
+
 	bool    m_isVisible = true;
 public:
 

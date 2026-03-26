@@ -2,6 +2,10 @@
 #include "StateMachineComponent.h"
 #include "IState.h"
 
+StateMachineComponent::StateMachineComponent() = default;
+
+StateMachineComponent::~StateMachineComponent() = default;
+
 void StateMachineComponent::InitializeState(std::unique_ptr<IState> nextState)
 {
 	m_currentState = std::move(nextState);

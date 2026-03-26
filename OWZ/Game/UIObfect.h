@@ -8,7 +8,7 @@ enum class UIVisualType
 	Sprite
 };
 
-class UIObject :public GameObject
+class UIObject :public nsK2EngineLow::GameObject
 {
 protected:
 	UIVisualType m_visualType = UIVisualType::Sprite;
@@ -23,7 +23,7 @@ public:
 		m_visualType = visualType;
 	}
 
-	virtual ~UIObject() = default;
+	virtual ~UIObject() noexcept = default;
 
 };
 
@@ -66,8 +66,7 @@ public:
 		return true;
 	}
 
-	virtual ~ScreenSpaceUIObject() = default;
-
+	virtual ~ScreenSpaceUIObject() noexcept = default;
 };
 
 class WorldSpaceUIObject : public UIObject
@@ -110,7 +109,7 @@ public:
 		return true;
 	}
 
-	virtual ~WorldSpaceUIObject() = default;
+	virtual ~WorldSpaceUIObject() noexcept = default;
 };
 
 

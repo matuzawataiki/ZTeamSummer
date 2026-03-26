@@ -1,11 +1,12 @@
 #pragma once
-class IState;
+#include "Component/State/IState.h"
+
 class StateMachineComponent : public Component
 {
 	appClass(StateMachineComponent)
 public:
-	StateMachineComponent() = default;
-	~StateMachineComponent() = default;
+	StateMachineComponent();
+	~StateMachineComponent();
 private:
 	std::unique_ptr<IState> m_currentState;
 	std::unique_ptr<IState> m_nextState;

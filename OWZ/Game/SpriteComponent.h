@@ -3,6 +3,7 @@
 class UITransformBase;
 class SpriteComponent : public Component
 {
+	appClass(SpriteComponent);
 public:
 	void Init(const char* filePath, float w, float h,
 		AlphaBlendMode alphaBlendMode = AlphaBlendMode_Trans)
