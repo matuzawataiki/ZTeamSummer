@@ -3,15 +3,6 @@
  * 
  */
 #pragma once
-
-struct AnimationData
-{
-    const char* filePath;
-    bool loopFlag;
-
-    AnimationData(const char* f, bool l) :filePath(f), loopFlag(l) {}
-};
-
 /* 
  * 実行時にサイズを決定できる固定長配列クラス
  */

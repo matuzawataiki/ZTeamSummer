@@ -1,4 +1,6 @@
 #pragma once
+#include "Component/State/IState.h"
+
 class IdleState : public IState
 {
 public:
