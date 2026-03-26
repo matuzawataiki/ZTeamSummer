@@ -223,19 +223,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Mission\ActivationMission.cpp" />
+    <ClCompile Include="Mission\AnnihilationMission.cpp" />
+    <ClCompile Include="InGameObject\Object\ActivatableObject.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="Component\Logic\InteractComponent.cpp" />
-    <ClCompile Include="DestructibleObject.cpp" />
+    <ClCompile Include="Mission\MissionBase.cpp" />
+    <ClCompile Include="Mission\DestructionMission.cpp" />
+    <ClCompile Include="InGameObject\Object\DestructibleObject.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
-    <ClCompile Include="MissionBase.cpp" />
     <ClCompile Include="Component\State\General\FlyState.cpp" />
     <ClCompile Include="Component\State\General\IdleState.cpp" />
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Component\State\IState.cpp" />
-    <ClCompile Include="InteractComponent.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -255,21 +256,22 @@
     <ClCompile Include="system\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Mission\ActivationMission.h" />
+    <ClInclude Include="Mission\AnnihilationMission.h" />
+    <ClInclude Include="InGameObject\Object\ActivatableObject.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="Component\Logic\InteractComponent.h" />
-    <ClInclude Include="DestructibleObject.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="MissionBase.h" />
+    <ClInclude Include="Mission\MissionBase.h" />
+    <ClInclude Include="Mission\DestructionMission.h" />
+    <ClInclude Include="InGameObject\Object\DestructibleObject.h" />
     <ClInclude Include="Component\State\General\FlyState.h" />
     <ClInclude Include="Component\State\General\IdleState.h" />
     <ClInclude Include="Component\State\IState.h" />
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
-    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />

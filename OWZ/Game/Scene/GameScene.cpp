@@ -2,8 +2,8 @@
 #include "GameScene.h"
 #include "Scene/SceneManager.h"
 #include "InGameObject/Character/Playable/Soldier.h"
-#include "DestructibleObject.h"
-#include "DestructionMission.h"
+#include "InGameObject/Object/DestructibleObject.h"
+#include "Mission/DestructionMission.h"
 
 GameScene::GameScene()
 {
