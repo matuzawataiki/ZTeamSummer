@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="Component\Logic\InteractComponent.cpp" />
@@ -17,20 +16,38 @@
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
     <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
-    <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
-    <ClCompile Include="UIObfect.cpp" />
-    <ClCompile Include="UISystem.cpp" />
-    <ClCompile Include="UITransform.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="BarUIObject.cpp" />
+    <ClCompile Include="UIObfect.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UISystem.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UITransform.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BarUIObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HPBarUIObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Canvas.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="Component\Logic\InteractComponent.h" />
@@ -47,7 +64,6 @@
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
-    <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
@@ -55,10 +71,41 @@
     <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
-    <ClInclude Include="UIObfect.h" />
-    <ClInclude Include="UISystem.h" />
-    <ClInclude Include="UITransform.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="BarUIObject.h" />
+    <ClInclude Include="UIObfect.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UISystem.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UITransform.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BarUIObject.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HPBarUIObject.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTypes.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="UI">
+      <UniqueIdentifier>{6205d43b-74d7-4a56-83ec-fc3041240ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{0aa411d2-78c6-4f5d-bef3-207bfedf256a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
