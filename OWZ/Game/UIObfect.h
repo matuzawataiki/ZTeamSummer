@@ -18,13 +18,12 @@ public:
 	{
 	}
 
+	virtual ~UIObject() noexcept = default;
+
 	void Init(UIVisualType visualType = UIVisualType::Sprite)
 	{
 		m_visualType = visualType;
 	}
-
-	virtual ~UIObject() noexcept = default;
-
 };
 
 class ScreenSpaceUIObject : public UIObject
@@ -64,6 +63,14 @@ public:
 	{
 
 		return true;
+	}
+
+	void Render() override
+	{
+		auto sprite = GetComponent<SpriteComponent>();
+		if (sprite != nullptr) {
+			sprite->Render();
+		}
 	}
 
 	virtual ~ScreenSpaceUIObject() noexcept = default;
@@ -107,6 +114,14 @@ public:
 	bool Start() override
 	{
 		return true;
+	}
+
+	void Render() override
+	{
+		auto sprite = GetComponent<SpriteComponent>();
+		if (sprite != nullptr) {
+			sprite->Render();
+		}
 	}
 
 	virtual ~WorldSpaceUIObject() noexcept = default;

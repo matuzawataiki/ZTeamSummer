@@ -14,6 +14,7 @@ public:
 	bool Start() override
 	{
 		m_transform = GetOwner()->GetComponent<UITransformBase>();
+		return true;
 	}
 
 	void Update() override;

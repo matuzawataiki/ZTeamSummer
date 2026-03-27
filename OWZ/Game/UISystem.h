@@ -18,6 +18,8 @@ private:
 	}
 
 	std::array<std::unique_ptr<Canvas>, static_cast<size_t>(CanvasType::Count)> m_canvases;
+	static UISystem* m_instance;
+
 
 public:
 
@@ -27,6 +29,10 @@ public:
 
 	~UISystem() = default;
 
+	static void CreateInstance();
+	static void DestroyInstance();
+	static UISystem& Get();
+
 	Canvas& GetCanvas(CanvasType type)
 	{
 		size_t index = ToIndex(type);
@@ -34,7 +40,7 @@ public:
 	}
 
 	void Update();
-	void Render(RenderContext& rc);
+	void Render();
 
 };
 
