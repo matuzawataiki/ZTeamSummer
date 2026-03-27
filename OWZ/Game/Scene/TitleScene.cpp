@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "Scene/SceneManager.h"
 #include "Scene/GameScene.h"
+#include "SoundManager.h"
 
 TitleScene::TitleScene()
 {
@@ -15,6 +16,7 @@ void TitleScene::Initialize()
 {
 	m_titleImage = std::make_unique<SpriteRender>();
 	m_titleImage->Init("Assets/image/title/testTitle.DDS", 1920, 1080);
+	SoundManager::Get().PlayBGM(SoundKind::BgmTitle);
 }
 
 void TitleScene::Update(SceneManager& manager)
@@ -31,4 +33,5 @@ void TitleScene::Draw()
 
 void TitleScene::Finalize()
 {
+	SoundManager::Get().StopBGM();
 }
