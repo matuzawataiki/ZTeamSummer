@@ -3,7 +3,7 @@
 
 class DestructibleObject;
 class Soldier;
-class MissionBase;
+class MissionManager;
 class GameScene : public SceneBase
 {
 public:
@@ -14,7 +14,7 @@ private:
 	DestructibleObject* m_tower = nullptr;
 	DestructibleObject* m_tower2 = nullptr;
 
-	MissionBase* m_currentMission = nullptr; // 現在進行中のミッション
+	std::unique_ptr<MissionManager> m_missionManager;
 
 public:
 	void Initialize() override;

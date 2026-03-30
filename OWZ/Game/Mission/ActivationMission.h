@@ -1,6 +1,5 @@
 #pragma once
 #include "MissionBase.h"
-#include <memory>
 
 class ActivatableObject;
 

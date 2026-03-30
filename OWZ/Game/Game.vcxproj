@@ -223,6 +223,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Mission\ActivationMission.cpp" />
     <ClCompile Include="Mission\AnnihilationMission.cpp" />
     <ClCompile Include="InGameObject\Object\ActivatableObject.cpp" />
@@ -256,6 +257,7 @@
     <ClCompile Include="system\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Mission\MissionManager.h" />
     <ClInclude Include="Mission\ActivationMission.h" />
     <ClInclude Include="Mission\AnnihilationMission.h" />
     <ClInclude Include="InGameObject\Object\ActivatableObject.h" />

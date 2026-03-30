@@ -4,6 +4,7 @@
 #include "InGameObject/Character/Playable/Soldier.h"
 #include "InGameObject/Object/DestructibleObject.h"
 #include "Mission/DestructionMission.h"
+#include "Mission/MissionManager.h"
 
 GameScene::GameScene()
 {
@@ -30,13 +31,14 @@ void GameScene::Initialize()
 		Vector3(150.0f, 0.0f, 0.0f)
 	);
 
-	// 破壊ミッションの生成と登録
-	DestructionMission* mission = new DestructionMission();
-	mission->AddTarget(m_tower);  // 1つ目を登録
-	mission->AddTarget(m_tower2); // 2つ目を登録
+	m_missionManager = std::make_unique<MissionManager>();
 
-	// 管理を任せる
-	m_currentMission = mission;
+	auto destructionMission = std::make_shared<DestructionMission>();
+
+	destructionMission->AddTarget(m_tower);
+	destructionMission->AddTarget(m_tower2);
+
+	m_missionManager->AddMission(destructionMission);
 }
 
 void GameScene::Update(SceneManager& manager)
@@ -55,9 +57,8 @@ void GameScene::Update(SceneManager& manager)
 	}
 
 	// ミッションの更新
-	if (m_currentMission) {
-		m_currentMission->StartWrapper();
-		m_currentMission->UpdateWrapper();
+	if (m_missionManager) {
+		m_missionManager->Update();
 	}
 }
 
@@ -85,6 +86,5 @@ void GameScene::Finalize()
 	delete m_tower2;
 	m_tower2 = nullptr;
 
-	delete m_currentMission;
-	m_currentMission = nullptr;
+	m_missionManager.reset();
 }

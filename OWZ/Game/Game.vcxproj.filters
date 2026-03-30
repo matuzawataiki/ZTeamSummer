@@ -28,6 +28,7 @@
     <ClCompile Include="InGameObject\Object\ActivatableObject.cpp" />
     <ClCompile Include="Mission\AnnihilationMission.cpp" />
     <ClCompile Include="Mission\ActivationMission.cpp" />
+    <ClCompile Include="Mission\MissionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -59,5 +60,6 @@
     <ClInclude Include="InGameObject\Object\ActivatableObject.h" />
     <ClInclude Include="Mission\AnnihilationMission.h" />
     <ClInclude Include="Mission\ActivationMission.h" />
+    <ClInclude Include="Mission\MissionManager.h" />
   </ItemGroup>
 </Project>
