@@ -23,6 +23,16 @@
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
+    <ClCompile Include="Component\State\Enemy\General\EnemyIdle.cpp" />
+    <ClCompile Include="Component\State\Enemy\EnemyStateController.cpp" />
+    <ClCompile Include="Component\State\Enemy\EnemyState.cpp" />
+    <ClCompile Include="Component\State\Enemy\General\EnemyAttack.cpp" />
+    <ClCompile Include="Component\State\Enemy\General\EnemyDead.cpp" />
+    <ClCompile Include="Component\State\Enemy\General\EnemyKnockBack.cpp" />
+    <ClCompile Include="Component\State\Enemy\General\EnemyStun.cpp" />
+    <ClCompile Include="InGameObject\Character\Enemy\Enemy.cpp" />
+    <ClCompile Include="EnemyData.cpp" />
+    <ClCompile Include="Parameter\Enemy\EnemyParameter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -49,5 +59,16 @@
     <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Component\State\Enemy\General\EnemyIdle.h" />
+    <ClInclude Include="Component\State\Enemy\EnemyStateController.h" />
+    <ClInclude Include="Component\State\Enemy\EnemyState.h" />
+    <ClInclude Include="Component\State\Enemy\General\EnemyAttack.h" />
+    <ClInclude Include="Component\State\Enemy\General\EnemyDead.h" />
+    <ClInclude Include="Component\State\Enemy\General\EnemyKnockBack.h" />
+    <ClInclude Include="Component\State\Enemy\General\EnemyStun.h" />
+    <ClInclude Include="InGameObject\Character\Enemy\Enemy.h" />
+    <ClInclude Include="EnemyData.h" />
+    <ClInclude Include="InGameObject\Character\Enemy\EnemyType.h" />
+    <ClInclude Include="Parameter\Enemy\EnemyParameter.h" />
   </ItemGroup>
 </Project>

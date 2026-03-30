@@ -2,6 +2,7 @@
 #include "StateControllerComponent.h"
 #include "StateMachineComponent.h"
 
+StateControllerComponent::~StateControllerComponent() = default;
 
 
 
