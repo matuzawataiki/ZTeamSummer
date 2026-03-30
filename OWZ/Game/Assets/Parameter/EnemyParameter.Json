@@ -1,0 +1,51 @@
+[
+    {
+        "enemyType": "Walk",
+        "hp": 30,
+        "moveSpeed": 150.0,
+        "detectionRange": 250.0,
+        "attackRange": 60.0,
+        "attackDamage": 10.0,
+        "attackCoolTime": 1.5,
+        "altitude": 0.0,
+        "attackPatterns": []
+    },
+    {
+        "enemyType": "Fly",
+        "hp": 20,
+        "moveSpeed": 200.0,
+        "detectionRange": 300.0,
+        "attackRange": 80.0,
+        "attackDamage": 15.0,
+        "attackCoolTime": 2.0,
+        "altitude": 300.0,
+        "attackPatterns": []
+    },
+    {
+        "enemyType": "Middle",
+        "hp": 150,
+        "moveSpeed": 100.0,
+        "detectionRange": 350.0,
+        "attackRange": 100.0,
+        "attackDamage": 0.0,
+        "attackCoolTime": 0.0,
+        "altitude": 0.0,
+        "attackPatterns": [
+            { "patternName": "Smash", "damage": 25.0, "coolTime": 4.0, "triggerHpRatio": 1.0 }
+        ]
+    },
+    {
+        "enemyType": "Boss",
+        "hp": 500,
+        "moveSpeed": 80.0,
+        "detectionRange": 500.0,
+        "attackRange": 150.0,
+        "attackDamage": 0.0,
+        "attackCoolTime": 0.0,
+        "altitude": 0.0,
+        "attackPatterns": [
+            { "patternName": "Slam", "damage": 40.0, "coolTime": 3.0, "triggerHpRatio": 1.0 },
+            { "patternName": "Rush", "damage": 60.0, "coolTime": 5.0, "triggerHpRatio": 0.5 }
+        ]
+    }
+]

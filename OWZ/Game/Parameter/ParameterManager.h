@@ -48,7 +48,7 @@ public:
 			parameters.push_back(static_cast<IMasterParameter*>(parameter));
 		}
 
-		auto insertResult = m_parameterMap.emplace({ T::ID(), parameters });
+		auto insertResult = m_parameterMap.emplace(T::ID(), parameters);
 		if (!insertResult.second)
 		{
 			for (auto* p : parameters)

@@ -4,6 +4,7 @@
 class DestructibleObject;
 class Soldier;
 class MissionBase;
+class Enemy;
 class GameScene : public SceneBase
 {
 public:
@@ -11,6 +12,7 @@ public:
 	~GameScene();
 private:
 	Soldier* m_test = nullptr;
+	Enemy* m_enemy = nullptr;
 	DestructibleObject* m_tower = nullptr;
 	DestructibleObject* m_tower2 = nullptr;
 
