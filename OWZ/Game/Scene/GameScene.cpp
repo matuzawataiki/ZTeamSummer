@@ -29,6 +29,19 @@ void GameScene::Initialize()
 		Vector3(150.0f, 0.0f, 0.0f)
 	);
 
+	//UI登録
+	{
+		auto crosshair = std::make_shared<ScreenSpaceUIObject>();
+		crosshair->Init("Assets/image/ui/crosshair/crosshair.dds", 64.0f, 64.0f);
+
+		auto transform = crosshair->GetComponent<ScreenUITransformComponent>();
+		if (transform != nullptr) {
+			transform->SetLocalPosition({ 960.0f, 540.0f, 0.0f });
+		}
+
+		UISystem::Get().GetCanvas(CanvasType::HUD).AddUI(crosshair);
+	}
+
 	// 破壊ミッションの生成と登録
 	//DestructionMission* mission = new DestructionMission();
 	//mission->AddTarget(m_tower);  // 1つ目を登録

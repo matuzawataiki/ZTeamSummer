@@ -8,8 +8,6 @@
     <ClCompile Include="Component\State\General\FlyState.cpp" />
     <ClCompile Include="Component\State\General\IdleState.cpp" />
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -23,6 +21,31 @@
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="UIObfect.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UISystem.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UITransform.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BarUIObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HPBarUIObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -33,7 +56,6 @@
     <ClInclude Include="Component\State\General\IdleState.h" />
     <ClInclude Include="Component\State\IState.h" />
     <ClInclude Include="Component\State\StateControllerComponent.h" />
-    <ClInclude Include="GameManager.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
@@ -49,5 +71,41 @@
     <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="UIObfect.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UISystem.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UITransform.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BarUIObject.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HPBarUIObject.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTypes.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="UI">
+      <UniqueIdentifier>{6205d43b-74d7-4a56-83ec-fc3041240ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{0aa411d2-78c6-4f5d-bef3-207bfedf256a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

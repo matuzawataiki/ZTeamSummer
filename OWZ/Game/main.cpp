@@ -5,6 +5,8 @@
 #include<dxgidebug.h>
 
 #include "GameManager.h"
+#include"SoundManager.h"
+#include "UISystem.h"
 
 
 void ReportLiveObjects()
@@ -34,6 +36,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	GameManager* gameManager = new GameManager;
 
+	// サウンドマネージャー生成
+	SoundManager::CreateInstance();
+
+	UISystem::CreateInstance();
+
 	//////////////////////////////////////
 	// 初期化を行うコードを書くのはここまで！！！
 	//////////////////////////////////////
@@ -42,15 +49,24 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	// ここからゲームループ。
 	while (DispatchWindowMessage())
 	{
-		if (g_pad[0]->IsTrigger(enButtonA) ){
+		// サウンドの更新
+		SoundManager::Get().Update();
+
+		if (g_pad[0]->IsTrigger(enButtonA)) {
 			g_pad[0]->SetVibration(/*durationSec=*/0.5f, /*normalizedPower=*/1.0f);
 		}
 
 		gameManager->Update();
 		gameManager->Draw();
 
+		UISystem::Get().Update();
+		UISystem::Get().Render();
+
 		K2Engine::GetInstance()->Execute();
 	}
+
+	// サウンドマネージャー破棄
+	SoundManager::DestroyInstance();
 
 	K2Engine::DeleteInstance();
 
