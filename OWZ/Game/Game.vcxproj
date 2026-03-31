@@ -234,7 +234,10 @@
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="HPBarUIObject.cpp" />
+    <ClCompile Include="NumberDisplayUIObject.cpp" />
+    <ClCompile Include="NumberSlotUIObject.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
+    <ClCompile Include="ResultUI.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
@@ -253,7 +256,11 @@
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
+    <ClCompile Include="UIColorAnimationComponent.cpp" />
+    <ClCompile Include="UIFollowComponent.cpp" />
+    <ClCompile Include="UIMoveAnimationComponent.cpp" />
     <ClCompile Include="UIObfect.cpp" />
+    <ClCompile Include="UIScaleAnimationComponent.cpp" />
     <ClCompile Include="UISystem.cpp" />
     <ClCompile Include="UITransform.cpp" />
   </ItemGroup>
@@ -270,8 +277,12 @@
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="HPBarUIObject.h" />
+    <ClInclude Include="MissionType.h" />
+    <ClInclude Include="NumberDisplayUIObject.h" />
+    <ClInclude Include="NumberSlotUIObject.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
+    <ClInclude Include="ResultUI.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
@@ -286,6 +297,11 @@
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="system\Math\Transform.h" />
+    <ClInclude Include="UIAnimationUtil.h" />
+    <ClInclude Include="UIColorAnimationComponent.h" />
+    <ClInclude Include="UIFollowComponent.h" />
+    <ClInclude Include="UIMoveAnimationComponent.h" />
+    <ClInclude Include="UIScaleAnimationComponent.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="UIObfect.h" />

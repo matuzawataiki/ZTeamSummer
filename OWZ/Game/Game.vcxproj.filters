@@ -22,29 +22,50 @@
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="UIObfect.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="UISystem.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UITransform.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteComponent.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="BarUIObject.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="HPBarUIObject.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="UIColorAnimationComponent.cpp">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMoveAnimationComponent.cpp">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="UIScaleAnimationComponent.cpp">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberDisplayUIObject.cpp">
+      <Filter>UI\UIGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberSlotUIObject.cpp">
+      <Filter>UI\UIGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="HPBarUIObject.cpp">
+      <Filter>UI\UIGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultUI.cpp">
+      <Filter>UI\UIGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BarUIObject.cpp">
+      <Filter>UI\UIGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>UI\UIComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="UIFollowComponent.cpp">
+      <Filter>UI\UIComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="UITransform.cpp">
+      <Filter>UI\UIComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="UIObfect.cpp">
+      <Filter>UI\UIGameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,25 +93,10 @@
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="UIObfect.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="UISystem.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="UITransform.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteComponent.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="BarUIObject.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="Canvas.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="HPBarUIObject.h">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="SoundManager.h">
@@ -99,6 +105,46 @@
     <ClInclude Include="SoundTypes.h">
       <Filter>Sound</Filter>
     </ClInclude>
+    <ClInclude Include="MissionType.h" />
+    <ClInclude Include="UIColorAnimationComponent.h">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMoveAnimationComponent.h">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="UIScaleAnimationComponent.h">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="UIAnimationUtil.h">
+      <Filter>UI\UIComponent\UIAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberSlotUIObject.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberDisplayUIObject.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="HPBarUIObject.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultUI.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BarUIObject.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>UI\UIComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="UIFollowComponent.h">
+      <Filter>UI\UIComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="UITransform.h">
+      <Filter>UI\UIComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObfect.h">
+      <Filter>UI\UIGameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="UI">
@@ -106,6 +152,15 @@
     </Filter>
     <Filter Include="Sound">
       <UniqueIdentifier>{0aa411d2-78c6-4f5d-bef3-207bfedf256a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIGameObject">
+      <UniqueIdentifier>{5cf0a025-085a-4201-ae6c-718180de3d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIComponent">
+      <UniqueIdentifier>{a720126e-f59b-4ae0-9b6b-915ac9912caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIComponent\UIAnimation">
+      <UniqueIdentifier>{7416972d-80b2-40a7-bf0e-bbc9ac60d959}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
