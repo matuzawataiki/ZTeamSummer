@@ -11,11 +11,7 @@ public:
 		m_spriteRender.Init(filePath, w, h, alphaBlendMode);
 	}
 
-	bool Start() override
-	{
-		m_transform = GetOwner()->GetComponent<UITransformBase>();
-		return true;
-	}
+	bool Start() override;
 
 	void Update() override;
 

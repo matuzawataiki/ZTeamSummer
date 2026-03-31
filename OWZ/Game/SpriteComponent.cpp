@@ -2,6 +2,12 @@
 #include "SpriteComponent.h"
 #include "UITransform.h"
 
+bool SpriteComponent::Start()
+{
+	m_transform = GetOwner()->GetComponent<UITransformBase>();
+	return true;
+}
+
 void SpriteComponent::Update()
 {
 	auto transform = m_transform.lock();
