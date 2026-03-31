@@ -12,6 +12,7 @@ class UIObject :public nsK2EngineLow::GameObject
 {
 protected:
 	UIVisualType m_visualType = UIVisualType::Sprite;
+	bool m_isDestroyRequested = false;
 public:
 
 	UIObject()
@@ -20,9 +21,53 @@ public:
 
 	virtual ~UIObject() noexcept = default;
 
-	void Init(UIVisualType visualType = UIVisualType::Sprite)
+	void Init()
 	{
-		m_visualType = visualType;
+		m_visualType = UIVisualType::None;
+	}
+
+	void Init(
+		const char* filePath,
+		float w,
+		float h,
+		AlphaBlendMode alphaBlendMode = AlphaBlendMode_Trans
+	)
+	{
+		m_visualType = UIVisualType::Sprite;
+		AddComponent<SpriteComponent>();
+
+		auto sprite = GetComponent<SpriteComponent>();
+		if (sprite != nullptr) {
+			sprite->Init(filePath, w, h, alphaBlendMode);
+		}
+	}
+
+	void Render() override
+	{
+		auto sprite = GetComponent<SpriteComponent>();
+		if (sprite != nullptr) {
+			sprite->Render();
+		}
+	}
+
+	/// <summary>
+	/// このUIオブジェクトを破棄したい時に呼びます。
+	/// このUIオブジェクトを消すことをリクエストします。
+	/// そのリクエストを見てキャンバスが削除します。
+	/// </summary>
+	void RequestDestroy()
+	{
+		if (m_isDestroyRequested) {
+			return;
+		}
+
+		m_isDestroyRequested = true;
+		Deactivate();
+	}
+
+	bool IsDestroyRequested() const
+	{
+		return m_isDestroyRequested;
 	}
 };
 
@@ -37,7 +82,7 @@ public:
 
 	void Init()
 	{
-		UIObject::Init(UIVisualType::None);
+		UIObject::Init();
 		AddComponent<ScreenUITransformComponent>();
 	}
 
@@ -47,30 +92,11 @@ public:
 		float h,
 		AlphaBlendMode alphaBlendMode = AlphaBlendMode_Trans)
 	{
-		UIObject::Init(UIVisualType::Sprite);
+		UIObject::Init(filePath, w, h, alphaBlendMode);
 
 		//必要なコンポーネントを追加。
 		AddComponent<ScreenUITransformComponent>();
-		AddComponent<SpriteComponent>();
 
-		auto sprite = GetComponent<SpriteComponent>();
-		if (sprite != nullptr) {
-			sprite->Init(filePath, w, h, alphaBlendMode);
-		}
-	}
-
-	bool Start() override
-	{
-
-		return true;
-	}
-
-	void Render() override
-	{
-		auto sprite = GetComponent<SpriteComponent>();
-		if (sprite != nullptr) {
-			sprite->Render();
-		}
 	}
 
 	virtual ~ScreenSpaceUIObject() noexcept = default;
@@ -88,7 +114,7 @@ public:
 
 	void Init()
 	{
-		UIObject::Init(UIVisualType::None);
+		UIObject::Init();
 		AddComponent<WorldUITransformComponent>();
 	}
 
@@ -98,30 +124,10 @@ public:
 		float h,
 		AlphaBlendMode alphaBlendMode = AlphaBlendMode_Trans)
 	{
-		UIObject::Init(UIVisualType::Sprite);
+		UIObject::Init(filePath, w, h, alphaBlendMode);
 
 		//必要なコンポーネントを追加。
 		AddComponent<WorldUITransformComponent>();
-		AddComponent<SpriteComponent>();
-
-		auto sprite = GetComponent<SpriteComponent>();
-		if (sprite != nullptr) {
-			sprite->Init(filePath, w, h, alphaBlendMode);
-		}
-
-	}
-
-	bool Start() override
-	{
-		return true;
-	}
-
-	void Render() override
-	{
-		auto sprite = GetComponent<SpriteComponent>();
-		if (sprite != nullptr) {
-			sprite->Render();
-		}
 	}
 
 	virtual ~WorldSpaceUIObject() noexcept = default;

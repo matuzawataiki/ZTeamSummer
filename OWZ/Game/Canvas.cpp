@@ -78,6 +78,17 @@ void Canvas::FlushPending()
 		}
 	}
 	m_pendingAddObjects.clear();
+
+	//　UIオブジェクトの中で破棄リクエストが来ているものを削除
+	auto it = std::remove_if(
+		m_uiObjects.begin(),
+		m_uiObjects.end(),
+		[](const std::shared_ptr<UIObject>& ui)
+		{
+			return ui == nullptr || ui->IsDestroyRequested();
+		}
+	);
+	m_uiObjects.erase(it, m_uiObjects.end());
 }
 
 bool Canvas::Start()
