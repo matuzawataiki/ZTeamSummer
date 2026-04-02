@@ -32,10 +32,10 @@ void ParameterManager::Update()
 		if (parameters.empty()) continue;
 
 		auto* firstParam = parameters[0];
-		// 1. 最新の更新時間を「一度だけ」取得
+		// 最新の更新時間を「一度だけ」取得
 		time_t newTime = GetFileLastWriteTime(firstParam->m_path.c_str());
 
-		// 2. 前回の読み込み時間より新しい場合のみ処理
+		// 前回の読み込み時間より新しい場合のみ処理
 		if (newTime > firstParam->m_lastWriteTime)
 		{
 			std::ifstream file(firstParam->m_path);
@@ -55,8 +55,8 @@ void ParameterManager::Update()
 				}
 			}
 
-			// 3. 【重要】成功しても失敗しても、このファイルの「処理済み時間」を更新する
-			// これにより、JSONにミスがあっても毎フレーム解析が走るのを防げます
+			// 成功しても失敗しても、このファイルの「処理済み時間」を更新する
+			// これにより、JSONにミスがあっても毎フレーム解析が走るのを防げる
 			for (auto* param : parameters)
 			{
 				param->m_lastWriteTime = newTime;

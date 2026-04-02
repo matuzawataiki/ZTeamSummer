@@ -1,0 +1,8 @@
+// index 0=Player, 1=Soldier, 2=Sniper, 3=Tank, 4=Boss
+[
+    { "maxHp": 150.0, "regenRate": 5.0 },
+    { "maxHp":  80.0, "regenRate": 0.0 },
+    { "maxHp":  50.0, "regenRate": 0.0 },
+    { "maxHp": 500.0, "regenRate": 0.0 },
+    { "maxHp":2000.0, "regenRate": 0.0 }
+]

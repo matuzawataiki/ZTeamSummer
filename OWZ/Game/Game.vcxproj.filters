@@ -16,13 +16,24 @@
     <ClCompile Include="Scene\SceneBase.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
-    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="system\Math\Transform.cpp" />
+    <ClCompile Include="Parameter\General\AIBehaviorParameter.cpp" />
+    <ClCompile Include="Parameter\General\AttackParameter.cpp" />
+    <ClCompile Include="Parameter\General\HealthParameter.cpp" />
+    <ClCompile Include="Parameter\General\MoveParameter.cpp" />
+    <ClCompile Include="Component\Parameter\HealthComponent.cpp" />
+    <ClCompile Include="Component\Parameter\MoveComponent.cpp" />
+    <ClCompile Include="Component\Parameter\AIBehaviorComponent.cpp" />
+    <ClCompile Include="Component\Parameter\AttackComponent.cpp" />
+    <ClCompile Include="InGameObject\Character\CharacterBase.cpp" />
+    <ClCompile Include="InGameObject\Character\Enemy\EnemyBase.cpp" />
+    <ClCompile Include="InGameObject\Character\Enemy\Walk_Enemy.cpp" />
+    <ClCompile Include="InGameObject\Character\Enemy\Middle_Boss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -40,7 +51,6 @@
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
-    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
@@ -49,5 +59,17 @@
     <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
+    <ClInclude Include="Parameter\General\AIBehaviorParameter.h" />
+    <ClInclude Include="Parameter\General\AttackParameter.h" />
+    <ClInclude Include="Parameter\General\HealthParameter.h" />
+    <ClInclude Include="Parameter\General\MoveParameter.h" />
+    <ClInclude Include="Component\Parameter\HealthComponent.h" />
+    <ClInclude Include="Component\Parameter\MoveComponent.h" />
+    <ClInclude Include="Component\Parameter\AIBehaviorComponent.h" />
+    <ClInclude Include="Component\Parameter\AttackComponent.h" />
+    <ClInclude Include="InGameObject\Character\CharacterBase.h" />
+    <ClInclude Include="InGameObject\Character\Enemy\EnemyBase.h" />
+    <ClInclude Include="InGameObject\Character\Enemy\Walk_Enemy.h" />
+    <ClInclude Include="InGameObject\Character\Enemy\Middle_Boss.h" />
   </ItemGroup>
 </Project>

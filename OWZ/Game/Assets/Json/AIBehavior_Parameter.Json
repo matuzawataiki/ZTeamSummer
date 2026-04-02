@@ -1,0 +1,8 @@
+// aibehavior_params.json
+[
+    { "detectionRange": 0.0 },
+    { "detectionRange": 12.0 },
+    { "detectionRange": 60.0 },
+    { "detectionRange": 20.0 },
+    { "detectionRange": 25.0 }
+]

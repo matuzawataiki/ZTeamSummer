@@ -6,10 +6,9 @@ class StateControllerComponent : public Component
 public:
 	~StateControllerComponent();
 
-private:
-	std::weak_ptr<StateMachineComponent> m_stateMachine;
 
-public:
+protected:
+	std::weak_ptr<StateMachineComponent> m_stateMachine;
 
 
 };
