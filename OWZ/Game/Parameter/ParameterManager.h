@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "IMasterParameter.h"
 
 class ParameterManager : public IGameObject
@@ -34,7 +35,16 @@ public:
 		}
 
 		nlohmann::json jsonRoot;
-		file >> jsonRoot;
+       try
+		{
+			// コメント付きJSON(//, /* */)を許可して読み込む
+			jsonRoot = nlohmann::json::parse(file, nullptr, true, true);
+		}
+		catch (const nlohmann::json::parse_error& e)
+		{
+			std::cerr << "[ParameterManager] JSON parse error: " << path << " : " << e.what() << std::endl;
+			return;
+		}
 
 		std::vector<IMasterParameter*> parameters;
 		for (const auto& j : jsonRoot) {
@@ -48,7 +58,7 @@ public:
 			parameters.push_back(static_cast<IMasterParameter*>(parameter));
 		}
 
-		auto insertResult = m_parameterMap.emplace({ T::ID(), parameters });
+		auto insertResult = m_parameterMap.insert({ T::ID(), parameters });
 		if (!insertResult.second)
 		{
 			for (auto* p : parameters)
