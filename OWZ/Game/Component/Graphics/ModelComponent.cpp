@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ModelComponent.h"
+#include "Component/Math/TransformComponent.h" 
 
 ModelComponent::~ModelComponent()
 {
@@ -36,4 +37,13 @@ void ModelComponent::AddAnimation(const char* filePath, bool loopFlag)
 void ModelComponent::Draw()
 {
 	m_model->Draw();
+}
+
+void ModelComponent::Update()
+{
+	auto transformComponent = GetComponent<TransformComponent>();
+	m_model->SetPosition(transformComponent->GetPosition());
+	m_model->SetRotation(transformComponent->GetRotation());
+	m_model->SetScale(transformComponent->GetScale());
+
 }

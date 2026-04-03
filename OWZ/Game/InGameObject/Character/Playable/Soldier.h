@@ -7,7 +7,7 @@ public:
 	~Soldier();
 
 private:
-	std::shared_ptr<ViewModelComponent> m_model;
+	std::shared_ptr<ViewModelComponent> m_viewModelComponent;
 
 public:
 	bool Start() override;

@@ -13,11 +13,15 @@ ColliderComponent::~ColliderComponent()
 
 bool ColliderComponent::Start()
 {
-	return false;
+	return true;
 }
 
 void ColliderComponent::Update()
 {
+	auto transform = GetComponent<TransformComponent>();
+
+	m_ghostObject.SetPosition(transform->GetPosition());
+	m_ghostObject.SetRotation(transform->GetRotation());
 }
 
 void ColliderComponent::CreateBox(const Vector3& size)

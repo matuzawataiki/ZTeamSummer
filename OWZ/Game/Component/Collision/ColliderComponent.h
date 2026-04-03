@@ -16,7 +16,7 @@ public:
 private:
 	PhysicsGhostObject m_ghostObject;
 	EnCollisionCategory m_category = EnCollisionCategory::enCollisionCat_None;
-	EnCollisionCategory m_categoryMask = EnCollisionCategory::enCollisionCat_All;
+	uint32_t m_categoryMask = EnCollisionCategory::enCollisionCat_All;
 	HitCallback m_onHitCallback = nullptr;
 
 	float m_radius;
@@ -54,7 +54,7 @@ public:
 	/// 衝突対象のカテゴリマスクを設定。
 	/// ビットANDで一致するカテゴリのみ衝突判定を行う。
 	/// </summary>
-	void SetCategoryMask(EnCollisionCategory mask) { m_categoryMask = mask; }
+	void SetCategoryMask(uint32_t mask) { m_categoryMask = mask; }
 
 	/// <summary>
 	/// 自分のカテゴリを取得。
@@ -64,7 +64,7 @@ public:
 	/// <summary>
 	/// 衝突対象マスクを取得。
 	/// </summary>
-	EnCollisionCategory GetCategoryMask() const { return m_categoryMask; }
+	uint32_t GetCategoryMask() const { return m_categoryMask; }
 
 	// --- コールバック ---
 

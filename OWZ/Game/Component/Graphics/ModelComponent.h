@@ -29,5 +29,8 @@ public:
 	bool IsDraw()const {
 		return m_isDraw;
 	}
+
+private:
+	void Update() override;
 };
 

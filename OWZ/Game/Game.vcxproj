@@ -223,6 +223,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component\State\IAIState.cpp" />
+    <ClCompile Include="InGameObject\Ammo\AmmoBase.cpp" />
+    <ClCompile Include="Component\Collision\RigidBodyComponent.cpp" />
+    <ClCompile Include="Component\Skill\HitscanGunComponent.cpp" />
+    <ClCompile Include="InGameObject\Ammo\NormalAmmo.cpp" />
     <ClCompile Include="Component\Collision\CollisionManager.cpp" />
     <ClCompile Include="Component\Collision\ColliderComponent.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
@@ -232,14 +237,20 @@
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
+    <ClCompile Include="Component\Skill\GunComponent.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
     <ClCompile Include="Component\Collision\Quadtree.cpp" />
+    <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
+    <ClCompile Include="ProjectileManager.cpp" />
+    <ClCompile Include="PulseRifleState.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
+    <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
+    <ClCompile Include="Component\Skill\SkillsComponent.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -249,8 +260,15 @@
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
     <ClCompile Include="Component\Math\Transform.cpp" />
+    <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\State\IAIState.h" />
+    <ClInclude Include="Component\State\StateEnum.h" />
+    <ClInclude Include="InGameObject\Ammo\AmmoBase.h" />
+    <ClInclude Include="Component\Collision\RigidBodyComponent.h" />
+    <ClInclude Include="Component\Skill\HitscanGunComponent.h" />
+    <ClInclude Include="InGameObject\Ammo\NormalAmmo.h" />
     <ClInclude Include="Component\Collision\CollisionManager.h" />
     <ClInclude Include="Component\Collision\ColliderComponent.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -260,19 +278,27 @@
     <ClInclude Include="Component\State\IState.h" />
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Component\Skill\GunComponent.h" />
     <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="Component\Collision\Quadtree.h" />
+    <ClInclude Include="InGameObject\Weapon\PulseRifle.h" />
+    <ClInclude Include="ProjectileManager.h" />
+    <ClInclude Include="PulseRifleState.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
+    <ClInclude Include="InGameObject\Skill\SkillBase.h" />
+    <ClInclude Include="Component\Skill\SkillsComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="Component\Collision\CollisionDefine.h" />
     <ClInclude Include="Component\Math\Transform.h" />
+    <ClInclude Include="Component\Skill\WeaponData.h" />
+    <ClInclude Include="InGameObject\Weapon\WeaponBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

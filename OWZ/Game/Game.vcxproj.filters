@@ -97,6 +97,18 @@
       <Filter>Component\Math</Filter>
     </ClCompile>
     <ClCompile Include="Component\Collision\Quadtree.cpp" />
+    <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
+    <ClCompile Include="Component\Skill\GunComponent.cpp" />
+    <ClCompile Include="InGameObject\Ammo\NormalAmmo.cpp" />
+    <ClCompile Include="ProjectileManager.cpp" />
+    <ClCompile Include="Component\Collision\RigidBodyComponent.cpp" />
+    <ClCompile Include="Component\Skill\HitscanGunComponent.cpp" />
+    <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
+    <ClCompile Include="InGameObject\Ammo\AmmoBase.cpp" />
+    <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
+    <ClCompile Include="Component\Skill\SkillsComponent.cpp" />
+    <ClCompile Include="Component\State\IAIState.cpp" />
+    <ClCompile Include="PulseRifleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -156,5 +168,19 @@
       <Filter>Component\Math</Filter>
     </ClInclude>
     <ClInclude Include="Component\Collision\Quadtree.h" />
+    <ClInclude Include="InGameObject\Weapon\PulseRifle.h" />
+    <ClInclude Include="Component\Skill\WeaponData.h" />
+    <ClInclude Include="Component\Skill\GunComponent.h" />
+    <ClInclude Include="InGameObject\Ammo\NormalAmmo.h" />
+    <ClInclude Include="ProjectileManager.h" />
+    <ClInclude Include="Component\Collision\RigidBodyComponent.h" />
+    <ClInclude Include="Component\Skill\HitscanGunComponent.h" />
+    <ClInclude Include="InGameObject\Weapon\WeaponBase.h" />
+    <ClInclude Include="InGameObject\Ammo\AmmoBase.h" />
+    <ClInclude Include="InGameObject\Skill\SkillBase.h" />
+    <ClInclude Include="Component\Skill\SkillsComponent.h" />
+    <ClInclude Include="Component\State\IAIState.h" />
+    <ClInclude Include="Component\State\StateEnum.h" />
+    <ClInclude Include="PulseRifleState.h" />
   </ItemGroup>
 </Project>

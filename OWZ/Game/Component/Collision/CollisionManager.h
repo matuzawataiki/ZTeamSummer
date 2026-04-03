@@ -58,7 +58,7 @@ public:
 		const Vector3& direction,
 		float maxDistance,
 		HitResult& outResult,
-		EnCollisionCategory mask = enCollisionCat_All
+		uint32_t mask = enCollisionCat_All
 	);
 
 	/// <summary>
@@ -79,7 +79,7 @@ public:
 		float maxDistance,
 		float radius,
 		HitResult& outResult,
-		EnCollisionCategory mask = enCollisionCat_All
+		uint32_t mask = enCollisionCat_All
 	);
 
 	/// <summary>

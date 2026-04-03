@@ -49,6 +49,7 @@ void CollisionManager::Update()
 	m_quadtree.GetCollisionPairs(pairs);
 
 	// 3. 候補ペアに対してのみ詳細な衝突判定を実行
+	//将来的にはマルチスレッドで
 	for (auto& pair : pairs) {
 		CheckCollision(pair.first, pair.second);
 	}
@@ -109,7 +110,12 @@ void CollisionManager::CheckCollision(ColliderComponent* a, ColliderComponent* b
 	}
 }
 
-bool CollisionManager::Raycast(const Vector3& origin, const Vector3& direction, float maxDistance, HitResult& outResult, EnCollisionCategory mask)
+bool CollisionManager::Raycast(
+	const Vector3& origin,
+	const Vector3& direction, 
+	float maxDistance, 
+	HitResult& outResult, 
+	uint32_t mask)
 {
 	// レイの終点を計算
 	Vector3 rayEnd = origin;
@@ -176,7 +182,13 @@ bool CollisionManager::Raycast(const Vector3& origin, const Vector3& direction, 
 	return true;
 }
 
-bool CollisionManager::SphereCast(const Vector3& origin, const Vector3& direction, float maxDistance, float radius, HitResult& outResult, EnCollisionCategory mask)
+bool CollisionManager::SphereCast(
+	const Vector3& origin, 
+	const Vector3& direction, 
+	float maxDistance,
+	float radius, 
+	HitResult& outResult, 
+	uint32_t mask)
 {
 	// レイの終点を計算
 	Vector3 rayEnd = origin;
