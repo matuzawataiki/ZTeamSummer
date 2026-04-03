@@ -6,6 +6,7 @@ StateMachineComponent::StateMachineComponent() = default;
 
 StateMachineComponent::~StateMachineComponent() = default;
 
+
 void StateMachineComponent::Update()
 {
 	if (m_nextMoveState != m_currentMoveState) {
