@@ -223,6 +223,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component\Graphics\EffectComponent.cpp" />
+    <ClCompile Include="EffectManager.cpp" />
+    <ClCompile Include="Effect\EffekseerManager.cpp" />
     <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Mission\ActivationMission.cpp" />
     <ClCompile Include="Mission\AnnihilationMission.cpp" />
@@ -257,6 +260,9 @@
     <ClCompile Include="system\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\Graphics\EffectComponent.h" />
+    <ClInclude Include="EffectManager.h" />
+    <ClInclude Include="Effect\EffekseerManager.h" />
     <ClInclude Include="Mission\MissionManager.h" />
     <ClInclude Include="Mission\ActivationMission.h" />
     <ClInclude Include="Mission\AnnihilationMission.h" />

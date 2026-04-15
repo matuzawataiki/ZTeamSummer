@@ -29,6 +29,9 @@
     <ClCompile Include="Mission\AnnihilationMission.cpp" />
     <ClCompile Include="Mission\ActivationMission.cpp" />
     <ClCompile Include="Mission\MissionManager.cpp" />
+    <ClCompile Include="Component\Graphics\EffectComponent.cpp" />
+    <ClCompile Include="EffectManager.cpp" />
+    <ClCompile Include="Effect\EffekseerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
@@ -61,5 +64,8 @@
     <ClInclude Include="Mission\AnnihilationMission.h" />
     <ClInclude Include="Mission\ActivationMission.h" />
     <ClInclude Include="Mission\MissionManager.h" />
+    <ClInclude Include="Component\Graphics\EffectComponent.h" />
+    <ClInclude Include="EffectManager.h" />
+    <ClInclude Include="Effect\EffekseerManager.h" />
   </ItemGroup>
 </Project>
