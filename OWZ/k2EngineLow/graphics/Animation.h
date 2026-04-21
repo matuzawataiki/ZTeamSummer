@@ -1,5 +1,5 @@
 /*!
-* @brief	ƒAƒjƒ[ƒVƒ‡ƒ“
+* @brief	ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 */
 
 #pragma once
@@ -15,54 +15,54 @@ namespace nsK2EngineLow {
 		bool loopFlag;
 
 		AnimationData(const char* f, bool l) :filePath(f), loopFlag(l) {}
-
 	};
+
 	class Skeleton;
 	using AnimationEventListener = std::function<void(const wchar_t* clipName, const wchar_t* eventName)>;
 
 	/// <summary>
-	/// ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒ‰ƒXB
+	/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½B
 	/// </summary>
 	/// <remarks>
-	/// ’ñ‹Ÿ‚·‚é‹@”\
-	/// ‚P. ƒVƒ“ƒvƒ‹‚ÈƒAƒjƒ[ƒVƒ‡ƒ“Ä¶B
-	/// ‚Q. ƒAƒjƒ[ƒVƒ‡ƒ“•âŠÔB
-	/// ‚R. footstepƒ{[ƒ“‚ðŠˆ—p‚µ‚½ƒAƒjƒ[ƒVƒ‡ƒ“ˆÚ“®—Ê‚ÌŒvŽZB
-	///		ƒXƒPƒ‹ƒgƒ“‚Éfootstepƒ{[ƒ“‚ð’Ç‰Á‚·‚é‚ÆA‘S‘Ì‚Ìƒ{[ƒ“‚©‚çA
-	///		footstepƒ{[ƒ“‚Ì•½sˆÚ“®—Ê‚ðœŠO‚µ‚½ƒAƒjƒ[ƒVƒ‡ƒ“Ä¶‚ªs‚í‚ê‚Ü‚·B
-	///		œŠO‚³‚ê‚½ˆÚ“®—Ê‚ÍCalcFootstepDeltaValueInWorldSpaceŠÖ”‚ð—˜—p‚·‚é‚±‚Æ‚Å
-	///		ŒvŽZ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-	///		‚±‚Ì‹@”\‚ðŠˆ—p‚·‚é‚±‚Æ‚ÅAƒAƒjƒ[ƒ^‚ªì¬‚µ‚½•à‚«ƒAƒjƒ[ƒVƒ‡ƒ“‚È‚Ç‚ÉˆÚ“®—Ê‚ð
-	///		ŠÜ‚Þ‚±‚Æ‚ª‚Å‚«AƒAƒjƒ[ƒ^‚ªˆÓ}‚µ‚½ˆÚ“®‚ðs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+	/// ï¿½ñ‹Ÿ‚ï¿½ï¿½ï¿½@ï¿½\
+	/// ï¿½P. ï¿½Vï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÈƒAï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½B
+	/// ï¿½Q. ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔB
+	/// ï¿½R. footstepï¿½{ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ï¿½Ê‚ÌŒvï¿½Zï¿½B
+	///		ï¿½Xï¿½Pï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½footstepï¿½{ï¿½[ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ÆAï¿½Sï¿½Ì‚Ìƒ{ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½A
+	///		footstepï¿½{ï¿½[ï¿½ï¿½ï¿½Ì•ï¿½ï¿½sï¿½Ú“ï¿½ï¿½Ê‚ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+	///		ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ê‚½ï¿½Ú“ï¿½ï¿½Ê‚ï¿½CalcFootstepDeltaValueInWorldSpaceï¿½Öï¿½ï¿½ð—˜—pï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½
+	///		ï¿½vï¿½Zï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½B
+	///		ï¿½ï¿½ï¿½Ì‹@ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½é‚±ï¿½Æ‚ÅAï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½^ï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½È‚Ç‚ÉˆÚ“ï¿½ï¿½Ê‚ï¿½
+	///		ï¿½Ü‚Þ‚ï¿½ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Aï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½^ï¿½ï¿½ï¿½Ó}ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 	/// </remarks>
 	class Animation : public Noncopyable {
 	public:
 		
 		/// <summary>
-		/// ‰Šú‰»Ï‚Ý‚©”»’èB
+		/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚Ý‚ï¿½ï¿½ï¿½ï¿½ï¿½B
 		/// </summary>
-		/// <returns>true‚ª•Ô‚Á‚Ä‚«‚½‚ç‰Šú‰»Ï‚ÝB</returns>
+		/// <returns>trueï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚ÝB</returns>
 		bool IsInited() const
 		{
 			return m_isInited;
 		}
 
 		/// <summary>
-		/// ‰Šú‰»B
+		/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 		/// </summary>
-		/// <param name="skeleton">ƒAƒjƒ[ƒVƒ‡ƒ“‚³‚¹‚éƒXƒPƒ‹ƒgƒ“</param>
-		/// <param name="animClips">ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì”z—ñ</param>
-		/// <param name="numAnimClip">ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì”</param>
+		/// <param name="skeleton">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Pï¿½ï¿½ï¿½gï¿½ï¿½</param>
+		/// <param name="animClips">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ì”zï¿½ï¿½</param>
+		/// <param name="numAnimClip">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ìï¿½</param>
 		void Init(
 			Skeleton& skeleton,
 			AnimationClip* animClips,
 			int numAnimClip
 		);
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶B
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÌÄï¿½ï¿½B
 		/// </summary>
-		/// <param name="clipNo">ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì”Ô†BInitŠÖ”‚É“n‚µ‚½animClipList‚Ì•À‚Ñ‚Æ‚È‚éB</param>
-		/// <param name="interpolateTime">•âŠ®ŽžŠÔ(’PˆÊF•b)</param>
+		/// <param name="clipNo">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ì”Ôï¿½ï¿½BInitï¿½Öï¿½ï¿½É“nï¿½ï¿½ï¿½ï¿½animClipListï¿½Ì•ï¿½ï¿½Ñ‚Æ‚È‚ï¿½B</param>
+		/// <param name="interpolateTime">ï¿½âŠ®ï¿½ï¿½ï¿½ï¿½(ï¿½Pï¿½ÊFï¿½b)</param>
 		void Play(int clipNo, float interpolateTime = 0.0f)
 		{
 			if (clipNo < m_animationClips.size()) {
@@ -70,10 +70,10 @@ namespace nsK2EngineLow {
 			}
 		}
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ìƒ‹[ƒvƒtƒ‰ƒO‚ðÝ’è‚µ‚Ü‚·B
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ìƒï¿½ï¿½[ï¿½vï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½Ý’è‚µï¿½Ü‚ï¿½ï¿½B
 		/// </summary>
-		/// <param name="clipName">ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì–¼‘O</param>
-		/// <param name="flag">ƒtƒ‰ƒO</param>
+		/// <param name="clipName">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ì–ï¿½ï¿½O</param>
+		/// <param name="flag">ï¿½tï¿½ï¿½ï¿½O</param>
 		void SetAnimationClipLoopFlag(const wchar_t* clipName, bool flag)
 		{
 			auto it = std::find_if(
@@ -82,13 +82,13 @@ namespace nsK2EngineLow {
 				[clipName](auto& clip) {return clip->GetName() == clipName; }
 			);
 			if (it == m_animationClips.end()) {
-				//Œ©‚Â‚©‚ç‚È‚©‚Á‚½B
+				//ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 				return;
 			}
 			(*it)->SetLoopFlag(flag);
 		}
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶’†H
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÌÄï¿½ï¿½ï¿½ï¿½H
 		/// </summary>
 		/// <returns></returns>
 		bool IsPlaying() const
@@ -98,34 +98,34 @@ namespace nsK2EngineLow {
 		}
 
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“‚ði‚ß‚éB
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ß‚ï¿½B
 		/// </summary>
 		/// <remarks>
-		/// ƒGƒ“ƒWƒ““à•”‚©‚çŒÄ‚Î‚ê‚Ü‚·B
-		/// ƒ†[ƒU[‚ÍŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+		/// ï¿½Gï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Î‚ï¿½Ü‚ï¿½ï¿½B
+		/// ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ÍŽgï¿½pï¿½ï¿½ï¿½È‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 		/// </remarks>
-		/// <param name="deltaTime">ƒAƒjƒ[ƒVƒ‡ƒ“‚ði‚ß‚éŽžŠÔ(’PˆÊF•b)</param>
+		/// <param name="deltaTime">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ß‚éŽžï¿½ï¿½(ï¿½Pï¿½ÊFï¿½b)</param>
 		void Progress(float deltaTime);
 		/*!
-		*@brief	ƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒxƒ“ƒgƒŠƒXƒi[‚ð“o˜^B
+		*@brief	ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Xï¿½iï¿½[ï¿½ï¿½oï¿½^ï¿½B
 		*@return
-		* “o˜^‚³‚ê‚½ƒŠƒXƒi[B
+		* ï¿½oï¿½^ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Xï¿½iï¿½[ï¿½B
 		*/
 		
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒxƒ“ƒgƒŠƒXƒi[‚ð“o˜^B
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Xï¿½iï¿½[ï¿½ï¿½oï¿½^ï¿½B
 		/// </summary>
-		/// <param name="eventListener">“o˜^‚·‚éƒŠƒXƒi[B</param>
+		/// <param name="eventListener">ï¿½oï¿½^ï¿½ï¿½ï¿½éƒŠï¿½Xï¿½iï¿½[ï¿½B</param>
 		void AddAnimationEventListener(AnimationEventListener eventListener)
 		{
 			m_animationEventListeners.push_back(eventListener);
 		}
 
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒxƒ“ƒg‚ðƒŠƒXƒi[‚É’Ê’mB
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½iï¿½[ï¿½É’Ê’mï¿½B
 		/// </summary>
-		/// <param name="clipName">ƒCƒxƒ“ƒg‚ð‹N‚±‚µ‚½ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì–¼‘O</param>
-		/// <param name="eventName">ƒCƒxƒ“ƒg–¼B</param>
+		/// <param name="clipName">ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ì–ï¿½ï¿½O</param>
+		/// <param name="eventName">ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½B</param>
 		void NotifyAnimationEventToListener(const wchar_t* clipName, const wchar_t* eventName)
 		{
 			for (auto& listener : m_animationEventListeners) {
@@ -133,16 +133,16 @@ namespace nsK2EngineLow {
 			}
 		}
 		/// <summary>
-		/// ƒ[ƒ‹ƒh‹óŠÔ‚Å‚ÌƒtƒbƒgƒXƒeƒbƒv‚ÌˆÚ“®—Ê‚ðŒvŽZ‚·‚éB
+		/// ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½hï¿½ï¿½Ô‚Å‚Ìƒtï¿½bï¿½gï¿½Xï¿½eï¿½bï¿½vï¿½ÌˆÚ“ï¿½ï¿½Ê‚ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½ï¿½B
 		/// </summary>
 		/// <remarks>
-		/// ƒtƒbƒgƒXƒeƒbƒv‚ÌˆÚ“®—Ê‚ÍAƒ‚ƒfƒ‹‚Ìƒ‹[ƒg‚©‚ç‚Ì‘Š‘ÎˆÚ“®—Ê‚Å‚·B
-		/// ‚»‚Ì‚½‚ßAƒ[ƒ‹ƒh‹óŠÔ‚É•ÏŠ·‚·‚é‚Ì‚É•½sˆÚ“®—Ê‚Í•s—v‚Å‚·B
-		/// ƒ‚ƒfƒ‹‚Ì‰ñ“]ƒNƒH[ƒ^ƒjƒIƒ“‚ÆŠg‘å—¦‚Ì‚ÝŽw’è‚µ‚Ä‚­‚¾‚³‚¢B
+		/// ï¿½tï¿½bï¿½gï¿½Xï¿½eï¿½bï¿½vï¿½ÌˆÚ“ï¿½ï¿½Ê‚ÍAï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ÎˆÚ“ï¿½ï¿½Ê‚Å‚ï¿½ï¿½B
+		/// ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½hï¿½ï¿½Ô‚É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½Ì‚É•ï¿½ï¿½sï¿½Ú“ï¿½ï¿½Ê‚Í•sï¿½vï¿½Å‚ï¿½ï¿½B
+		/// ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ì‰ï¿½]ï¿½Nï¿½Hï¿½[ï¿½^ï¿½jï¿½Iï¿½ï¿½ï¿½ÆŠgï¿½å—¦ï¿½Ì‚ÝŽwï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 		/// </remarks>
-		/// <param name="rotation">ƒ‚ƒfƒ‹‚Ì‰ñ“]</param>
-		/// <param name="scale">ƒ‚ƒfƒ‹‚ÌŠg‘å—¦</param>
-		/// <returns>ƒ[ƒ‹ƒh‹óŠÔ‚Å‚ÌƒtƒbƒgƒXƒeƒbƒv‚ÌˆÚ“®—ÊB</returns>
+		/// <param name="rotation">ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ì‰ï¿½]</param>
+		/// <param name="scale">ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ÌŠgï¿½å—¦</param>
+		/// <returns>ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½hï¿½ï¿½Ô‚Å‚Ìƒtï¿½bï¿½gï¿½Xï¿½eï¿½bï¿½vï¿½ÌˆÚ“ï¿½ï¿½ÊB</returns>
 		Vector3 CalcFootstepDeltaValueInWorldSpace(Quaternion rotation, Vector3 scale) const;
 
 	private:
@@ -153,11 +153,11 @@ namespace nsK2EngineLow {
 				return;
 			}
 			if (interpolateTime == 0.0f) {
-				//•âŠ®‚È‚µB
+				//ï¿½âŠ®ï¿½È‚ï¿½ï¿½B
 				m_numAnimationPlayController = 1;
 			}
 			else {
-				//•âŠ®‚ ‚èB
+				//ï¿½âŠ®ï¿½ï¿½ï¿½ï¿½B
 				m_numAnimationPlayController++;
 			}
 			index = GetLastAnimationControllerIndex();
@@ -167,18 +167,18 @@ namespace nsK2EngineLow {
 			m_interpolateTimeEnd = interpolateTime;
 		}
 		/// <summary>
-		/// ƒ[ƒJƒ‹ƒ|[ƒY‚ÌXVB
+		/// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½|ï¿½[ï¿½Yï¿½ÌXï¿½Vï¿½B
 		/// </summary>
-		/// <param name="deltaTime">ƒAƒjƒ[ƒVƒ‡ƒ“‚ði‚ß‚éŽžŠÔB’PˆÊF•bB</param>
+		/// <param name="deltaTime">ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ß‚éŽžï¿½ÔBï¿½Pï¿½ÊFï¿½bï¿½B</param>
 		void UpdateLocalPose(float deltaTime);
 		/// <summary>
-		/// ƒOƒ[ƒoƒ‹ƒ|[ƒY‚ÌXVB
+		/// ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½|ï¿½[ï¿½Yï¿½ÌXï¿½Vï¿½B
 		/// </summary>
 		void UpdateGlobalPose();
 	private:
 
 		/// <summary>
-		/// ÅIƒ|[ƒY‚É‚È‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒŠƒ“ƒOƒoƒbƒtƒ@ã‚Å‚ÌƒCƒ“ƒfƒbƒNƒX‚ðŽæ“¾B
+		/// ï¿½ÅIï¿½|ï¿½[ï¿½Yï¿½É‚È‚ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Oï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Å‚ÌƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½æ“¾ï¿½B
 		/// </summary>
 		/// <returns></returns>
 		int GetLastAnimationControllerIndex() const
@@ -186,10 +186,10 @@ namespace nsK2EngineLow {
 			return GetAnimationControllerIndex(m_startAnimationPlayController, m_numAnimationPlayController - 1);
 		}
 		/// <summary>
-		/// ƒAƒjƒ[ƒVƒ‡ƒ“ƒRƒ“ƒgƒ[ƒ‰[‚ÌƒŠƒ“ƒOƒoƒbƒtƒ@ã‚Å‚ÌƒCƒ“ƒfƒbƒNƒX‚ðŽæ“¾
+		/// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Oï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Å‚ÌƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½æ“¾
 		/// </summary>
-		/// <param name="startIndex">ŠJŽnƒCƒ“ƒfƒbƒNƒX</param>
-		/// <param name="localIndex">ƒ[ƒJƒ‹ƒCƒ“ƒfƒbƒNƒX</param>
+		/// <param name="startIndex">ï¿½Jï¿½nï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X</param>
+		/// <param name="localIndex">ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X</param>
 		/// <returns></returns>
 		int GetAnimationControllerIndex(int startIndex, int localIndex) const
 		{
@@ -197,18 +197,18 @@ namespace nsK2EngineLow {
 		}
 
 	private:
-		static const int ANIMATION_PLAY_CONTROLLER_NUM = 32;	//!<ƒAƒjƒ[ƒVƒ‡ƒ“ƒRƒ“ƒgƒ[ƒ‰‚Ì”B
-		std::vector<AnimationClip*>	m_animationClips;	//!<ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv‚Ì”z—ñB
-		Skeleton* m_skeleton = nullptr;	//!<ƒAƒjƒ[ƒVƒ‡ƒ“‚ð“K—p‚·‚éƒXƒPƒ‹ƒgƒ“B
-		AnimationPlayController	m_animationPlayController[ANIMATION_PLAY_CONTROLLER_NUM];	//!<ƒAƒjƒ[ƒVƒ‡ƒ“ƒRƒ“ƒgƒ[ƒ‰BƒŠƒ“ƒOƒoƒbƒtƒ@B
-		int m_numAnimationPlayController = 0;		//!<Œ»ÝŽg—p’†‚ÌƒAƒjƒ[ƒVƒ‡ƒ“Ä¶ƒRƒ“ƒgƒ[ƒ‰‚Ì”B
-		int m_startAnimationPlayController = 0;		//!<ƒAƒjƒ[ƒVƒ‡ƒ“ƒRƒ“ƒgƒ[ƒ‰‚ÌŠJŽnƒCƒ“ƒfƒbƒNƒXB
+		static const int ANIMATION_PLAY_CONTROLLER_NUM = 32;	//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½B
+		std::vector<AnimationClip*>	m_animationClips;	//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½Ì”zï¿½ï¿½B
+		Skeleton* m_skeleton = nullptr;	//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½pï¿½ï¿½ï¿½ï¿½Xï¿½Pï¿½ï¿½ï¿½gï¿½ï¿½ï¿½B
+		AnimationPlayController	m_animationPlayController[ANIMATION_PLAY_CONTROLLER_NUM];	//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½oï¿½bï¿½tï¿½@ï¿½B
+		int m_numAnimationPlayController = 0;		//!<ï¿½ï¿½ï¿½ÝŽgï¿½pï¿½ï¿½ï¿½ÌƒAï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½B
+		int m_startAnimationPlayController = 0;		//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÌŠJï¿½nï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½B
 		float m_interpolateTime = 0.0f;
 		float m_interpolateTimeEnd = 0.0f;
-		bool m_isInterpolate = false;								//!<•âŠÔ’†H
-		std::vector<AnimationEventListener>	m_animationEventListeners;	//!<ƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒxƒ“ƒgƒŠƒXƒi[‚ÌƒŠƒXƒgB
-		Vector3 m_footstepDeltaValue = g_vec3Zero;					//footstepƒ{[ƒ“‚ÌˆÚ“®—ÊB
+		bool m_isInterpolate = false;								//!<ï¿½ï¿½Ô’ï¿½ï¿½H
+		std::vector<AnimationEventListener>	m_animationEventListeners;	//!<ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Xï¿½iï¿½[ï¿½Ìƒï¿½ï¿½Xï¿½gï¿½B
+		Vector3 m_footstepDeltaValue = g_vec3Zero;					//footstepï¿½{ï¿½[ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ÊB
 		bool m_isInited = false;
-		float m_deltaTimeOnUpdate = 0.0f;							//UpdateŠÖ”‚ðŽÀs‚µ‚½‚Æ‚«‚Ìƒfƒ‹ƒ^ƒ^ƒCƒ€B
+		float m_deltaTimeOnUpdate = 0.0f;							//Updateï¿½Öï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ìƒfï¿½ï¿½ï¿½^ï¿½^ï¿½Cï¿½ï¿½ï¿½B
 	};
 }

@@ -33,6 +33,7 @@ namespace nsK2EngineLow {
 		enButtonQ,
 		enButtonR,
 		enButtonF,
+		enButtonV,
 		enButtonShift,
 		enButtonControl,
 		enButtonLMouse,
@@ -135,6 +136,7 @@ namespace nsK2EngineLow {
 				|| IsPress(enButtonE)
 				|| IsPress(enButtonQ)
 				|| IsPress(enButtonR)
+				|| IsPress(enButtonV)
 				|| IsPress(enButtonLMouse)
 				|| IsPress(enButtonRMouse)
 				|| IsPress(enButtonShift)

@@ -58,6 +58,11 @@ void ViewModelComponent::PlayAnimation(int num)
 	m_model->PlayAnimation(num);
 }
 
+bool ViewModelComponent::IsPlay()
+{
+	return m_model->IsPlayingAnimation();
+}
+
 void ViewModelComponent::Draw()
 {
 	if (!m_drawFlag) return;

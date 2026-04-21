@@ -33,6 +33,8 @@ public:
 
 	void PlayAnimation(int num);
 
+	bool IsPlay();
+
 	void Draw();
 
 	void SetDrawFlag(bool drawFlag) {

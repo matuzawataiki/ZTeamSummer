@@ -7,10 +7,15 @@ public:
 	~Soldier();
 
 private:
-	std::shared_ptr<ViewModelComponent> m_model;
+	ViewModelComponent* m_viewModelComponent;
 
 public:
+	bool Start() override;
 	void Update() override;
 	void Render() override;
+
+private:
+	void InitCollider();
+	void InitState();
 };
 

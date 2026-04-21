@@ -7,6 +7,7 @@ GameManager::GameManager()
 {
 	m_sceneManager = std::make_unique<SceneManager>();
 	m_sceneManager->ChangeScene<TitleScene>();
+	m_bgModel.Init("Assets/map.tkm");
 }
 
 GameManager::~GameManager()
@@ -21,4 +22,5 @@ void GameManager::Update()
 void GameManager::Draw()
 {
 	m_sceneManager->Draw();
+	m_bgModel.Draw();
 }

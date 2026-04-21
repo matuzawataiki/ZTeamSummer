@@ -3,18 +3,19 @@
  * 
  */
 #pragma once
+
 /* 
- * Às‚ÉƒTƒCƒY‚ğŒˆ’è‚Å‚«‚éŒÅ’è’·”z—ñƒNƒ‰ƒX
+ * ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÉƒTï¿½Cï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Å’è’·ï¿½zï¿½ï¿½Nï¿½ï¿½ï¿½X
  */
 template <typename T>
 class AllocatedArray
 {
 private:
     std::unique_ptr<T[]> data_;
-    std::size_t size_; //!< ƒAƒjƒ[ƒVƒ‡ƒ“ƒŠƒXƒg‚Ì”z—ñ‚ÌƒTƒCƒY‚ğŒˆ‚ß‚é‚½‚ß
+    std::size_t size_; //!< ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½Ì”zï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ß‚é‚½ï¿½ï¿½
 
 public:
-    /* Œ^ƒGƒCƒŠƒAƒXistd::vector“™‚Æ‚ÌŒİŠ·«‚Ì‚½‚ßj*/
+    /* ï¿½^ï¿½Gï¿½Cï¿½ï¿½ï¿½Aï¿½Xï¿½istd::vectorï¿½ï¿½ï¿½Æ‚ÌŒİŠï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßj*/
     using value_type = T;
     using size_type = std::size_t;
     using reference = T&;
@@ -25,8 +26,8 @@ public:
     using const_iterator = const T*;
 
     /* 
-     * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^ : ‹ó‚Ì”z—ñ‚ğì¬
-     * Às‘O‚ÉCreate()‚ğŒÄ‚Ô•K—v‚ª‚ ‚é
+     * ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ : ï¿½ï¿½Ì”zï¿½ï¿½ï¿½ï¿½ì¬
+     * ï¿½ï¿½ï¿½sï¿½Oï¿½ï¿½Create()ï¿½ï¿½ï¿½Ä‚Ô•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */ 
     AllocatedArray()
         : data_(nullptr)
@@ -34,21 +35,21 @@ public:
     {
     }
 
-    // ‰ŠúƒTƒCƒYw’è‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½wï¿½ï¿½ÌƒRï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
     explicit AllocatedArray(std::size_t size) : size_(0) {
         Create(size);
     }
 
-    /* ƒRƒs[‚Í‹Ö~iŒÅ’è”z—ñ‚ÌˆÓ}‚µ‚È‚¢ƒfƒB[ƒvƒRƒs[‚ğ–h‚®‚½‚ßj*/
+    /* ï¿½Rï¿½sï¿½[ï¿½Í‹Ö~ï¿½iï¿½Å’ï¿½zï¿½ï¿½ÌˆÓ}ï¿½ï¿½ï¿½È‚ï¿½ï¿½fï¿½Bï¿½[ï¿½vï¿½Rï¿½sï¿½[ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ßj*/
     AllocatedArray(const AllocatedArray&) = delete;
     AllocatedArray& operator=(const AllocatedArray&) = delete;
 
-    /* Š—LŒ ‚ÌˆÚ“® (ƒƒ‚ƒŠƒRƒs[‚È‚µ‚Åó‚¯“n‚¹‚é) */
+    /* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ÌˆÚ“ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[ï¿½È‚ï¿½ï¿½Åó‚¯“nï¿½ï¿½ï¿½ï¿½) */
     AllocatedArray(AllocatedArray&& other) noexcept
         : data_(std::move(other.data_)), size_(other.size_) {
         other.size_ = 0;
     }
-    /* Š—LŒ ‚ÌˆÚ“®(ƒ€[ƒu‘ã“ü‰‰Zq) */
+    /* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ÌˆÚ“ï¿½(ï¿½ï¿½ï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½q) */
     AllocatedArray& operator=(AllocatedArray&& other) noexcept {
         if (this != &other) {
             data_ = std::move(other.data_);
@@ -59,12 +60,12 @@ public:
     }
 
     /* 
-     * Às‚É”z—ñ‚Ì—v‘f”‚ğw’è‚µ‚Äƒƒ‚ƒŠ‚ğŠm•Û‚·‚é 
-     * ‚·‚Å‚Éƒƒ‚ƒŠ‚ªŠm•Û‚³‚ê‚Ä‚¢‚éê‡‚ÍÄŠm•Û 
+     * ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½É”zï¿½ï¿½Ì—vï¿½fï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½Äƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ 
+     * ï¿½ï¿½ï¿½Å‚Éƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Û‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½ÍÄŠmï¿½ï¿½ 
      */
     void Create(std::size_t size) {
         if (size > 0) {
-            // std::make_unique ‚ÅˆÀ‘S‚É”z—ñ‚ğŠm•Û
+            // std::make_unique ï¿½Åˆï¿½ï¿½Sï¿½É”zï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
             data_ = std::make_unique<T[]>(size);
             size_ = size;
         }
@@ -74,9 +75,9 @@ public:
         }
     }
 
-    // --- ‚±‚±‚©‚ç‚Ístd::vector ‚Ì‚æ‚¤‚ÈƒAƒNƒZƒX‹@”\ ---
+    // --- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½std::vector ï¿½Ì‚æ‚¤ï¿½ÈƒAï¿½Nï¿½Zï¿½Xï¿½@ï¿½\ ---
 
-    /* ƒCƒeƒŒ[ƒ^‚Ìæ“¾ */
+    /* ï¿½Cï¿½eï¿½ï¿½ï¿½[ï¿½^ï¿½Ìæ“¾ */
     iterator begin() { return data_.get(); }
     iterator end() { return data_.get() + size_; }
     const_iterator begin() const { return data_.get(); }
@@ -84,15 +85,15 @@ public:
     const_iterator cbegin() const { return data_.get(); }
     const_iterator cend() const { return data_.get() + size_; }
 
-    /* —e—Ê */
+    /* ï¿½eï¿½ï¿½ */
     size_type size() const { return size_; }
     bool empty() const { return size_ == 0; }
 
-    /* —v‘fƒAƒNƒZƒX */
+    /* ï¿½vï¿½fï¿½Aï¿½Nï¿½Zï¿½X */
     reference operator[](size_type pos) { return data_[pos]; }
     const_reference operator[](size_type pos) const { return data_[pos]; }
 
-    /* ‹«ŠEƒ`ƒFƒbƒN•t‚«ƒAƒNƒZƒX */
+    /* ï¿½ï¿½ï¿½Eï¿½`ï¿½Fï¿½bï¿½Nï¿½tï¿½ï¿½ï¿½Aï¿½Nï¿½Zï¿½X */
     reference at(size_type pos) {
         if (pos >= size_) throw std::out_of_range("FixedArray::at: index out of bounds");
         return data_[pos];
@@ -102,7 +103,7 @@ public:
         return data_[pos];
     }
 
-    /* ¶ƒ|ƒCƒ“ƒ^‚Ìæ“¾ */
+    /* ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½^ï¿½Ìæ“¾ */
     pointer data() { return data_.get(); }
     const_pointer data() const { return data_.get(); }
 };

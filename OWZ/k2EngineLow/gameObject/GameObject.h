@@ -1,12 +1,12 @@
 #pragma once
 namespace nsK2EngineLow
 {
-	class GameObject : public Noncopyable, public std::enable_shared_from_this<GameObject>
+	class Component;
+	class GameObject : public Noncopyable
 	{
 	public:
-		virtual ~GameObject()
-		{
-		}
+		GameObject();
+		virtual ~GameObject();
 	public:
 		virtual bool Start() { return true; }
 		virtual void Update() {}
@@ -20,15 +20,7 @@ namespace nsK2EngineLow
 		void Deactivate() {m_isActive = false;}
 
 	public:
-		void UpdateWrapper()
-		{
-			if (m_isActive && m_isStart) {
-				Update();
-				for (auto component : m_componentList) {
-					component.second->UpdateWrapper();
-				}
-			}
-		}
+		void UpdateWrapper();
 
 		void StartWrapper()
 		{
@@ -41,47 +33,53 @@ namespace nsK2EngineLow
 		}
 
 		template <typename T, class... Args>
-		void AddComponent(Args&&... args) {
-			std::shared_ptr<T> t = std::make_shared<T>(std::forward<Args>(args)...);
-			t->SetOwner(shared_from_this());
-			t->OnActive();
-			m_componentList.emplace(T::ID(), t);
-
+		T* AddComponent(Args&&... args) {
+			std::unique_ptr<T> t = std::make_unique<T>(std::forward<Args>(args)...);
+			t->SetOwner(this);
+			t->Active();
+			m_componentList.emplace(T::ID(), std::move(t));
+			return t.get();
 		}
 		template <typename T>
-		std::shared_ptr<T> GetComponent() {
-			std::shared_ptr<Component> c = m_componentList.find(T::ID())->second;
-			return std::dynamic_pointer_cast<T>(c);
+		T* GetComponent() {
+			return static_cast<T*>(m_componentList.find(T::ID())->second.get());
 		}
 
 		template <typename T, class... Args>
 		void AddChildren(std::string name, Args&&... args) {
-			std::shared_ptr<GameObject > gameObject = std::make_shared<T>(std::forward<Args>(args)...);
+			std::unique_ptr<GameObject> gameObject = std::make_unique<T>(std::forward<Args>(args)...);
+			gameObject->SetParent(this);
 			m_children.emplace(name, gameObject);
 		}
 
-		void SetParent(std::shared_ptr<GameObject> gameObject) {
-			m_parent = gameObject;
-		}
-		std::shared_ptr<GameObject> GetParent() {
-			return m_parent.lock();
+		void AddChildren(std::string name, std::unique_ptr<GameObject> gameObject) {
+			gameObject->SetParent(this);
+			m_children.emplace(name, std::move(gameObject));
 		}
 
-		void SetChildren(std::string name, std::shared_ptr<GameObject> gameObject) {
-			m_children.emplace(name,gameObject);
+		void SetParent(GameObject* parent) {
+			m_parent = parent;
 		}
-		std::shared_ptr<GameObject> GetChildren(std::string name) {
-			return m_children.find(name)->second;
+
+		GameObject* GetParent() {
+			return m_parent;
+		}
+
+		void SetChildren(std::string name, std::unique_ptr<GameObject> gameObject) {
+			m_children.emplace(name, std::move(gameObject));
+		}
+		GameObject* GetChildren(std::string name) {
+			return m_children.find(name)->second.get();
 		}
 
 	protected:
 		bool m_isStart = false;							//Startの開始フラグ。
 		bool m_isActive = true;							//Activeフラグ。
 
-		std::weak_ptr<GameObject> m_parent;
-		std::unordered_map <std::string, std::shared_ptr<GameObject>> m_children;
+		GameObject* m_parent;
+		std::unordered_map <std::string, std::unique_ptr<GameObject>> m_children;
 
-		std::unordered_map <uint32_t, std::shared_ptr<Component>> m_componentList;
+		std::unordered_map <uint32_t, std::unique_ptr<Component>> m_componentList;
 	};
 
 }

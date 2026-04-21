@@ -89,6 +89,10 @@ namespace nsK2EngineLow {
 		{
 			return m_ghostObject;
 		}
+
+		ICollider* GetCollider() {
+			return m_collider.get();
+		}
 	private:
 		/// <summary>
 		/// ゴースト作成処理の共通処理。
