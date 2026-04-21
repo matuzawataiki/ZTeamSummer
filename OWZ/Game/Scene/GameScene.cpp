@@ -3,6 +3,8 @@
 #include "Scene/SceneManager.h"
 #include "InGameObject/Character/Playable/Soldier.h"
 #include "DestructibleObject.h"
+#include "UISystem.h"
+#include "UIObfect.cpp"
 
 GameScene::GameScene()
 {
