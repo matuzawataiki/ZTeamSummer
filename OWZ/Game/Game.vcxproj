@@ -227,6 +227,7 @@
     <ClCompile Include="Component\State\Soldier\HelixRocketState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldState.cpp" />
+    <ClCompile Include="DummyEnemy.cpp" />
     <ClCompile Include="InGameObject\Skill\BioticField.cpp" />
     <ClCompile Include="Component\State\IAIState.cpp" />
     <ClCompile Include="Component\Status\HP.cpp" />
@@ -242,7 +243,6 @@
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="Component\Logic\InteractComponent.cpp" />
-    <ClCompile Include="DestructibleObject.cpp" />
     <ClCompile Include="Component\State\General\FlyState.cpp" />
     <ClCompile Include="Component\State\General\IdleState.cpp" />
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
@@ -250,6 +250,11 @@
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="Component\Skill\GunComponent.cpp" />
     <ClCompile Include="Component\Logic\CharacterMoveComponent.cpp" />
+    <ClCompile Include="Mission\ActivationMission.cpp" />
+    <ClCompile Include="Mission\AnnihilationMission.cpp" />
+    <ClCompile Include="Mission\DestructionMission.cpp" />
+    <ClCompile Include="Mission\MissionBase.cpp" />
+    <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Component\Collision\Quadtree.cpp" />
     <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
@@ -291,6 +296,7 @@
     <ClInclude Include="Component\State\Soldier\BioticFieldAIState.h" />
     <ClInclude Include="Component\State\Soldier\BioticFieldState.h" />
     <ClInclude Include="Component\State\Soldier\HelixRocketState.h" />
+    <ClInclude Include="DummyEnemy.h" />
     <ClInclude Include="InGameObject\Skill\BioticField.h" />
     <ClInclude Include="Component\State\IAIState.h" />
     <ClInclude Include="Component\State\StateEnum.h" />
@@ -307,7 +313,6 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="Component\Logic\InteractComponent.h" />
-    <ClInclude Include="DestructibleObject.h" />
     <ClInclude Include="Component\State\General\FlyState.h" />
     <ClInclude Include="Component\State\General\IdleState.h" />
     <ClInclude Include="Component\State\IState.h" />
@@ -315,6 +320,11 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Component\Skill\GunComponent.h" />
     <ClInclude Include="Component\Logic\CharacterMoveComponent.h" />
+    <ClInclude Include="Mission\ActivationMission.h" />
+    <ClInclude Include="Mission\AnnihilationMission.h" />
+    <ClInclude Include="Mission\DestructionMission.h" />
+    <ClInclude Include="Mission\MissionBase.h" />
+    <ClInclude Include="Mission\MissionManager.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
     <ClInclude Include="Component\Collision\Quadtree.h" />

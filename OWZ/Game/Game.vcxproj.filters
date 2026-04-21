@@ -92,7 +92,6 @@
     </ClCompile>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
-    <ClCompile Include="DestructibleObject.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
@@ -232,6 +231,12 @@
     <ClCompile Include="Component\Status\StatusComponent.cpp">
       <Filter>Component\Status</Filter>
     </ClCompile>
+    <ClCompile Include="DummyEnemy.cpp" />
+    <ClCompile Include="Mission\ActivationMission.cpp" />
+    <ClCompile Include="Mission\AnnihilationMission.cpp" />
+    <ClCompile Include="Mission\DestructionMission.cpp" />
+    <ClCompile Include="Mission\MissionBase.cpp" />
+    <ClCompile Include="Mission\MissionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -265,7 +270,6 @@
     </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
-    <ClInclude Include="DestructibleObject.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
@@ -417,5 +421,11 @@
     <ClInclude Include="Component\State\StateEnum.h">
       <Filter>Component\State</Filter>
     </ClInclude>
+    <ClInclude Include="DummyEnemy.h" />
+    <ClInclude Include="Mission\MissionManager.h" />
+    <ClInclude Include="Mission\ActivationMission.h" />
+    <ClInclude Include="Mission\AnnihilationMission.h" />
+    <ClInclude Include="Mission\DestructionMission.h" />
+    <ClInclude Include="Mission\MissionBase.h" />
   </ItemGroup>
 </Project>

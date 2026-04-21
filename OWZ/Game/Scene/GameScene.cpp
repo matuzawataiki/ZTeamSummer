@@ -2,7 +2,6 @@
 #include "GameScene.h"
 #include "Scene/SceneManager.h"
 #include "InGameObject/Character/Playable/Soldier.h"
-#include "DestructibleObject.h"
 
 GameScene::GameScene()
 {
