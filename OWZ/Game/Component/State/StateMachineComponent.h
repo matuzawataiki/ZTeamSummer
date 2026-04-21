@@ -31,8 +31,12 @@ public:
 		m_mainStates.at(stateID) = std::move(state);
 	}
 
+	void RegisterMainState(EnMainStateID stateID, std::unique_ptr<IState> state) {
+		m_mainStates.at(stateID) = std::move(state);
+	}
+
 	template <typename T>
-	void RegisterMainState(EnMoveStateID stateID) {
+	void RegisterMoveState(EnMoveStateID stateID) {
 		auto state = std::make_unique<T>();
 		m_moveStates.at(stateID) = std::move(state);
 	}

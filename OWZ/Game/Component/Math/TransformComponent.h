@@ -12,6 +12,7 @@ private:
 	std::shared_ptr<Transform> m_transform;
 
 public:
+	std::shared_ptr<Transform> GetTransform() { return m_transform; }
 	void SetParent(std::shared_ptr<Transform> parent) { m_transform->SetParent(parent, m_transform); }
 
 	Vector3 GetPosition() { return m_transform->GetPosition(); }

@@ -13,7 +13,7 @@ void PulseRifleAIState::Update()
 	}
 
 	if (m_stateTime < 0) {
-		m_stateTime = true;
+		m_isIdle = true;
 	}
 	else {
 		m_stateTime -= g_gameTime->GetFrameDeltaTime();

@@ -37,6 +37,7 @@ bool PulseRifle::Start()
 	m_gunData.fireRate = 0.1;
 	m_gunData.maxAmmo = 30;
 
+	m_ammoData.damage = 12;
 	m_ammoData.radius = 1;
 	m_ammoData.range = 1000;
 	m_ammoData.targetCategory = EnCollisionCategory::enCollisionCat_Enemy | EnCollisionCategory::enCollisionCat_Environment;

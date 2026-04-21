@@ -37,6 +37,8 @@ public:
 		}
 	}
 
+	Model& GetModel() { return m_model->GetModel(); }
+
 private:
 	void Update() override;
 };

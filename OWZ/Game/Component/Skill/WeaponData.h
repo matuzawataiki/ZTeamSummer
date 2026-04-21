@@ -14,6 +14,7 @@ struct AmmoData
 	EnCollisionCategory thisCategory = EnCollisionCategory::enCollisionCat_None;
 	uint32_t targetCategory = EnCollisionCategory::enCollisionCat_All;
 
+	float damage = 0.0f;
 	float speed = 0.0;
 	float radius = 0.0f;
 	float range = 0.0f;

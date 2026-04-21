@@ -39,10 +39,10 @@ public:
 	void UseAmmo(std::string name, Vector3 moveDirection, Vector3 position);
 
 	template <typename T>
-	void RegistAmmo(AmmoData ammoData, int poolSize)
+	void RegistAmmo(AmmoData ammoData)
 	{
 		AmmoPool ammoPool;
-		ammoPool.ammoPool.resize(poolSize);
+		ammoPool.ammoPool.resize(ammoData.ammoPoolSize);
 		//将来的にはマルチスレッドで
 		for (int i = 0; i < ammoPool.ammoPool.size(); i++) {
 			ammoPool.ammoPool.at(i) = std::make_unique<T>();
@@ -51,7 +51,7 @@ public:
 
 		}
 
-		m_ammoPools.emplace(ammoData.ammoName, ammoPool);
+		m_ammoPools.emplace(ammoData.ammoName, std::move(ammoPool));
 	}
 
 };

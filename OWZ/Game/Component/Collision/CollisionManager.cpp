@@ -4,11 +4,11 @@
 
 CollisionManager* CollisionManager::m_instance = nullptr;
 
-void CollisionManager::Register(std::shared_ptr<ColliderComponent> collider)
+void CollisionManager::Register(ColliderComponent* collider)
 {
 	for (auto it = m_colliders.begin(); it != m_colliders.end(); ) {
-		if (auto existing = it->lock()) {
-			if (existing == collider) {
+		if (*it) {
+			if (*it == collider) {
 				return;
 			}
 			++it;
@@ -21,15 +21,14 @@ void CollisionManager::Register(std::shared_ptr<ColliderComponent> collider)
 	m_colliders.push_back(collider);
 }
 
-void CollisionManager::Unregister(std::shared_ptr<ColliderComponent> collider)
+void CollisionManager::Unregister(ColliderComponent* collider)
 {
 	m_colliders.erase(
 		std::remove_if(
 			m_colliders.begin(),
 			m_colliders.end(),
-			[&collider](const std::weak_ptr<ColliderComponent>& w) {
-				auto p = w.lock();
-				return !p || p == collider;
+			[collider](const ColliderComponent* w) {
+				return !w || w == collider;
 			}
 		),
 		m_colliders.end()
@@ -40,8 +39,8 @@ void CollisionManager::Update()
 {
 	// 1. Quadtreeをクリアして再構築
 	m_quadtree.Clear();
-	for (auto& collider : m_colliders) {
-		m_quadtree.Insert(collider.lock());
+	for (auto collider : m_colliders) {
+		m_quadtree.Insert(collider);
 	}
 
 	// 2. Quadtreeから衝突候補ペアを取得
@@ -138,8 +137,7 @@ bool CollisionManager::Raycast(
 	float closestDist = FLT_MAX;
 	ColliderComponent* closestCollider = nullptr;
 
-	for (auto& weak_collider : m_colliders) {
-		std::shared_ptr<ColliderComponent> collider = weak_collider.lock();
+	for (auto& collider : m_colliders) {
 		if (!collider) {
 			continue;
 		}
@@ -170,7 +168,7 @@ bool CollisionManager::Raycast(
 		float dist = diff.Length();
 		if (dist < closestDist) {
 			closestDist = dist;
-			closestCollider = collider.get();
+			closestCollider = collider;
 		}
 	}
 
@@ -252,8 +250,7 @@ bool CollisionManager::SphereCast(
 	outResult.hitPos = callback.m_hitPos;
 
 	// ヒットしたbtCollisionObjectから、登録済みColliderを特定する
-	for (auto& weak_collider : m_colliders) {
-		std::shared_ptr<ColliderComponent> collider = weak_collider.lock();
+	for (auto& collider : m_colliders) {
 		if (!collider) {
 			continue;
 		}

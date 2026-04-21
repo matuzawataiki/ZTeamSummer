@@ -10,8 +10,8 @@ public:
     ~DestructibleObject();
 
 private:
-    std::shared_ptr<TransformComponent> m_transform;
-    std::shared_ptr<ModelComponent> m_model;
+    ModelComponent* m_model;
+    TransformComponent* m_transform;
 
     bool m_isDestroyed;
 

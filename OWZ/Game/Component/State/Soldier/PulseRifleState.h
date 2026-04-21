@@ -1,18 +1,14 @@
 #pragma once
 #include "Component/State/IState.h"
 
-class PulseRifle;
+class WeaponBase;
 class PulseRifleState : public IState
 {
-public:
-	PulseRifleState() = default;
-	~PulseRifleState() = default;
-
 private:
-	PulseRifle* m_wepon = nullptr;
+	WeaponBase* m_wepon = nullptr;
 
 public:
-	void SetWepon(PulseRifle* wepon) { m_wepon = wepon; }
+	void SetWepon(WeaponBase* wepon) { m_wepon = wepon; }
 
 	void Enter() override;
 	void Update() override;

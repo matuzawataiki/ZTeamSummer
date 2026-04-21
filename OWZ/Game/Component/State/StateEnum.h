@@ -2,11 +2,13 @@
 enum EnMainStateID {
 	enIdelState,
 	enMainWeaponState,
+	enSecondaryWeaponState,
 	enReloadState,
 	enFastSkillState,
 	enSecondSkillState,
 	enThirdSkillState,
 	enSubSkillState,
+	enUltimateState,
 	enAttackSkillState,
 	enMainStateNum
 };

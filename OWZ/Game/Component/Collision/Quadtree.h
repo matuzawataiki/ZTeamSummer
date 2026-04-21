@@ -63,7 +63,7 @@ public:
 	/// <summary>
 	/// コライダーをQuadtreeに挿入する。
 	/// </summary>
-	void Insert(std::shared_ptr<ColliderComponent> collider);
+	void Insert(ColliderComponent* collider);
 
 	/// <summary>
 	/// 衝突する可能性のあるペアを全て取得する。

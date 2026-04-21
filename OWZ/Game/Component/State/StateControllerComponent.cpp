@@ -31,21 +31,29 @@ void StateControllerComponent::Update()
 
 void StateControllerComponent::ChangeCheck()
 {
+	if (!g_pad[0]->IsPressAnyKey()) { return; }
+
 	if (ChangeRequest(enButtonLMouse, EnMainStateID::enMainWeaponState)) return;
+
+	if (ChangeRequest(enButtonRMouse, EnMainStateID::enSecondaryWeaponState)) return;
 
 	if (ChangeRequest(enButtonE, EnMainStateID::enFastSkillState)) return;
 
-	if (ChangeRequest(enButtonQ, EnMainStateID::enSecondSkillState)) return;
+	if (ChangeRequest(enButtonShift, EnMainStateID::enSecondSkillState)) return;
 
-	if (ChangeRequest(enButtonShift, EnMainStateID::enThirdSkillState)) return;
+	//if (ChangeRequest(enButtonSelect, EnMainStateID::enThirdSkillState)) return;
+	
+	if (ChangeRequest(enButtonQ, EnMainStateID::enUltimateState)) return;
 
 	if (ChangeRequest(enButtonR, EnMainStateID::enReloadState)) return;
 
-	if (ChangeRequest(enButtonB, EnMainStateID::enAttackSkillState)) return;
+	if (ChangeRequest(enButtonV, EnMainStateID::enAttackSkillState)) return;
 }
 
 bool StateControllerComponent::ChangeRequest(EnButton button, EnMainStateID stateID)
 {
+	if (!m_aiStates.at(stateID)) { return false; }
+
 	if (!g_pad[0]->IsTrigger(button) ||	!m_aiStates.at(stateID)->IsActive()) {
 		return false;
 	}

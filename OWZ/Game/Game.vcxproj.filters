@@ -37,8 +37,26 @@
     <Filter Include="Component\Collision">
       <UniqueIdentifier>{b3a4e1c2-5d6f-7890-abcd-ef1234567890}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\Collision\AI">
-      <UniqueIdentifier>{07db87b2-d42c-4b7d-95b6-b98f422eb77a}</UniqueIdentifier>
+    <Filter Include="Component\State\Soldier">
+      <UniqueIdentifier>{688677aa-c802-42d3-9897-ee249d4a5dce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Ammo">
+      <UniqueIdentifier>{74e41210-1d07-4be2-944d-da9fe3122194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Object">
+      <UniqueIdentifier>{78efa567-6285-43d9-96ae-b1c72f694765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Skill">
+      <UniqueIdentifier>{9012d1b0-2bfa-4a32-9dab-1816cc5e2a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InGameObject\Weapon">
+      <UniqueIdentifier>{84c9e1dd-c78c-4873-8d3c-f7fc7279a67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Skill">
+      <UniqueIdentifier>{3d7903a9-2afd-4e26-a5ec-7230fdc5dd1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Status">
+      <UniqueIdentifier>{eca814a6-2651-4bbd-8b6d-85d43f3e9e0d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,18 +90,10 @@
     <ClCompile Include="Component\Graphics\ModelComponent.cpp">
       <Filter>Component\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="InteractComponent.cpp">
-      <Filter>Component\Logic</Filter>
-    </ClCompile>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
-    <ClCompile Include="Component\Logic\InteractComponent.cpp" />
     <ClCompile Include="DestructibleObject.cpp" />
-    <ClCompile Include="Component\State\General\FlyState.cpp" />
-    <ClCompile Include="Component\State\General\IdleState.cpp" />
-    <ClCompile Include="Component\State\StateControllerComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -91,30 +101,137 @@
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
     <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
-    <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Component\Math\TransformComponent.cpp" />
-    <ClCompile Include="system\Math\Transform.cpp" />
-    <ClCompile Include="Component\Collision\ColliderComponent.cpp" />
-    <ClCompile Include="Component\Collision\CollisionManager.cpp" />
     <ClCompile Include="Component\Math\Transform.cpp">
       <Filter>Component\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Component\Collision\Quadtree.cpp" />
-    <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
-    <ClCompile Include="Component\Skill\GunComponent.cpp" />
-    <ClCompile Include="InGameObject\Ammo\NormalAmmo.cpp" />
     <ClCompile Include="ProjectileManager.cpp" />
-    <ClCompile Include="Component\Collision\RigidBodyComponent.cpp" />
-    <ClCompile Include="Component\Skill\HitscanGunComponent.cpp" />
-    <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
-    <ClCompile Include="InGameObject\Ammo\AmmoBase.cpp" />
-    <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
-    <ClCompile Include="Component\Skill\SkillsComponent.cpp" />
-    <ClCompile Include="Component\State\IAIState.cpp" />
-    <ClCompile Include="PulseRifleState.cpp" />
+    <ClCompile Include="Component\Collision\ColliderComponent.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Collision\CollisionManager.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Collision\Quadtree.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Collision\RigidBodyComponent.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Logic\CharacterMoveComponent.cpp">
+      <Filter>Component\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Logic\InteractComponent.cpp">
+      <Filter>Component\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\FlyState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\IdleState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\PunchAIState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\PunchState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\ReloadAIState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\General\ReloadState.cpp">
+      <Filter>Component\State\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\BioticFieldState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\HelixRocketAIState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\HelixRocketState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\PulseRifleAIState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\PulseRifleState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\SprintAIState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\Soldier\SprintState.cpp">
+      <Filter>Component\State\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\IAIState.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\IState.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\StateControllerComponent.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\State\StateMachineComponent.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Ammo\AmmoBase.cpp">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Ammo\HelixRocketAmmo.cpp">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Ammo\NormalAmmo.cpp">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Object\StateObject.cpp">
+      <Filter>InGameObject\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Skill\BioticField.cpp">
+      <Filter>InGameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Skill\HelixRocket.cpp">
+      <Filter>InGameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Skill\HealingArea.cpp">
+      <Filter>InGameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Skill\SkillBase.cpp">
+      <Filter>InGameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Skill\Sprint.cpp">
+      <Filter>InGameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Weapon\Punch.cpp">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Skill\GunComponent.cpp">
+      <Filter>Component\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Skill\HitscanGunComponent.cpp">
+      <Filter>Component\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Skill\SkillsComponent.cpp">
+      <Filter>Component\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Status\HP.cpp">
+      <Filter>Component\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Status\StatusComponent.cpp">
+      <Filter>Component\Status</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -148,12 +265,7 @@
     </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
-    <ClInclude Include="Component\Logic\InteractComponent.h" />
     <ClInclude Include="DestructibleObject.h" />
-    <ClInclude Include="Component\State\General\FlyState.h" />
-    <ClInclude Include="Component\State\General\IdleState.h" />
-    <ClInclude Include="Component\State\IState.h" />
-    <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
@@ -162,36 +274,148 @@
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
-    <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Math\TransformComponent.h" />
-    <ClInclude Include="system\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
-    <ClInclude Include="Component\Collision\CollisionDefine.h">
-      <Filter>Component\Collision\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Collision\ColliderComponent.h" />
-    <ClInclude Include="Component\Collision\CollisionManager.h" />
     <ClInclude Include="Component\Math\Transform.h">
       <Filter>Component\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Component\Collision\Quadtree.h" />
-    <ClInclude Include="InGameObject\Weapon\PulseRifle.h" />
-    <ClInclude Include="Component\Skill\WeaponData.h" />
-    <ClInclude Include="Component\Skill\GunComponent.h" />
-    <ClInclude Include="InGameObject\Ammo\NormalAmmo.h" />
     <ClInclude Include="ProjectileManager.h" />
-    <ClInclude Include="Component\Collision\RigidBodyComponent.h" />
-    <ClInclude Include="Component\Skill\HitscanGunComponent.h" />
-    <ClInclude Include="InGameObject\Weapon\WeaponBase.h" />
-    <ClInclude Include="InGameObject\Ammo\AmmoBase.h" />
-    <ClInclude Include="InGameObject\Skill\SkillBase.h" />
-    <ClInclude Include="Component\Skill\SkillsComponent.h" />
-    <ClInclude Include="Component\State\IAIState.h" />
-    <ClInclude Include="Component\State\StateEnum.h" />
-    <ClInclude Include="PulseRifleState.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Component\Collision\CollisionDefine.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\ColliderComponent.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\CollisionManager.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\Quadtree.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Collision\RigidBodyComponent.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Logic\CharacterMoveComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Logic\InteractComponent.h">
+      <Filter>Component\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\FlyState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\IdleState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\PunchAIState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\PunchState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\ReloadAIState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\General\ReloadState.h">
+      <Filter>Component\State\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\BioticFieldAIState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\BioticFieldState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\HelixRocketAIState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\HelixRocketState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\PulseRifleAIState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\PulseRifleState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\SprintAIState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\Soldier\SprintState.h">
+      <Filter>Component\State\Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\IAIState.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\IState.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\StateControllerComponent.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\StateMachineComponent.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Ammo\AmmoBase.h">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Ammo\HelixRocketAmmo.h">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Ammo\NormalAmmo.h">
+      <Filter>InGameObject\Ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Object\StateObject.h">
+      <Filter>InGameObject\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Skill\BioticField.h">
+      <Filter>InGameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Skill\HelixRocket.h">
+      <Filter>InGameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Skill\HealingArea.h">
+      <Filter>InGameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Skill\SkillBase.h">
+      <Filter>InGameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Skill\Sprint.h">
+      <Filter>InGameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Weapon\PulseRifle.h">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Weapon\Punch.h">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameObject\Weapon\WeaponBase.h">
+      <Filter>InGameObject\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Skill\GunComponent.h">
+      <Filter>Component\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Skill\HitscanGunComponent.h">
+      <Filter>Component\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Skill\SkillsComponent.h">
+      <Filter>Component\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Skill\WeaponData.h">
+      <Filter>Component\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Status\HP.h">
+      <Filter>Component\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Status\StatusComponent.h">
+      <Filter>Component\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\State\StateEnum.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

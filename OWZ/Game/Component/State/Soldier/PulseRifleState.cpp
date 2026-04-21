@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "PulseRifleState.h"
-#include "InGameObject/Weapon/PulseRifle.h"
+#include "InGameObject/Weapon/WeaponBase.h"
 
 void PulseRifleState::Enter()
 {

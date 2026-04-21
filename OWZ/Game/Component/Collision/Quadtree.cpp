@@ -21,13 +21,13 @@ void Quadtree::Clear()
 	}
 }
 
-void Quadtree::Insert(std::shared_ptr<ColliderComponent> collider)
+void Quadtree::Insert(ColliderComponent* collider)
 {
 	if (!collider->IsCreated() || !collider->IsActive()) {
 		return;
 	}
-	AABB colliderAABB = CalcColliderAABB(collider.get());
-	InsertToNode(m_root.get(), collider.get(), colliderAABB);
+	AABB colliderAABB = CalcColliderAABB(collider);
+	InsertToNode(m_root.get(), collider, colliderAABB);
 }
 
 Quadtree::AABB Quadtree::CalcColliderAABB(ColliderComponent* collider)

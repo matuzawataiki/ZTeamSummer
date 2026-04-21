@@ -223,7 +223,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component\State\Soldier\HelixRocketAIState.cpp" />
+    <ClCompile Include="Component\State\Soldier\HelixRocketState.cpp" />
+    <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp" />
+    <ClCompile Include="Component\State\Soldier\BioticFieldState.cpp" />
+    <ClCompile Include="InGameObject\Skill\BioticField.cpp" />
     <ClCompile Include="Component\State\IAIState.cpp" />
+    <ClCompile Include="Component\Status\HP.cpp" />
+    <ClCompile Include="InGameObject\Skill\HealingArea.cpp" />
+    <ClCompile Include="InGameObject\Ammo\HelixRocketAmmo.cpp" />
+    <ClCompile Include="InGameObject\Skill\HelixRocket.cpp" />
     <ClCompile Include="InGameObject\Ammo\AmmoBase.cpp" />
     <ClCompile Include="Component\Collision\RigidBodyComponent.cpp" />
     <ClCompile Include="Component\Skill\HitscanGunComponent.cpp" />
@@ -240,16 +249,28 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="Component\Skill\GunComponent.cpp" />
+    <ClCompile Include="Component\Logic\CharacterMoveComponent.cpp" />
     <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Component\Collision\Quadtree.cpp" />
     <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
     <ClCompile Include="ProjectileManager.cpp" />
-    <ClCompile Include="PulseRifleState.cpp" />
+    <ClCompile Include="Component\State\Soldier\PulseRifleAIState.cpp" />
+    <ClCompile Include="Component\State\Soldier\PulseRifleState.cpp" />
+    <ClCompile Include="Component\State\General\ReloadAIState.cpp" />
+    <ClCompile Include="Component\State\General\ReloadState.cpp" />
+    <ClCompile Include="InGameObject\Weapon\Punch.cpp" />
+    <ClCompile Include="Component\State\General\PunchAIState.cpp" />
+    <ClCompile Include="Component\State\General\PunchState.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
+    <ClCompile Include="Component\Status\StatusComponent.cpp" />
+    <ClCompile Include="InGameObject\Skill\Sprint.cpp" />
+    <ClCompile Include="Component\State\Soldier\SprintAIState.cpp" />
+    <ClCompile Include="Component\State\Soldier\SprintState.cpp" />
+    <ClCompile Include="InGameObject\Object\StateObject.cpp" />
     <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
@@ -266,8 +287,17 @@
     <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\State\Soldier\HelixRocketAIState.h" />
+    <ClInclude Include="Component\State\Soldier\BioticFieldAIState.h" />
+    <ClInclude Include="Component\State\Soldier\BioticFieldState.h" />
+    <ClInclude Include="Component\State\Soldier\HelixRocketState.h" />
+    <ClInclude Include="InGameObject\Skill\BioticField.h" />
     <ClInclude Include="Component\State\IAIState.h" />
     <ClInclude Include="Component\State\StateEnum.h" />
+    <ClInclude Include="Component\Status\HP.h" />
+    <ClInclude Include="InGameObject\Skill\HealingArea.h" />
+    <ClInclude Include="InGameObject\Ammo\HelixRocketAmmo.h" />
+    <ClInclude Include="InGameObject\Skill\HelixRocket.h" />
     <ClInclude Include="InGameObject\Ammo\AmmoBase.h" />
     <ClInclude Include="Component\Collision\RigidBodyComponent.h" />
     <ClInclude Include="Component\Skill\HitscanGunComponent.h" />
@@ -284,16 +314,29 @@
     <ClInclude Include="Component\State\StateControllerComponent.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Component\Skill\GunComponent.h" />
+    <ClInclude Include="Component\Logic\CharacterMoveComponent.h" />
     <ClInclude Include="Parameter\IMasterParameter.h" />
     <ClInclude Include="Parameter\ParameterManager.h" />
     <ClInclude Include="Component\Collision\Quadtree.h" />
     <ClInclude Include="InGameObject\Weapon\PulseRifle.h" />
     <ClInclude Include="ProjectileManager.h" />
-    <ClInclude Include="PulseRifleState.h" />
+    <ClInclude Include="Component\State\Soldier\PulseRifleAIState.h" />
+    <ClInclude Include="Component\State\Soldier\PulseRifleState.h" />
+    <ClInclude Include="Component\State\General\ReloadAIState.h" />
+    <ClInclude Include="Component\State\General\ReloadState.h" />
+    <ClInclude Include="InGameObject\Weapon\Punch.h" />
+    <ClInclude Include="Component\State\General\PunchAIState.h" />
+    <ClInclude Include="Component\State\General\PunchState.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
+    <ClInclude Include="Component\Status\StatusComponent.h" />
+    <ClInclude Include="InGameObject\Skill\Sprint.h" />
+    <ClInclude Include="Component\State\Soldier\SprintAIState.h" />
+    <ClInclude Include="Component\State\Soldier\SprintState.h" />
+    <ClInclude Include="InGameObject\Object\StateObject.h" />
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="InGameObject\Skill\SkillBase.h" />

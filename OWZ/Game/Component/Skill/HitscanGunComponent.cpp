@@ -5,9 +5,7 @@
 HitscanGunComponent::HitscanGunComponent(GunData gunData, AmmoData ammoData)
 {
 	m_gunData = gunData;
-	m_radius = ammoData.radius;
-	m_range = ammoData.range;
-	m_targetCategory = ammoData.targetCategory;
+	m_ammoData = ammoData;
 }
 
 HitscanGunComponent::~HitscanGunComponent()
@@ -16,16 +14,13 @@ HitscanGunComponent::~HitscanGunComponent()
 
 bool HitscanGunComponent::Fire(const Vector3& position, const Vector3& direction, HitResult& outResult)
 {
-	if (m_fireRateCount >= 0) return false;
-	if (m_ammoCounter <= 0) return false;
-
 	CollisionManager::GetInstance()->SphereCast(
 		position,
 		direction,
-		m_range,
-		m_radius,
+		m_ammoData.range,
+		m_ammoData.radius,
 		outResult,
-		m_targetCategory
+		m_ammoData.targetCategory
 	);
 	m_ammoCounter--;
 	return true;

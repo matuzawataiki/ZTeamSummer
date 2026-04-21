@@ -26,6 +26,7 @@ void RigidBodyComponent::CreateRigidBody(float mass, float restitution)
 {
 	auto transform = GetComponent<TransformComponent>();
 	auto collider = GetComponent<ColliderComponent>();
+	collider->Deactivate();
 
 	RigidBodyInitData initData;
 	initData.pos = transform->GetPosition();

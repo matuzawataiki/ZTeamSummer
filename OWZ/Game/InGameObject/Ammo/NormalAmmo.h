@@ -12,8 +12,7 @@ private:
 	Vector3 m_moveDirectiron = Vector3::Zero;
 	float m_speed = 0.0;
 	float m_radius = 0.0f;
-		  
-	bool  m_isProjectile = false;
+	float m_range = 0.0f;
 	float m_mass = 0.0f;
 	
 public:

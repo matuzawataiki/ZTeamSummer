@@ -14,16 +14,28 @@ enum EnSkillNumber
 class SkillsComponent : public Component
 {
 	appClass(SkillsComponent)
-public:
-	SkillsComponent();
-	~SkillsComponent();
-
-	void SetMainWepon(std::unique_ptr<WeaponBase> weapon) {
-		m_mainWeapon = std::move(weapon);
-	}
 
 private:
 	std::unique_ptr<WeaponBase> m_mainWeapon;
-	std::array<SkillBase, 4> m_skills;
+	std::array<std::unique_ptr<SkillBase>, 4> m_skills;
+
+public:
+	void SetMainWepon(std::unique_ptr<WeaponBase> weapon) {
+		m_mainWeapon = std::move(weapon);
+	}
+	WeaponBase* GetMainWepon() {
+		return m_mainWeapon.get();
+	}
+
+	void SetSkill(std::unique_ptr<SkillBase> skill, EnSkillNumber skillNumber) {
+		m_skills.at(skillNumber) = std::move(skill);
+	}
+	SkillBase* GetSkill(EnSkillNumber skillNumber) {
+		return m_skills.at(skillNumber).get();
+	}
+
+
+private:
+	void Update() override;
 };
 

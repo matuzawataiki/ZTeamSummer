@@ -14,6 +14,8 @@ protected:
 
 public:
 	virtual void Fire(){}
+	virtual bool IsFier() { return true; }
+
 	virtual void Reload(){}
 
 private:

@@ -43,6 +43,13 @@ public:
 	/// <param name="height">カプセルの高さ</param>
 	void CreateCapsule(float radius, float height);
 
+	/// <summary>
+	/// メッシュ形状のコライダーを作成。
+	/// </summary>
+	/// <param name="radius">モデル</param>
+	/// <param name="height">ワールド行列</param>
+	void CreateMesh(const Model& model, const Matrix& worldMatrix);
+
 	// --- カテゴリ設定 ---
 
 	/// <summary>

@@ -9,12 +9,11 @@ public:
 
 private:
 	GunData m_gunData;
-	uint32_t m_targetCategory = EnCollisionCategory::enCollisionCat_All;
-	int m_ammoCounter = 0;
-	float m_radius = 0.0f;
-	float m_range = 0.0f;
+	AmmoData m_ammoData;
 
+	int m_ammoCounter = 0;
 	float m_fireRateCount = 0.0;
+
 public:
 	bool Fire(const Vector3& position, const Vector3& direction, HitResult& outResult);
 

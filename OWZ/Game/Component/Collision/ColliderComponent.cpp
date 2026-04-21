@@ -6,8 +6,7 @@ ColliderComponent::ColliderComponent() = default;
 ColliderComponent::~ColliderComponent() 
 {
 	if (m_isCreated) {
-		auto collicomp = std::dynamic_pointer_cast<ColliderComponent>(shared_from_this());
-		CollisionManager::GetInstance()->Unregister(collicomp);
+		CollisionManager::GetInstance()->Unregister(this);
 	}
 }
 
@@ -26,7 +25,7 @@ void ColliderComponent::Update()
 
 void ColliderComponent::CreateBox(const Vector3& size)
 {
-	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -35,13 +34,12 @@ void ColliderComponent::CreateBox(const Vector3& size)
 	m_radius = max(size.x, size.z) / 2;
 	m_isCreated = true;
 
-	auto collicomp = std::dynamic_pointer_cast<ColliderComponent>(shared_from_this());
-	CollisionManager::GetInstance()->Register(collicomp);
+	CollisionManager::GetInstance()->Register(this);
 }
 
 void ColliderComponent::CreateSphere(float radius)
 {
-	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -51,13 +49,12 @@ void ColliderComponent::CreateSphere(float radius)
 	m_radius = radius;
 	m_isCreated = true;
 
-	auto collicomp = std::dynamic_pointer_cast<ColliderComponent>(shared_from_this());
-	CollisionManager::GetInstance()->Register(collicomp);
+	CollisionManager::GetInstance()->Register(this);
 }
 
 void ColliderComponent::CreateCapsule(float radius, float height)
 {
-	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -66,9 +63,19 @@ void ColliderComponent::CreateCapsule(float radius, float height)
 	m_radius = radius;
 	m_isCreated = true;
 
-	auto collicomp = std::dynamic_pointer_cast<ColliderComponent>(shared_from_this());
-	CollisionManager::GetInstance()->Register(collicomp);
+	CollisionManager::GetInstance()->Register(this);
+}
 
+void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix)
+{
+	TransformComponent* transform = GetComponent<TransformComponent>();
+
+	Vector3 position = transform->GetPosition();
+	Quaternion rotation = transform->GetRotation();
+
+	m_ghostObject.CreateMesh(position, rotation, model, worldMatrix);
+
+	CollisionManager::GetInstance()->Register(this);
 }
 
 void ColliderComponent::SyncTransform()

@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "NormalAmmo.h"
-#include "Component/Math/Transform.h"
 #include "Component/Collision/ColliderComponent.h"
 #include "Component/Skill/WeaponData.h"
 #include "Component/Graphics/ModelComponent.h"
@@ -12,15 +11,13 @@ void NormalAmmo::Init(AmmoData ammoData)
 	AddComponent<ColliderComponent>();
 
 	m_speed = ammoData.speed;
-	m_isProjectile = ammoData.isProjectile;
+	m_mass = ammoData.mass;
 
 	auto colliderComponent = GetComponent<ColliderComponent>();
 	colliderComponent->CreateSphere(ammoData.radius);
 
 	auto modelComponent = GetComponent<ModelComponent>();
 	modelComponent->SetModel(ammoData.modelFilePath.c_str());
-
-
 }
 
 void NormalAmmo::GoAmmo(Vector3 moveDirection, Vector3 position)

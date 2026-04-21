@@ -11,7 +11,7 @@ private:
 	~CollisionManager() = default;
 
 private:
-	std::vector<std::weak_ptr<ColliderComponent>> m_colliders;
+	std::vector<ColliderComponent*> m_colliders;
 	Quadtree m_quadtree;
 
 public:
@@ -31,12 +31,12 @@ public:
 	/// <summary>
 	/// コライダーを登録する。ColliderComponentの形状作成時に自動で呼ばれる。
 	/// </summary>
-	void Register(std::shared_ptr<ColliderComponent> collider);
+	void Register(ColliderComponent* collider);
 
 	/// <summary>
 	/// コライダーの登録を解除する。ColliderComponentの破棄時に自動で呼ばれる。
 	/// </summary>
-	void Unregister(std::shared_ptr<ColliderComponent> collider);
+	void Unregister(ColliderComponent* collider);
 
 	/// <summary>
 	/// 全コライダー間の衝突判定を実行する。

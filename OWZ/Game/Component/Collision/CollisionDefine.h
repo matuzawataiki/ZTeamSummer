@@ -12,6 +12,7 @@ static enum EnCollisionCategory : uint32_t {
 	enCollisionCat_EnemyBullet  = 1 << 3,
 	enCollisionCat_Environment  = 1 << 4,
 	enCollisionCat_Trigger      = 1 << 5,
+	enCollisionCat_Heel			= 1 << 6,
 	// ユーザー拡張用
 	enCollisionCat_User1        = 1 << 16,
 	enCollisionCat_User2        = 1 << 17,
@@ -23,7 +24,7 @@ static enum EnCollisionCategory : uint32_t {
 /// コールバックやレイキャストの結果として使用する。
 /// </summary>
 struct HitResult {
-	std::shared_ptr<GameObject> hitObject = nullptr;	// 衝突相手のGameObject
+	GameObject* hitObject = nullptr;	// 衝突相手のGameObject
 	Vector3 hitPos    = Vector3::Zero;					// 衝突点
 	Vector3 hitNormal = Vector3::Zero;					// 衝突面の法線
 	EnCollisionCategory hitCategory = enCollisionCat_None;	// 相手のカテゴリ
