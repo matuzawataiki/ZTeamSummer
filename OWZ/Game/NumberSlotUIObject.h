@@ -7,7 +7,7 @@ class SpriteComponent;
 class NumberSlotUIBaseObject : public UIObject
 {
 protected:
-	std::array<std::shared_ptr<UIObject>, 10> m_numberSprites;
+	std::array<UIObject*, 10> m_numberSprites;
 	int m_currentNumber = 0;
 	bool m_isVisible = true;
 

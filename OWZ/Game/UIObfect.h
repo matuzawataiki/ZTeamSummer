@@ -34,9 +34,8 @@ public:
 	)
 	{
 		m_visualType = UIVisualType::Sprite;
-		AddComponent<SpriteComponent>();
 
-		auto sprite = GetComponent<SpriteComponent>();
+		auto sprite = AddComponent<SpriteComponent>();;
 		if (sprite != nullptr) {
 			sprite->Init(filePath, w, h, alphaBlendMode);
 		}
@@ -44,6 +43,8 @@ public:
 
 	void Render() override
 	{
+		if (m_visualType == UIVisualType::None)return;
+
 		auto sprite = GetComponent<SpriteComponent>();
 		if (sprite != nullptr) {
 			sprite->Render();
@@ -68,6 +69,11 @@ public:
 	bool IsDestroyRequested() const
 	{
 		return m_isDestroyRequested;
+	}
+
+	UIVisualType GetVisualType() const
+	{
+		return m_visualType;
 	}
 };
 

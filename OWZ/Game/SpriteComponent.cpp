@@ -10,16 +10,15 @@ bool SpriteComponent::Start()
 
 void SpriteComponent::Update()
 {
-	auto transform = m_transform.lock();
-	if (!transform) {
+	if (!m_transform) {
 		return;
 	}
 
 
 	// Transform‚Ì’l‚ğSpriteRender‚Ö”½‰f
-	m_spriteRender.SetPosition(transform->GetRenderPosition());
-	m_spriteRender.SetRotation(transform->GetRotation());
-	m_spriteRender.SetScale(transform->GetScale());
+	m_spriteRender.SetPosition(m_transform->GetRenderPosition());
+	m_spriteRender.SetRotation(m_transform->GetRotation());
+	m_spriteRender.SetScale(m_transform->GetScale());
 
 	// Œ©‚½–Úİ’è
 	m_spriteRender.SetPivot(m_pivot);

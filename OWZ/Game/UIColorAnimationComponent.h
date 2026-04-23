@@ -24,7 +24,7 @@ public:
 		// コンポーネントはいるのでわざわざウィークで持たず生ポインタで受け取っている。
 		// NOTE:もしコンポーネントを自由に取り外しできるようにする
 		//設計に変えるなら、ここもウィークに変えないといけない。
-		m_sprite = GetOwner()->GetComponent<SpriteComponent>().get();
+		m_sprite = GetOwner()->GetComponent<SpriteComponent>();
 		return true;
 	}
 

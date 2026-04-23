@@ -5,9 +5,9 @@
 class ScreenSpaceBarUI : public ScreenSpaceUIObject
 {
 private:
-	std::weak_ptr<ScreenSpaceUIObject> m_background;
-	std::weak_ptr<ScreenSpaceUIObject> m_fill;
-	std::weak_ptr<ScreenSpaceUIObject> m_frame;
+	ScreenSpaceUIObject* m_background;
+	ScreenSpaceUIObject* m_fill;
+	ScreenSpaceUIObject* m_frame;
 
 	ScreenUITransformComponent* m_fillTransform = nullptr;
 
@@ -34,44 +34,38 @@ public:
 		AddChildren<ScreenSpaceUIObject>("fillUI");
 		AddChildren<ScreenSpaceUIObject>("frameUI");
 
-		m_background = std::dynamic_pointer_cast<ScreenSpaceUIObject>(GetChildren("backgroundUI"));
-		m_fill = std::dynamic_pointer_cast<ScreenSpaceUIObject>(GetChildren("fillUI"));
-		m_frame = std::dynamic_pointer_cast<ScreenSpaceUIObject>(GetChildren("frameUI"));
+		m_background = static_cast<ScreenSpaceUIObject*>(GetChildren("backgroundUI"));
+		m_fill = static_cast<ScreenSpaceUIObject*>(GetChildren("fillUI"));
+		m_frame = static_cast<ScreenSpaceUIObject*>(GetChildren("frameUI"));
 
 
-		auto bg = m_background.lock();
-		auto fill = m_fill.lock();
-		auto frame = m_frame.lock();
-
-		if (!bg || !fill || !frame) {
+		if (!m_background || !m_fill || !m_frame) {
 			return;
 		}
 
-		bg->Init(bgTex, width, height);
-		fill->Init(fillTex, width, height);
-		frame->Init(frameTex, width, height);
+		m_background->Init(bgTex, width, height);
+		m_fill->Init(fillTex, width, height);
+		m_frame->Init(frameTex, width, height);
 
-		auto bgTr = bg->GetComponent<ScreenUITransformComponent>();
-		auto fillTr = fill->GetComponent<ScreenUITransformComponent>();
-		auto frameTr = frame->GetComponent<ScreenUITransformComponent>();
+		auto bgTr = m_background->GetComponent<ScreenUITransformComponent>();
+		m_fillTransform = m_fill->GetComponent<ScreenUITransformComponent>();
+		auto frameTr = m_frame->GetComponent<ScreenUITransformComponent>();
 
-		if (!bgTr || !fillTr || !frameTr) {
+		if (!bgTr || !m_fillTransform || !frameTr) {
 			return;
 		}
-
-		m_fillTransform = fillTr.get();
 
 		// ¶’[Šî€‚ÅŒ¸‚ç‚µ‚½‚¢‚Ì‚Å pivot ‚ð¶’†‰›‚É‚·‚é
 		bgTr->SetPivot({ 0.0f, 0.5f });
-		fillTr->SetPivot({ 0.0f, 0.5f });
+		m_fillTransform->SetPivot({ 0.0f, 0.5f });
 		frameTr->SetPivot({ 0.0f, 0.5f });
 
 		bgTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
-		fillTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
+		m_fillTransform->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
 		frameTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
 
 		bgTr->SetScale({ width, height, 1.0f });
-		fillTr->SetScale({ width, height, 1.0f });
+		m_fillTransform->SetScale({ width, height, 1.0f });
 		frameTr->SetScale({ width, height, 1.0f });
 
 		SetRate(1.0f);
@@ -105,9 +99,9 @@ public:
 class WorldSpaceBarUI : public WorldSpaceUIObject
 {
 private:
-	std::weak_ptr<WorldSpaceUIObject> m_background;
-	std::weak_ptr<WorldSpaceUIObject> m_fill;
-	std::weak_ptr<WorldSpaceUIObject> m_frame;
+	WorldSpaceUIObject* m_background;
+	WorldSpaceUIObject* m_fill;
+	WorldSpaceUIObject* m_frame;
 
 	WorldUITransformComponent* m_fillTransform = nullptr;
 
@@ -132,42 +126,37 @@ public:
 		AddChildren<WorldSpaceUIObject>("fillUI");
 		AddChildren<WorldSpaceUIObject>("frameUI");
 
-		m_background = std::dynamic_pointer_cast<WorldSpaceUIObject>(GetChildren("backgroundUI"));
-		m_fill = std::dynamic_pointer_cast<WorldSpaceUIObject>(GetChildren("fillUI"));
-		m_frame = std::dynamic_pointer_cast<WorldSpaceUIObject>(GetChildren("frameUI"));
+		m_background = static_cast<WorldSpaceUIObject*>(GetChildren("backgroundUI"));
+		m_fill = static_cast<WorldSpaceUIObject*>(GetChildren("fillUI"));
+		m_frame = static_cast<WorldSpaceUIObject*>(GetChildren("frameUI"));
 
-		auto bg = m_background.lock();
-		auto fill = m_fill.lock();
-		auto frame = m_frame.lock();
 
-		if (!bg || !fill || !frame) {
+		if (!m_background || !m_fill || !m_frame) {
 			return;
 		}
 
-		bg->Init(bgTex, width, height);
-		fill->Init(fillTex, width, height);
-		frame->Init(frameTex, width, height);
+		m_background->Init(bgTex, width, height);
+		m_fill->Init(fillTex, width, height);
+		m_frame->Init(frameTex, width, height);
 
-		auto bgTr = bg->GetComponent<WorldUITransformComponent>();
-		auto fillTr = fill->GetComponent<WorldUITransformComponent>();
-		auto frameTr = frame->GetComponent<WorldUITransformComponent>();
+		auto bgTr = m_background->GetComponent<WorldUITransformComponent>();
+		m_fillTransform = m_fill->GetComponent<WorldUITransformComponent>();
+		auto frameTr = m_frame->GetComponent<WorldUITransformComponent>();
 
-		if (!bgTr || !fillTr || !frameTr) {
+		if (!bgTr || !m_fillTransform || !frameTr) {
 			return;
 		}
-
-		m_fillTransform = fillTr.get();
 
 		bgTr->SetPivot({ 0.0f, 0.5f });
-		fillTr->SetPivot({ 0.0f, 0.5f });
+		m_fillTransform->SetPivot({ 0.0f, 0.5f });
 		frameTr->SetPivot({ 0.0f, 0.5f });
 
 		bgTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
-		fillTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
+		m_fillTransform->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
 		frameTr->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
 
 		bgTr->SetScale({ width, height, 1.0f });
-		fillTr->SetScale({ width, height, 1.0f });
+		m_fillTransform->SetScale({ width, height, 1.0f });
 		frameTr->SetScale({ width, height, 1.0f });
 
 		SetRate(1.0f);

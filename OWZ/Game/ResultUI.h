@@ -14,7 +14,7 @@ enum class ResultType
 class ResultUI : public ScreenSpaceUIObject
 {
 private:
-	std::weak_ptr<ScreenSpaceUIObject> m_resultText;
+	ScreenSpaceUIObject* m_resultText=nullptr;
 
 	ResultType m_resultType = ResultType::None;
 	bool m_isShown = false;
@@ -43,7 +43,7 @@ public:
 private:
 	void SetChildrenVisible(bool isVisible);
 	void SetSprite(
-		const std::shared_ptr<ScreenSpaceUIObject>& ui,
+		ScreenSpaceUIObject* ui,
 		const char* filePath,
 		float width,
 		float height);

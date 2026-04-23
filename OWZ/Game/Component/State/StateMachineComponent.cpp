@@ -6,21 +6,27 @@ StateMachineComponent::StateMachineComponent() = default;
 
 StateMachineComponent::~StateMachineComponent() = default;
 
-void StateMachineComponent::InitializeState(std::unique_ptr<IState> nextState)
-{
-	m_currentState = std::move(nextState);
-	m_currentState->Enter();
-}
 
 void StateMachineComponent::Update()
 {
-	if (m_nextState) {
-		m_currentState->Exit();
-		m_currentState = std::move(m_nextState);
-		m_currentState->Enter();
+	if (m_nextMoveState != m_currentMoveState) {
+		m_currentMoveState->Exit();
+		m_currentMoveState = m_nextMoveState;
+		m_nextMoveState = nullptr;
+		m_currentMoveState->Enter();
 	}
 
-	if(m_currentState){
-		m_currentState->Update();
+	if (m_nextMainState != m_currentMainState) {
+		m_currentMainState->Exit();
+		m_currentMainState = m_nextMainState;
+		m_nextMainState = nullptr;
+		m_currentMainState->Enter();
+	}
+
+	if(m_currentMainState){
+		m_currentMainState->Update();
+	}
+	if (m_currentMoveState){
+		m_currentMoveState->Update();
 	}
 }

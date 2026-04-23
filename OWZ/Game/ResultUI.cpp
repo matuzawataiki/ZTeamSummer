@@ -12,19 +12,21 @@ void ResultUI::Init()
 	// éqUIÇçÏÇÈ
 	AddChildren<ScreenSpaceUIObject>("resultText");
 
-	auto resultText = std::dynamic_pointer_cast<ScreenSpaceUIObject>(GetChildren("resultText"));
+	if (m_resultText == nullptr) {
+		return;
+	}
 
-	m_resultText = resultText;
+	m_resultText = static_cast<ScreenSpaceUIObject*>(GetChildren("resultText"));
 
 	// âÊëúèâä˙âª
 	// ç≈èââºÇ≈clearÇì¸ÇÍÇƒÇ®Ç≠
-	resultText->Init("Assets/ui/result/result_clear.DDS", 800.0f, 180.0f);
+	m_resultText->Init("Assets/image/ui/result/victory.DDS", 800.0f, 180.0f);
 
-	resultText->AddComponent<UIScaleAnimationComponent>();
+	m_resultText->AddComponent<UIScaleAnimationComponent>();
 
 	// à íuê›íË
 	{
-		auto trans = resultText->GetComponent<ScreenUITransformComponent>();
+		auto trans = m_resultText->GetComponent<ScreenUITransformComponent>();
 		trans->SetLocalPosition({ 960.0f, 380.0f, 0.0f });
 		trans->SetScale({ 1.0f, 1.0f, 1.0f });
 	}
@@ -36,9 +38,8 @@ void ResultUI::Init()
 
 void ResultUI::ShowVictory()
 {
-	auto resultText = m_resultText.lock();
-	if (resultText != nullptr) {
-		SetSprite(resultText, "Assets/image/ui/result/victory.DDS", 1600.0f, 600.0f);
+	if (m_resultText != nullptr) {
+		SetSprite(m_resultText, "Assets/image/ui/result/victory.DDS", 1600.0f, 600.0f);
 	}
 
 	m_resultType = ResultType::Victory;
@@ -50,9 +51,8 @@ void ResultUI::ShowVictory()
 
 void ResultUI::ShowDefeat()
 {
-	auto resultText = m_resultText.lock();
-	if (resultText != nullptr) {
-		SetSprite(resultText, "Assets/image/ui/result/defeat.DDS", 1600.0f, 600.0f);
+	if (m_resultText != nullptr) {
+		SetSprite(m_resultText, "Assets/image/ui/result/defeat.DDS", 1600.0f, 600.0f);
 	}
 
 	m_resultType = ResultType::Defeat;
@@ -72,21 +72,19 @@ void ResultUI::Hide()
 
 void ResultUI::Render()
 {
-	m_resultText.lock()->Render();
+	m_resultText->Render();
 }
 
 void ResultUI::SetChildrenVisible(bool isVisible)
 {
-	auto resultText = m_resultText.lock();
-
-	if (resultText) {
-		if (isVisible) resultText->Activate();
-		else resultText->Deactivate();
+	if (m_resultText) {
+		if (isVisible) m_resultText->Activate();
+		else m_resultText->Deactivate();
 	}
 }
 
 void ResultUI::SetSprite(
-	const std::shared_ptr<ScreenSpaceUIObject>& ui,
+	ScreenSpaceUIObject* ui,
 	const char* filePath,
 	float width,
 	float height)
@@ -105,12 +103,11 @@ void ResultUI::SetSprite(
 
 void ResultUI::PlayAnimation()
 {
-	auto resultText = m_resultText.lock();
-	if (resultText == nullptr) {
+	if (m_resultText == nullptr) {
 		return;
 	}
 
-	auto anim = resultText->GetComponent<UIScaleAnimationComponent>();
+	auto anim = m_resultText->GetComponent<UIScaleAnimationComponent>();
 	if (anim == nullptr) {
 		return;
 	}

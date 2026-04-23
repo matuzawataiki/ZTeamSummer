@@ -20,9 +20,8 @@ private:
 public:
 	bool Start() override
 	{
-		//コンポーネントはシェアードポイントだけど、オーナーがいるうちは
-		// コンポーネントはいるのでわざわざウィークで持たず生ポインタで受け取っている。
-		m_transform = GetOwner()->GetComponent<UITransformBase>().get();
+
+		m_transform = GetOwner()->GetComponent<UITransformBase>();
 		return true;
 	}
 

@@ -38,7 +38,7 @@ public:
 		m_localPosition.Set(position);
 		SetDirty();
 	}
-	void AddLocalPsition(const Vector3& position) {
+	void AddLocalPosition(const Vector3& position) {
 		m_localPosition.Add(position);
 		SetDirty();
 	}

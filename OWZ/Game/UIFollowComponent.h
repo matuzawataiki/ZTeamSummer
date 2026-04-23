@@ -5,17 +5,17 @@ class WorldUIFollowComponent : public Component
 {
 	appClass(WorldUIFollowComponent);
 private:
-	std::weak_ptr<GameObject> m_target;
+	GameObject* m_target = nullptr;
 	WorldUITransformComponent* m_transform = nullptr;
 	Vector3 m_offset = Vector3::Zero;
 
 public:
-	WorldUIFollowComponent(std::weak_ptr<GameObject> target, const Vector3& offset)
+	WorldUIFollowComponent(GameObject* target, const Vector3& offset)
 		:m_target(target),
 		m_offset(offset) {
 	};
 
-	void SetTarget(std::weak_ptr<GameObject> target)
+	void SetTarget(GameObject* target)
 	{
 		m_target = target;
 	}
@@ -27,10 +27,9 @@ public:
 
 	bool Start() override
 	{
-		auto target = m_target.lock();
-		m_transform = GetOwner()->GetComponent<WorldUITransformComponent>().get();
+		m_transform = GetOwner()->GetComponent<WorldUITransformComponent>();
 
-		if (!target || m_transform == nullptr) {
+		if (!m_target || !m_transform) {
 			return false;
 		}
 		return true;
@@ -38,13 +37,12 @@ public:
 
 	void Update() override
 	{
-		auto target = m_target.lock();
-		if (!target || m_transform == nullptr) {
+		if (!m_target || !m_transform) {
 			return;
 		}
 
 
-		auto targetTransform = target->GetComponent<TransformComponent>();
+		auto targetTransform = m_target->GetComponent<TransformComponent>();
 		if (!targetTransform) {
 			return;
 		}

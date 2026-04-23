@@ -36,5 +36,10 @@ public:
 			m_model->Update(); // 座標を変えたらUpdateを呼ぶ
 		}
 	}
+
+	Model& GetModel() { return m_model->GetModel(); }
+
+private:
+	void Update() override;
 };
 

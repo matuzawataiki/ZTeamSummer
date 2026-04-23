@@ -94,7 +94,7 @@ void ScreenNumberDisplayUIObject::Init(int slotCount, float slotWidth, float slo
 		AddChildren<ScreenNumberSlotUIObject>(childName.c_str());
 
 		// 子オブジェクトを取得
-		auto slot = std::dynamic_pointer_cast<ScreenNumberSlotUIObject>(GetChildren(childName.c_str()));
+		auto slot = static_cast<ScreenNumberSlotUIObject*>(GetChildren(childName.c_str()));
 		if (!slot) {
 			continue;
 		}
@@ -140,7 +140,7 @@ void WorldNumberDisplayUIObject::Init(int slotCount, float slotWidth, float slot
 		AddChildren<WorldNumberSlotUIObject>(childName.c_str());
 
 		// 子オブジェクトを取得
-		auto slot = std::dynamic_pointer_cast<WorldNumberSlotUIObject>(GetChildren(childName.c_str()));
+		auto slot = static_cast<WorldNumberSlotUIObject*>(GetChildren(childName.c_str()));
 		if (!slot) {
 			continue;
 		}

@@ -7,7 +7,7 @@ class WorldNumberSlotUIObject;
 class NumberDisplayUIBaseObject : public UIObject
 {
 protected:
-	std::vector<std::shared_ptr<NumberSlotUIBaseObject>> m_slots;
+	std::vector<NumberSlotUIBaseObject*> m_slots;
 	int m_slotCount = 1;
 	int m_value = 0;
 

@@ -55,7 +55,7 @@ public:
 
 private:
 	SpriteRender         m_spriteRender;
-	std::weak_ptr<UITransformBase> m_transform;
+	UITransformBase* m_transform = nullptr;
 
 	Vector2              m_pivot = Sprite::DEFAULT_PIVOT;
 	Vector4              m_mulColor = Vector4::White;
