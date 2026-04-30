@@ -32,6 +32,7 @@ void ColliderComponent::CreateBox(const Vector3& size)
 
 	m_ghostObject.CreateBox(position, rotation, size);
 	m_radius = max(size.x, size.z) / 2;
+	m_height = size.y;
 	m_isCreated = true;
 
 	CollisionManager::GetInstance()->Register(this);
@@ -47,6 +48,7 @@ void ColliderComponent::CreateSphere(float radius)
 
 	m_ghostObject.CreateSphere(position, rotation, radius);
 	m_radius = radius;
+	m_height = radius;
 	m_isCreated = true;
 
 	CollisionManager::GetInstance()->Register(this);
@@ -61,12 +63,13 @@ void ColliderComponent::CreateCapsule(float radius, float height)
 
 	m_ghostObject.CreateCapsule(position, rotation, radius, height);
 	m_radius = radius;
+	m_height = height;
 	m_isCreated = true;
 
 	CollisionManager::GetInstance()->Register(this);
 }
 
-void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix)
+void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix, const Vector3& size)
 {
 	TransformComponent* transform = GetComponent<TransformComponent>();
 
@@ -74,6 +77,9 @@ void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix
 	Quaternion rotation = transform->GetRotation();
 
 	m_ghostObject.CreateMesh(position, rotation, model, worldMatrix);
+
+	m_radius = max(size.x, size.z) / 2;
+	m_height = size.y;
 
 	CollisionManager::GetInstance()->Register(this);
 }

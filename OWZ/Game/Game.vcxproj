@@ -223,6 +223,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component\Collision\CharactorColliderComponent.cpp" />
     <ClCompile Include="Component\State\Soldier\HelixRocketAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\HelixRocketState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp" />
@@ -275,7 +276,7 @@
     <ClCompile Include="InGameObject\Skill\Sprint.cpp" />
     <ClCompile Include="Component\State\Soldier\SprintAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\SprintState.cpp" />
-    <ClCompile Include="InGameObject\Object\StateObject.cpp" />
+    <ClCompile Include="InGameObject\Object\StageObject.cpp" />
     <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
@@ -292,6 +293,7 @@
     <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\Collision\CharactorColliderComponent.h" />
     <ClInclude Include="Component\State\Soldier\HelixRocketAIState.h" />
     <ClInclude Include="Component\State\Soldier\BioticFieldAIState.h" />
     <ClInclude Include="Component\State\Soldier\BioticFieldState.h" />
@@ -346,7 +348,7 @@
     <ClInclude Include="InGameObject\Skill\Sprint.h" />
     <ClInclude Include="Component\State\Soldier\SprintAIState.h" />
     <ClInclude Include="Component\State\Soldier\SprintState.h" />
-    <ClInclude Include="InGameObject\Object\StateObject.h" />
+    <ClInclude Include="InGameObject\Object\StageObject.h" />
     <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="InGameObject\Skill\SkillBase.h" />

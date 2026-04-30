@@ -35,10 +35,11 @@ namespace nsK2EngineLow
 		template <typename T, class... Args>
 		T* AddComponent(Args&&... args) {
 			std::unique_ptr<T> t = std::make_unique<T>(std::forward<Args>(args)...);
+			T* p = t.get();
 			t->SetOwner(this);
 			t->Active();
 			m_componentList.emplace(T::ID(), std::move(t));
-			return t.get();
+			return p;
 		}
 		template <typename T>
 		T* GetComponent() {
@@ -49,7 +50,7 @@ namespace nsK2EngineLow
 		void AddChildren(std::string name, Args&&... args) {
 			std::unique_ptr<GameObject> gameObject = std::make_unique<T>(std::forward<Args>(args)...);
 			gameObject->SetParent(this);
-			m_children.emplace(name, gameObject);
+			m_children.emplace(name, std::move(gameObject));
 		}
 
 		void AddChildren(std::string name, std::unique_ptr<GameObject> gameObject) {

@@ -34,7 +34,7 @@ private:
 
 	TransformComponent* m_transform;
 
-	std::unique_ptr<HelixBlast> m_blast;
+	HelixBlast* m_blast;
 
 public:
 	void Init(AmmoData ammoData)override;

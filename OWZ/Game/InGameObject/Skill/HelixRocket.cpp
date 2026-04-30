@@ -23,6 +23,7 @@ bool HelixRocket::Start()
 	m_gunData.maxAmmo = 30;
 
 	m_ammoData.ammoName = "HelixRocket";
+	m_ammoData.modelFilePath = "Assets/test/testAmmo.tkm";
 	m_ammoData.thisCategory = EnCollisionCategory::enCollisionCat_PlayerBullet;
 	m_ammoData.targetCategory = EnCollisionCategory::enCollisionCat_Enemy | EnCollisionCategory::enCollisionCat_Environment;
 	m_ammoData.damage = 80;

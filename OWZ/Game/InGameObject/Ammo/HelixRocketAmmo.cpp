@@ -12,7 +12,7 @@ void HelixBlast::Init(AmmoData ammoData)
 	AddComponent<ColliderComponent>();
 
 	auto colliderComponent = GetComponent<ColliderComponent>();
-	colliderComponent->CreateSphere(100);
+	colliderComponent->CreateSphere(200);
 	colliderComponent->SetCategory(ammoData.thisCategory);
 	colliderComponent->SetCategoryMask(ammoData.targetCategory);
 	colliderComponent->SetOnHitCallback([this](const HitResult& result) {
@@ -34,9 +34,9 @@ void HelixBlast::HitAmmo(const HitResult& hitResult)
 	CollisionManager::GetInstance()->Raycast(
 		transformComponent->GetPosition(), 
 		targetDirection, 
-		200, 
+		300, 
 		raycastResult,
-		EnCollisionCategory::enCollisionCat_Enemy||EnCollisionCategory::enCollisionCat_Environment 
+		EnCollisionCategory::enCollisionCat_Enemy|EnCollisionCategory::enCollisionCat_Environment 
 	);
 
 	if (hitResult.hitObject != raycastResult.hitObject) { return; }
@@ -44,10 +44,10 @@ void HelixBlast::HitAmmo(const HitResult& hitResult)
 	float damage = 30;
 	
 	float length = blastToEnemy.Length();
-	length -= 10;
-	length = min(80, length);
+	length -= 20;
+	length = min(160, length);
 
-	damage += length > 0.001 ? length / 80 * 60 : 60;
+	damage += length > 0.001 ? length / 160 * 60 : 60;
 
 	auto hitStatusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
 	hitStatusComponent->GetHP()->AddDamege(damage);
@@ -81,8 +81,15 @@ void HelixRocketAmmo::Init(AmmoData ammoData)
 	auto modelComponent = GetComponent<ModelComponent>();
 	modelComponent->SetModel(ammoData.modelFilePath.c_str());
 
-	m_blast = std::make_unique<HelixBlast>();
-	m_blast->GetComponent<ColliderComponent>()->Deactivate();
+	auto blast = std::make_unique<HelixBlast>();
+	blast->Init(ammoData);
+	m_blast = blast.get();
+	auto collider = m_blast->GetComponent<ColliderComponent>();
+	collider->Deactivate();
+	AddChildren("HelixBlast", std::move(blast));
+
+
+
 	m_transform = GetComponent<TransformComponent>();
 	auto blastTransformComponent = m_blast->GetComponent<TransformComponent>();
 	blastTransformComponent->SetParent(m_transform->GetTransform());

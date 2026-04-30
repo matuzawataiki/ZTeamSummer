@@ -314,7 +314,7 @@ namespace nsK2EngineLow {
 			DirectX::XMVECTOR scale;
 			Vector3 vec;
 
-			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMMatrixDecompose(&scale, &rotation, &trans, *this);
 			DirectX::XMStoreFloat3(&vec.vec, trans);
 
 			return vec;
@@ -326,7 +326,7 @@ namespace nsK2EngineLow {
 			DirectX::XMVECTOR scale;
 			Quaternion vec;
 
-			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMMatrixDecompose(&scale, &rotation, &trans, *this);
 			DirectX::XMStoreFloat4(&vec.vec, rotation);
 
 			return vec;
@@ -338,7 +338,7 @@ namespace nsK2EngineLow {
 			DirectX::XMVECTOR scale;
 			Vector3 vec;
 
-			DirectX::XMMatrixDecompose(&trans, &rotation, &scale, *this);
+			DirectX::XMMatrixDecompose(&scale, &rotation, &trans, *this);
 			DirectX::XMStoreFloat3(&vec.vec, scale);
 
 			return vec;

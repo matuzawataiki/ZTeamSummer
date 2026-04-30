@@ -27,6 +27,7 @@ void RigidBodyComponent::CreateRigidBody(float mass, float restitution)
 	auto transform = GetComponent<TransformComponent>();
 	auto collider = GetComponent<ColliderComponent>();
 	collider->Deactivate();
+	collider->GetGhostObject().Release();
 
 	RigidBodyInitData initData;
 	initData.pos = transform->GetPosition();
@@ -36,6 +37,7 @@ void RigidBodyComponent::CreateRigidBody(float mass, float restitution)
 	initData.restitution = restitution;
 
 	m_rigidBody.Init(initData);
+
 	m_isCreated = true;
 }
 

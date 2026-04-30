@@ -476,10 +476,7 @@ namespace nsK2Engine {
 
 	void ModelRender::ForwardDraw()
 	{
-		if (m_geometryDatas[0].IsInViewFrustum()) {
-			// ビューフラスタムに含まれている。
-			g_renderingEngine->SetForwardModel(this);
-		}
+		g_renderingEngine->SetForwardModel(this);
 	}
 	
 	void ModelRender::RemoveInstance(int instanceNo)

@@ -15,6 +15,8 @@ public:
 	void Render() override;
 
 private:
+	void InitModel();
+	void InitSkill();
 	void InitCollider();
 	void InitState();
 };

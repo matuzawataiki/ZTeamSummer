@@ -91,6 +91,10 @@ public:
 	/// </summary>
 	RigidBody& GetRigidBody() { return m_rigidBody; }
 
+	void AddGroundType() {
+		m_rigidBody.GetBody()->setUserIndex(enCollisionAttr_Ground);
+	}
+
 private:
 	bool Start() override;
 	void Update() override;

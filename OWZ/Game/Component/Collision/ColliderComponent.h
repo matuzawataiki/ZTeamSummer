@@ -20,6 +20,7 @@ private:
 	HitCallback m_onHitCallback = nullptr;
 
 	float m_radius;
+	float m_height;
 	bool m_isCreated = false;
 
 public:
@@ -46,9 +47,10 @@ public:
 	/// <summary>
 	/// メッシュ形状のコライダーを作成。
 	/// </summary>
-	/// <param name="radius">モデル</param>
-	/// <param name="height">ワールド行列</param>
-	void CreateMesh(const Model& model, const Matrix& worldMatrix);
+	/// <param name="model">モデル</param>
+	/// <param name="worldMatrix">ワールド行列</param>
+	/// <param name="size">モデルを囲える立方体の大きさ</param>
+	void CreateMesh(const Model& model, const Matrix& worldMatrix, const Vector3& size);
 
 	// --- カテゴリ設定 ---
 
@@ -88,9 +90,14 @@ public:
 	PhysicsGhostObject& GetGhostObject() { return m_ghostObject; }
 
 	/// <summary>
-	/// コリジョンのを取得。
+	/// コリジョンの最大半径を取得。
 	/// </summary>
 	float GetRadius() { return m_radius; }
+
+	/// <summary>
+	/// コリジョンの高さを取得。
+	/// </summary>
+	float GetHeight() { return m_height; }
 
 	/// <summary>
 	/// コールバックを呼び出す。

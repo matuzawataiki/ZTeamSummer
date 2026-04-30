@@ -1,13 +1,13 @@
 #pragma once
 
 class StatusComponent;
-class RigidBodyComponent;
+class CharactorColliderComponent;
 class CharacterMoveComponent : public Component
 {
 	appClass(CharacterMoveComponent)
 private:
 	StatusComponent* m_status = nullptr;
-	RigidBodyComponent* m_rigidBody = nullptr;
+	CharactorColliderComponent* m_charactorCollider = nullptr;
 
 public:
 

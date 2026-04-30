@@ -33,21 +33,21 @@ void StateControllerComponent::ChangeCheck()
 {
 	if (!g_pad[0]->IsPressAnyKey()) { return; }
 
-	if (ChangeRequest(enButtonLMouse, EnMainStateID::enMainWeaponState)) return;
+	if (ChangeRequest(enButtonRB2, EnMainStateID::enMainWeaponState)) return;
 
-	if (ChangeRequest(enButtonRMouse, EnMainStateID::enSecondaryWeaponState)) return;
+	if (ChangeRequest(enButtonLB2, EnMainStateID::enSecondaryWeaponState)) return;
 
-	if (ChangeRequest(enButtonE, EnMainStateID::enFastSkillState)) return;
+	if (ChangeRequest(enButtonRB1, EnMainStateID::enFastSkillState)) return;
 
-	if (ChangeRequest(enButtonShift, EnMainStateID::enSecondSkillState)) return;
+	if (ChangeRequest(enButtonLB1, EnMainStateID::enSecondSkillState)) return;
 
 	//if (ChangeRequest(enButtonSelect, EnMainStateID::enThirdSkillState)) return;
 	
-	if (ChangeRequest(enButtonQ, EnMainStateID::enUltimateState)) return;
+	if (ChangeRequest(enButtonY, EnMainStateID::enUltimateState)) return;
 
-	if (ChangeRequest(enButtonR, EnMainStateID::enReloadState)) return;
+	if (ChangeRequest(enButtonX, EnMainStateID::enReloadState)) return;
 
-	if (ChangeRequest(enButtonV, EnMainStateID::enAttackSkillState)) return;
+	if (ChangeRequest(enButtonRB3, EnMainStateID::enAttackSkillState)) return;
 }
 
 bool StateControllerComponent::ChangeRequest(EnButton button, EnMainStateID stateID)

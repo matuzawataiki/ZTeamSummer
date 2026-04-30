@@ -189,7 +189,7 @@
     <ClCompile Include="InGameObject\Ammo\NormalAmmo.cpp">
       <Filter>InGameObject\Ammo</Filter>
     </ClCompile>
-    <ClCompile Include="InGameObject\Object\StateObject.cpp">
+    <ClCompile Include="InGameObject\Object\StageObject.cpp">
       <Filter>InGameObject\Object</Filter>
     </ClCompile>
     <ClCompile Include="InGameObject\Skill\BioticField.cpp">
@@ -237,6 +237,7 @@
     <ClCompile Include="Mission\DestructionMission.cpp" />
     <ClCompile Include="Mission\MissionBase.cpp" />
     <ClCompile Include="Mission\MissionManager.cpp" />
+    <ClCompile Include="Component\Collision\CharactorColliderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -373,7 +374,7 @@
     <ClInclude Include="InGameObject\Ammo\NormalAmmo.h">
       <Filter>InGameObject\Ammo</Filter>
     </ClInclude>
-    <ClInclude Include="InGameObject\Object\StateObject.h">
+    <ClInclude Include="InGameObject\Object\StageObject.h">
       <Filter>InGameObject\Object</Filter>
     </ClInclude>
     <ClInclude Include="InGameObject\Skill\BioticField.h">
@@ -427,5 +428,6 @@
     <ClInclude Include="Mission\AnnihilationMission.h" />
     <ClInclude Include="Mission\DestructionMission.h" />
     <ClInclude Include="Mission\MissionBase.h" />
+    <ClInclude Include="Component\Collision\CharactorColliderComponent.h" />
   </ItemGroup>
 </Project>

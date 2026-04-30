@@ -7,7 +7,7 @@ class CollisionManager : public Noncopyable
 {
 	static CollisionManager* m_instance;
 private:
-	CollisionManager();
+	CollisionManager() = default;
 	~CollisionManager() = default;
 
 private:

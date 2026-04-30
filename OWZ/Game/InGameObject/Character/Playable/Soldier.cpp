@@ -3,6 +3,7 @@
 #include "Component/Graphics/ViewModelComponent.h"
 #include "Component/Collision/ColliderComponent.h"
 #include "Component/Collision/RigidBodyComponent.h"
+#include "Component/Collision/CharactorColliderComponent.h"
 #include "Component/Status/StatusComponent.h"
 #include "Component/Logic/CharacterMoveComponent.h"
 
@@ -37,23 +38,15 @@ Soldier::Soldier()
 
 bool Soldier::Start()
 {
-	AddComponent<TransformComponent>();
-	AddComponent<CharacterMoveComponent>();
-
-	m_viewModelComponent = AddComponent<ViewModelComponent>();
-	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Idle.tka", true);
-	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_AutoShot.tka", false);
-	m_viewModelComponent->SetModel("Assets/Character/Playable/soldier76/model/soldierViewModel.tkm",true);
-	m_viewModelComponent->SetDrawFlag(true);
+	auto transform = AddComponent<TransformComponent>();
+	transform->SetPosition(Vector3(0.0f, 500.0f, 100.0f));
 
 	auto statusComponent = AddComponent<StatusComponent>();
 	statusComponent->Init(Vector3(200, 50, 50), 6, 40);
 
-	auto skillsComponent = AddComponent<SkillsComponent>();
-	skillsComponent->SetMainWepon(std::move(std::make_unique<PulseRifle>()));
-	skillsComponent->SetSkill(std::move(std::make_unique<HelixRocket>()), EnSkillNumber::enFastSkill);
-	skillsComponent->SetSkill(std::move(std::make_unique<BioticField>()), EnSkillNumber::enSecondSkill);
-	skillsComponent->SetSkill(std::move(std::make_unique<Sprint>()), EnSkillNumber::enThirdSkill);
+	InitModel();
+
+	InitSkill();
 
 	InitCollider();
 
@@ -71,7 +64,17 @@ void Soldier::Update()
 	Vector3 cameraPos = GetComponent<TransformComponent>()->GetPosition();
 	cameraPos.y += 170.0f;
 
+	auto trans = GetComponent<TransformComponent>();
+
+	float x = 0;
+	float z = 0;
+	if (g_pad[0]->IsPress(enButtonUp)) z += 1;
+	if (g_pad[0]->IsPress(enButtonDown)) z -= 1;
+	if (g_pad[0]->IsPress(enButtonRight)) x += 1;
+	if (g_pad[0]->IsPress(enButtonLeft)) x -= 1;
 	g_camera3D->SetPosition(cameraPos);
+	cameraPos.z++;
+	g_camera3D->SetTarget(cameraPos);
 }
 
 void Soldier::Render()
@@ -79,14 +82,59 @@ void Soldier::Render()
 	m_viewModelComponent->Draw();
 }
 
+void Soldier::InitModel()
+{
+	m_viewModelComponent = AddComponent<ViewModelComponent>();
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Idle.tka", true);
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_AutoShoot.tka", false);
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_BioticField.tka", false);
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Reload.tka", false);
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_Run.tka", true);
+	m_viewModelComponent->AddAnimation("Assets/Character/Playable/soldier76/animation/V_SkillShoot.tka", false);
+	m_viewModelComponent->SetModel("Assets/Character/Playable/soldier76/model/soldierViewModel.tkm", true);
+	m_viewModelComponent->SetDrawFlag(true);
+}
+
+void Soldier::InitSkill()
+{
+	auto skillsComponent = AddComponent<SkillsComponent>();
+
+	{
+		auto skill = std::make_unique<PulseRifle>();
+		skill->SetParent(this);
+		skillsComponent->SetMainWepon(std::move(skill));
+	}
+	{
+		auto skill = std::make_unique<HelixRocket>();
+		skill->SetParent(this);
+		skillsComponent->SetSkill(std::move(skill), EnSkillNumber::enFastSkill);
+	}
+	{
+		auto skill = std::make_unique<BioticField>();
+		skill->SetParent(this);
+		skillsComponent->SetSkill(std::move(skill), EnSkillNumber::enSecondSkill);
+	}
+	{
+		auto skill = std::make_unique<Sprint>();
+		skill->SetParent(this);
+		skillsComponent->SetSkill(std::move(skill), EnSkillNumber::enThirdSkill);
+	}
+}
+
 void Soldier::InitCollider()
 {
 	auto colliderComponent = AddComponent<ColliderComponent>();
 	auto rigidBodyComponent = AddComponent<RigidBodyComponent>();
+	auto charactorColliderComponent = AddComponent<CharactorColliderComponent>();
 
 	colliderComponent->CreateCapsule(50, 200);
 	colliderComponent->SetCategory(EnCollisionCategory::enCollisionCat_Player);
-	rigidBodyComponent->CreateRigidBody(10.0f);
+
+	rigidBodyComponent->CreateRigidBody();
+
+	charactorColliderComponent->Init();
+
+	AddComponent<CharacterMoveComponent>();
 
 }
 
