@@ -18,6 +18,8 @@ public:
 
 	virtual void Reload(){}
 
+	virtual int GetAmmoCounter() { return 0; }
+
 private:
 	virtual bool Start() override { return true; }
 	virtual void Update() override{}

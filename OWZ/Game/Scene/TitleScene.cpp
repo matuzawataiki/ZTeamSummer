@@ -19,6 +19,21 @@ void TitleScene::Initialize()
 
 void TitleScene::Update(SceneManager& manager)
 {
+	if (g_pad[0]->IsPress(enButtonSelect)) {
+		manager.ChangeScene<GameScene>();
+	}
+	if (g_pad[0]->IsPress(enButtonA)) {
+		manager.ChangeScene<GameScene>();
+	}
+	if (g_pad[0]->IsPress(enButtonB)) {
+		manager.ChangeScene<GameScene>();
+	}
+	if (g_pad[0]->IsPress(enButtonX)) {
+		manager.ChangeScene<GameScene>();
+	}
+	if (g_pad[0]->IsPress(enButtonY)) {
+		manager.ChangeScene<GameScene>();
+	}
 	if (g_pad[0]->IsPress(enButtonF)) {
 		manager.ChangeScene<GameScene>();
 	}

@@ -9,7 +9,6 @@ BioticField::~BioticField() = default;
 
 void BioticField::Init()
 {
-	AddComponent<TransformComponent>();
 	AddComponent<ModelComponent>();
 	
 	m_maxCooldown = 25;

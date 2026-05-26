@@ -14,6 +14,8 @@ private:
 public:
 	void Fire()override;
 
+	void Init();
+
 public:
 	bool Start() override;
 

@@ -14,13 +14,12 @@ private:
 	AllocatedArray<AnimationClip> m_animations;
 
 	bool m_isDraw = false;
+	bool m_isInit = false;
 
 public:
 	void SetModel(const char* filePath, bool isAnimation = false);
 
 	void AddAnimation(const char* filePath, bool loopFlag = true);
-
-	void Draw();
 
 	void SetDrawFlag(bool drawFlag) {
 		m_isDraw = drawFlag;
@@ -40,6 +39,7 @@ public:
 	Model& GetModel() { return m_model->GetModel(); }
 
 private:
+	bool Start() override;
 	void Update() override;
 };
 

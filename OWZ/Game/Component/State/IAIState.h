@@ -9,7 +9,7 @@ protected:
 	float m_stateTime = 0;
 
 	bool m_lockFlag = false;
-	bool m_isActive = false;
+	bool m_isActive = true;
 	bool m_isIdle = false;
 
 public:
@@ -18,6 +18,7 @@ public:
 	virtual void Exit(){}
 
 	virtual bool ChangeRequest(IAIState* nextState);
+	virtual bool CanChange() { return true; }
 
 	int GetPriority() const { return m_statePriority; }
 

@@ -1,4 +1,6 @@
 #pragma once
+#include "gameObject/Math/TransformComponent.h"
+
 namespace nsK2EngineLow
 {
 	class Component;
@@ -13,11 +15,11 @@ namespace nsK2EngineLow
 		virtual void Render() {}
 
 	public:
-		bool IsStart() const {return m_isStart;}
-		bool IsActive() const {return m_isActive;}
+		bool IsStart() const { return m_isStart; }
+		bool IsActive() const { return m_isActive; }
 
-		void Activate() {m_isActive = true;}
-		void Deactivate() {m_isActive = false;}
+		void Activate() { m_isActive = true; }
+		void Deactivate() { m_isActive = false; }
 
 	public:
 		void UpdateWrapper();
@@ -50,25 +52,38 @@ namespace nsK2EngineLow
 		void AddChildren(std::string name, Args&&... args) {
 			std::unique_ptr<GameObject> gameObject = std::make_unique<T>(std::forward<Args>(args)...);
 			gameObject->SetParent(this);
+
+			auto cTrans = gameObject->GetComponent<TransformComponent>();
+			auto pTrans = GetComponent<TransformComponent>();
+
+			cTrans->SetParent(pTrans->GetTransform());
 			m_children.emplace(name, std::move(gameObject));
 		}
 
 		void AddChildren(std::string name, std::unique_ptr<GameObject> gameObject) {
 			gameObject->SetParent(this);
+
+			auto cTrans = gameObject->GetComponent<TransformComponent>();
+			auto pTrans = GetComponent<TransformComponent>();
+
+			cTrans->SetParent(pTrans->GetTransform());
+
 			m_children.emplace(name, std::move(gameObject));
 		}
 
 		void SetParent(GameObject* parent) {
 			m_parent = parent;
+
+			auto pTrans = parent->GetComponent<TransformComponent>();
+			auto cTrans = GetComponent<TransformComponent>();
+
+			cTrans->SetParent(pTrans->GetTransform());
 		}
 
 		GameObject* GetParent() {
 			return m_parent;
 		}
 
-		void SetChildren(std::string name, std::unique_ptr<GameObject> gameObject) {
-			m_children.emplace(name, std::move(gameObject));
-		}
 		GameObject* GetChildren(std::string name) {
 			return m_children.find(name)->second.get();
 		}

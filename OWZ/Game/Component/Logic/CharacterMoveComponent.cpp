@@ -5,8 +5,8 @@
 
 bool CharacterMoveComponent::Start()
 {
-	m_status = GetComponent<StatusComponent>();
-	m_charactorCollider = GetComponent<CharactorColliderComponent>();
+	m_status = m_owner->GetComponent<StatusComponent>();
+	m_charactorCollider = m_owner->GetComponent<CharactorColliderComponent>();
 	return true;
 }
 

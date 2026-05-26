@@ -10,11 +10,3 @@ void PunchAIState::Update()
 		m_stateTime -= g_gameTime->GetFrameDeltaTime();
 	}
 }
-
-bool PunchAIState::ChangeRequest(IAIState* nextState)
-{
-	if (m_statePriority < nextState->GetPriority() && !m_lockFlag) {
-		return true;
-	}
-	return false;
-}

@@ -6,7 +6,6 @@
 
 void NormalAmmo::Init(AmmoData ammoData)
 {
-	AddComponent<TransformComponent>();
 	AddComponent<ModelComponent>();
 	AddComponent<ColliderComponent>();
 

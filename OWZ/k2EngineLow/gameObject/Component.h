@@ -1,13 +1,14 @@
 #pragma once
 #include "util/CRC32.h"
-#include "GameObject.h"
 
 #define appClass(name)	\
-public:\
+	public:\
 	static constexpr uint32_t ID() { return Hash32(#name); }
+
 
 namespace nsK2EngineLow
 {
+	class GameObject;
 	class Component : public Noncopyable
 	{
 	protected:
@@ -33,11 +34,6 @@ namespace nsK2EngineLow
 		}
 		GameObject* GetOwner() {
 			return m_owner;
-		}
-
-		template <typename T>
-		T* GetComponent() {
-			return m_owner->template GetComponent<T>();
 		}
 
 	private:

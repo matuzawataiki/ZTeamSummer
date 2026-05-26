@@ -26,6 +26,8 @@ public:
 
 	void Reload();
 
+	int GetAmmoCounter() { return m_ammoCounter; }
+
 private:
 	void Update()override;
 

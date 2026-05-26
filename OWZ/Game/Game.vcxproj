@@ -229,6 +229,7 @@
     <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldState.cpp" />
     <ClCompile Include="DummyEnemy.cpp" />
+    <ClCompile Include="Component\State\General\IdleAIState.cpp" />
     <ClCompile Include="InGameObject\Skill\BioticField.cpp" />
     <ClCompile Include="Component\State\IAIState.cpp" />
     <ClCompile Include="Component\Status\HP.cpp" />
@@ -288,8 +289,6 @@
     </ClCompile>
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
-    <ClCompile Include="Component\Math\TransformComponent.cpp" />
-    <ClCompile Include="Component\Math\Transform.cpp" />
     <ClCompile Include="InGameObject\Weapon\WeaponBase.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +298,7 @@
     <ClInclude Include="Component\State\Soldier\BioticFieldState.h" />
     <ClInclude Include="Component\State\Soldier\HelixRocketState.h" />
     <ClInclude Include="DummyEnemy.h" />
+    <ClInclude Include="Component\State\General\IdleAIState.h" />
     <ClInclude Include="InGameObject\Skill\BioticField.h" />
     <ClInclude Include="Component\State\IAIState.h" />
     <ClInclude Include="Component\State\StateEnum.h" />
@@ -356,9 +356,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
-    <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="Component\Collision\CollisionDefine.h" />
-    <ClInclude Include="Component\Math\Transform.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="Component\Skill\WeaponData.h" />

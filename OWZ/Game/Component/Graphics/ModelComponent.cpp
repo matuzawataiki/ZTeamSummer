@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "ModelComponent.h"
-#include "Component/Math/TransformComponent.h" 
 
 ModelComponent::~ModelComponent()
 {
@@ -27,6 +26,9 @@ void ModelComponent::SetModel(const char* filePath, bool isAnimation)
 	}
 
 	m_model->Update();  
+
+	m_isInit = true;
+	m_isDraw = true;
 }
 
 void ModelComponent::AddAnimation(const char* filePath, bool loopFlag)
@@ -34,16 +36,21 @@ void ModelComponent::AddAnimation(const char* filePath, bool loopFlag)
 	m_animationData.push_back(AnimationData(filePath, loopFlag));
 }
 
-void ModelComponent::Draw()
+bool ModelComponent::Start()
 {
-	m_model->Draw();
+	return m_isInit;
 }
 
 void ModelComponent::Update()
 {
-	auto transformComponent = GetComponent<TransformComponent>();
+	auto transformComponent = m_owner->GetComponent<TransformComponent>();
 	m_model->SetPosition(transformComponent->GetPosition());
 	m_model->SetRotation(transformComponent->GetRotation());
 	m_model->SetScale(transformComponent->GetScale());
 
+	m_model->Update();
+
+	if (m_isInit && m_isDraw) {
+		m_model->Draw();
+	}
 }

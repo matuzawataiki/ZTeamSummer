@@ -8,6 +8,7 @@
 GameManager::GameManager()
 {
 	CollisionManager::CreateInstance();
+
 	ProjectileManager::CreateInstance();
 	//PhysicsWorld::GetInstance()->SetGravity(Vector3(0.0f, -50000.0f, 0.0f));
 	m_sceneManager = std::make_unique<SceneManager>();
@@ -21,6 +22,8 @@ GameManager::~GameManager()
 void GameManager::Update()
 {
 	m_sceneManager->Update();
+	CollisionManager::GetInstance()->Update();
+	ProjectileManager::GetInstance()->Update();
 }
 
 void GameManager::Draw()

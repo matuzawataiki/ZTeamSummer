@@ -231,12 +231,10 @@
     <ClCompile Include="HID\GamePadVIbration.cpp">
       <Filter>HID</Filter>
     </ClCompile>
-    <ClCompile Include="gameObject\Component.cpp">
-      <Filter>gameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="gameObject\GameObject.cpp">
-      <Filter>gameObject</Filter>
-    </ClCompile>
+    <ClCompile Include="gameObject\Math\Transform.cpp" />
+    <ClCompile Include="gameObject\Math\TransformComponent.cpp" />
+    <ClCompile Include="gameObject\GameObject.cpp" />
+    <ClCompile Include="gameObject\Component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k2EngineLowPreCompile.h" />
@@ -520,12 +518,10 @@
     <ClInclude Include="HID\GamePadVibration.h">
       <Filter>HID</Filter>
     </ClInclude>
-    <ClInclude Include="gameObject\Component.h">
-      <Filter>gameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="gameObject\GameObject.h">
-      <Filter>gameObject</Filter>
-    </ClInclude>
+    <ClInclude Include="gameObject\Math\Transform.h" />
+    <ClInclude Include="gameObject\Math\TransformComponent.h" />
+    <ClInclude Include="gameObject\GameObject.h" />
+    <ClInclude Include="gameObject\Component.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="graphics">

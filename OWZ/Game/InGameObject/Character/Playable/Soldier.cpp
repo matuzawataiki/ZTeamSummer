@@ -25,6 +25,7 @@
 #include "Component/State/Soldier/PulseRifleState.h"
 #include "Component/State/Soldier/SprintAIState.h"
 #include "Component/State/Soldier/SprintState.h"
+#include "Component/State/General/IdleAIState.h"
 #include "Component/State/General/IdleState.h"
 #include "Component/State/General/PunchAIState.h"
 #include "Component/State/General/PunchState.h"
@@ -38,7 +39,7 @@ Soldier::Soldier()
 
 bool Soldier::Start()
 {
-	auto transform = AddComponent<TransformComponent>();
+	auto transform = GetComponent<TransformComponent>();
 	transform->SetPosition(Vector3(0.0f, 500.0f, 100.0f));
 
 	auto statusComponent = AddComponent<StatusComponent>();
@@ -64,17 +65,10 @@ void Soldier::Update()
 	Vector3 cameraPos = GetComponent<TransformComponent>()->GetPosition();
 	cameraPos.y += 170.0f;
 
-	auto trans = GetComponent<TransformComponent>();
-
-	float x = 0;
-	float z = 0;
-	if (g_pad[0]->IsPress(enButtonUp)) z += 1;
-	if (g_pad[0]->IsPress(enButtonDown)) z -= 1;
-	if (g_pad[0]->IsPress(enButtonRight)) x += 1;
-	if (g_pad[0]->IsPress(enButtonLeft)) x -= 1;
 	g_camera3D->SetPosition(cameraPos);
 	cameraPos.z++;
 	g_camera3D->SetTarget(cameraPos);
+
 }
 
 void Soldier::Render()
@@ -107,11 +101,13 @@ void Soldier::InitSkill()
 	{
 		auto skill = std::make_unique<HelixRocket>();
 		skill->SetParent(this);
+		skill->Init();
 		skillsComponent->SetSkill(std::move(skill), EnSkillNumber::enFastSkill);
 	}
 	{
 		auto skill = std::make_unique<BioticField>();
 		skill->SetParent(this);
+		skill->Init();
 		skillsComponent->SetSkill(std::move(skill), EnSkillNumber::enSecondSkill);
 	}
 	{
@@ -140,15 +136,38 @@ void Soldier::InitCollider()
 
 void Soldier::InitState()
 {
-	auto stateMachineComponent = AddComponent<StateMachineComponent>();
 	auto stateControllerComponent = AddComponent<StateControllerComponent>();
+	auto stateMachineComponent = AddComponent<StateMachineComponent>();
 	auto skillComponent = GetComponent<SkillsComponent>();
 
 	{
+		auto state = std::make_unique<IdleState>();
+		state->SetOwner(this);
+		stateMachineComponent->RegisterMainState(enIdelState, std::move(state));
+		stateControllerComponent->RegisterMainState<IdleAIState>(enIdelState);
+	}
+
+	{
+		auto state = std::make_unique<ReloadState>();
+		state->SetWeapon(skillComponent->GetMainWepon());
+		stateMachineComponent->RegisterMainState(enReloadState, std::move(state));
+		stateControllerComponent->RegisterMainState<ReloadAIState>(enReloadState);
+	}
+
+	{
+		auto state = std::make_unique<PunchState>();
+		//state->SetWeapon(skillComponent->GetMainWepon());
+		stateMachineComponent->RegisterMainState(enAttackSkillState, std::move(state));
+		stateControllerComponent->RegisterMainState<PunchAIState>(enAttackSkillState);
+	}
+
+	{
 		auto state = std::make_unique<PulseRifleState>();
+		auto aiState = std::make_unique<PulseRifleAIState>();
 		state->SetWepon(skillComponent->GetMainWepon());
+		aiState->SetWepon(skillComponent->GetMainWepon());
 		stateMachineComponent->RegisterMainState(enMainWeaponState, std::move(state));
-		stateControllerComponent->RegisterMainState<PulseRifleAIState>(enMainWeaponState);
+		stateControllerComponent->RegisterMainState(enMainWeaponState,std::move(aiState));
 	}
 
 	{
@@ -181,4 +200,7 @@ void Soldier::InitState()
 		stateMachineComponent->RegisterMainState(enSecondSkillState, std::move(state));
 		stateControllerComponent->RegisterMainState<SprintAIState>(enSecondSkillState);
 	}
+
+	stateMachineComponent->ResetState();
+	stateControllerComponent->ResetState();
 }

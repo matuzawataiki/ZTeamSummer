@@ -5,10 +5,7 @@
 
 bool Punch::Start()
 {
-    auto transformComponent = AddComponent<TransformComponent>();
     auto colliderComponent = AddComponent<ColliderComponent>();
-
-    transformComponent->SetParent(m_parent->GetComponent<TransformComponent>()->GetTransform());
 
     colliderComponent->CreateSphere(50.0f);
     colliderComponent->SetCategory(enCollisionCat_PlayerBullet);

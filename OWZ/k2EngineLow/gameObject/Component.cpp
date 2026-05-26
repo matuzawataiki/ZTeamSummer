@@ -1,12 +1,17 @@
 #include "k2EngineLowPreCompile.h"
 #include "Component.h"
-
-void nsK2EngineLow::Component::UpdateWrapper()
+#include "GameObject.h"
+namespace nsK2EngineLow
 {
-	if (Start()) {
-		m_isStart = true;
-	}
-	if (m_isActive && m_isStart) {
-		Update();
+	void Component::UpdateWrapper()
+	{
+		if (m_isActive && m_isStart) {
+			Update();
+		}
+		else if (m_isActive && !m_isStart) {
+			if (Start()) {
+				m_isStart = true;
+			}
+		}
 	}
 }

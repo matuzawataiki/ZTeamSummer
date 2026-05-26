@@ -14,12 +14,14 @@ private:
 	bool m_isInit = false;
 		
 	IAIState* m_crrentStaet;
-	IAIState* m_nextStaet;
+	EnMainStateID m_nextStaet = EnMainStateID::enMainStateNum;
 
 	StateMachineComponent* m_stateMachine;
 	std::array<std::unique_ptr<IAIState>, EnMainStateID::enMainStateNum> m_aiStates;
 
 public:
+	void ResetState();
+
 	template <typename T>
 	void RegisterMainState(EnMainStateID stateID) {
 		auto state = std::make_unique<T>();
@@ -34,11 +36,6 @@ public:
 	void RegisterMainState(EnMoveStateID stateID) {
 		auto state = std::make_unique<T>();
 		m_aiStates.at(stateID) = std::move(state);
-	}
-
-	void ResetState() {
-		m_crrentStaet = m_aiStates.at(EnMainStateID::enIdelState).get();
-		m_isInit = true;
 	}
 
 private:

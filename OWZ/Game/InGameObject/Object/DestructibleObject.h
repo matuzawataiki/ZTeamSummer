@@ -1,6 +1,4 @@
 #pragma once
-
-class TransformComponent;
 class ModelComponent;
 
 class DestructibleObject : public GameObject

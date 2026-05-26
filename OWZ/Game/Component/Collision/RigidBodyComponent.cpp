@@ -24,10 +24,10 @@ void RigidBodyComponent::Update()
 
 void RigidBodyComponent::CreateRigidBody(float mass, float restitution)
 {
-	auto transform = GetComponent<TransformComponent>();
-	auto collider = GetComponent<ColliderComponent>();
-	collider->Deactivate();
-	collider->GetGhostObject().Release();
+	auto transform = m_owner->GetComponent<TransformComponent>();
+	auto collider = m_owner->GetComponent<ColliderComponent>();
+	//collider->Deactivate();
+	//collider->GetGhostObject().Release();
 
 	RigidBodyInitData initData;
 	initData.pos = transform->GetPosition();
@@ -86,7 +86,7 @@ void RigidBodyComponent::SetFriction(float friction)
 
 void RigidBodyComponent::SyncToTransform()
 {
-	auto transform = GetComponent<TransformComponent>();
+	auto transform = m_owner->GetComponent<TransformComponent>();
 	if (transform == nullptr) return;
 
 	Vector3 pos;
@@ -98,7 +98,7 @@ void RigidBodyComponent::SyncToTransform()
 
 void RigidBodyComponent::SyncFromTransform()
 {
-	auto transform = GetComponent<TransformComponent>();
+	auto transform = m_owner->GetComponent<TransformComponent>();
 	if (transform == nullptr) return;
 
 	m_rigidBody.SetPositionAndRotation(

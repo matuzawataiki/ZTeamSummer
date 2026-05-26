@@ -18,8 +18,13 @@ bool BioticFieldAIState::ChangeRequest(IAIState* nextState)
 		return false;
 	}
 
-	if (m_statePriority <= nextState->GetPriority() && !m_lockFlag && m_skill->CanFire()) {
+	if (m_statePriority <= nextState->GetPriority() && !m_lockFlag) {
 		return true;
 	}
 	return false;
+}
+
+bool BioticFieldAIState::CanChange()
+{
+	return m_skill->CanFire();
 }

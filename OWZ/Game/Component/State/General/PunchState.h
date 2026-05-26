@@ -5,10 +5,10 @@ class Punch;
 class PunchState : public IState
 {
 private:
-	Punch* m_wepon = nullptr;
+	Punch* m_weapon = nullptr;
 
 public:
-	void SetWepon(Punch* wepon) { m_wepon = wepon; }
+	void SetWepon(Punch* wepon) { m_weapon = wepon; }
 
 	void Enter() override;
 	void Update() override;

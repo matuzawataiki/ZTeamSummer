@@ -107,9 +107,9 @@ namespace {
 
 void CharactorColliderComponent::Init()
 {
-	auto position = GetComponent<TransformComponent>()->GetPosition();
-	auto collider = GetComponent<ColliderComponent>();
-	auto rigidBody = GetComponent<RigidBodyComponent>();
+	auto position = m_owner->GetComponent<TransformComponent>()->GetPosition();
+	auto collider = m_owner->GetComponent<ColliderComponent>();
+	auto rigidBody = m_owner->GetComponent<RigidBodyComponent>();
 
 	m_radius = collider->GetRadius();
 	m_height = collider->GetHeight();
@@ -136,10 +136,10 @@ void CharactorColliderComponent::Update()
 		m_isOnGround = false;
 	}
 
-	auto transform = GetComponent<TransformComponent>();
+	auto transform = m_owner->GetComponent<TransformComponent>();
 	Vector3 position = transform->GetPosition();
-	auto collider = GetComponent<ColliderComponent>();
-	auto rigidBody = GetComponent<RigidBodyComponent>();
+	auto collider = m_owner->GetComponent<ColliderComponent>();
+	auto rigidBody = m_owner->GetComponent<RigidBodyComponent>();
 	rigidBody->Deactivate();
 
 	//次の移動先となる座標を計算する。

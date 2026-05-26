@@ -6,8 +6,6 @@
 
 #include <list>
 #include <string>
-#include "gameObject/Component.h"
-
 
 namespace nsK2EngineLow {
 	class RenderContext;

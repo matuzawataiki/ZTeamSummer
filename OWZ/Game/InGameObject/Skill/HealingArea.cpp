@@ -5,7 +5,6 @@
 
 void HealingArea::Init(float areaSize, float heelHeight)
 {
-	AddComponent<TransformComponent>();
 	auto colliderComponent = AddComponent<ColliderComponent>();
 	colliderComponent->CreateSphere(100);
 	colliderComponent->SetCategory(EnCollisionCategory::enCollisionCat_Heel);

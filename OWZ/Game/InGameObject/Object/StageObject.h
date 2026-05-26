@@ -8,5 +8,4 @@ private:
 
 public:
 	bool Start() override;
-	void Render() override;
 };

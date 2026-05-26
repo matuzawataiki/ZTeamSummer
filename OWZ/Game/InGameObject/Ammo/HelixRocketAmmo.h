@@ -13,7 +13,7 @@ public:
 
 	bool IsHit() { return m_isHit; }
 
-	void Reset() { m_isHit = false;	}
+	void Reset();
 private:
 
 };
@@ -42,6 +42,7 @@ public:
 	void GoAmmo(Vector3 moveDirection, Vector3 position) override;
 
 	void Update()override;
+
 private:
 	void HitAmmo(const HitResult& hitResult);
 };

@@ -4,14 +4,18 @@
 class PunchAIState : public IAIState
 {
 public:
-	PunchAIState() { m_statePriority = 160; }
+	PunchAIState() { 
+		m_statePriority = 160;
+		Active();
+	}
 
 public:
-	void Enter() override { m_stateTime = 1; }
+	void Enter() override { 
+		m_stateTime = 1; 
+		m_isIdle = false;
+	}
 	void Update() override;
 	void Exit() override {}
-
-	bool ChangeRequest(IAIState* nextState) override;
 
 };
 

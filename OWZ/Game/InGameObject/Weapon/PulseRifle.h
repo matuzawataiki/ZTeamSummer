@@ -8,12 +8,14 @@ public:
 	~PulseRifle();
 private:
 	
-
 public:
 	void Fire()override;
 	void Reload()override;
 
 	bool IsFier();
+
+	int GetAmmoCounter() override;
+
 private:
 	bool Start() override;
 	void Update() override;

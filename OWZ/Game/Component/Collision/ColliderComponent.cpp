@@ -17,7 +17,7 @@ bool ColliderComponent::Start()
 
 void ColliderComponent::Update()
 {
-	auto transform = GetComponent<TransformComponent>();
+	auto transform = m_owner->GetComponent<TransformComponent>();
 
 	m_ghostObject.SetPosition(transform->GetPosition());
 	m_ghostObject.SetRotation(transform->GetRotation());
@@ -25,7 +25,7 @@ void ColliderComponent::Update()
 
 void ColliderComponent::CreateBox(const Vector3& size)
 {
-	TransformComponent* transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = m_owner->GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -40,7 +40,7 @@ void ColliderComponent::CreateBox(const Vector3& size)
 
 void ColliderComponent::CreateSphere(float radius)
 {
-	TransformComponent* transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = m_owner->GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -56,7 +56,7 @@ void ColliderComponent::CreateSphere(float radius)
 
 void ColliderComponent::CreateCapsule(float radius, float height)
 {
-	TransformComponent* transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = m_owner->GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -71,7 +71,7 @@ void ColliderComponent::CreateCapsule(float radius, float height)
 
 void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix, const Vector3& size)
 {
-	TransformComponent* transform = GetComponent<TransformComponent>();
+	TransformComponent* transform = m_owner->GetComponent<TransformComponent>();
 
 	Vector3 position = transform->GetPosition();
 	Quaternion rotation = transform->GetRotation();
@@ -80,13 +80,14 @@ void ColliderComponent::CreateMesh(const Model& model, const Matrix& worldMatrix
 
 	m_radius = max(size.x, size.z) / 2;
 	m_height = size.y;
+	m_isCreated = true;
 
 	CollisionManager::GetInstance()->Register(this);
 }
 
 void ColliderComponent::SyncTransform()
 {
-	auto transform = GetComponent<TransformComponent>();
+	auto transform = m_owner->GetComponent<TransformComponent>();
 	if (transform == nullptr) {
 		return;
 	}

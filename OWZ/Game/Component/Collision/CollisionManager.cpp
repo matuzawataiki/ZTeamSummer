@@ -4,6 +4,11 @@
 
 CollisionManager* CollisionManager::m_instance = nullptr;
 
+CollisionManager::CollisionManager() {
+	Quadtree::Config config;
+	m_quadtree.Init(config);
+}
+
 void CollisionManager::Register(ColliderComponent* collider)
 {
 	for (auto it = m_colliders.begin(); it != m_colliders.end(); ) {

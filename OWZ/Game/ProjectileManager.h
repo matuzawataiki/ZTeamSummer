@@ -36,6 +36,8 @@ public:
 		return m_instance;
 	}
 
+	void Update();
+
 	void UseAmmo(std::string name, Vector3 moveDirection, Vector3 position);
 
 	template <typename T>
@@ -43,7 +45,6 @@ public:
 	{
 		AmmoPool ammoPool;
 		ammoPool.ammoPool.resize(ammoData.ammoPoolSize);
-		//将来的にはマルチスレッドで
 		for (int i = 0; i < ammoPool.ammoPool.size(); i++) {
 			ammoPool.ammoPool.at(i) = std::make_unique<T>();
 			ammoPool.ammoPool.at(i)->Deactivate();

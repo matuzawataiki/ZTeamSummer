@@ -150,7 +150,7 @@ namespace nsK2EngineLow {
 		{
 			int index = GetLastAnimationControllerIndex();
 			if (m_animationPlayController[index].GetAnimClip() == nextClip) {
-				return;
+				//return;
 			}
 			if (interpolateTime == 0.0f) {
 				//�⊮�Ȃ��B

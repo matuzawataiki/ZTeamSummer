@@ -11,6 +11,21 @@ ProjectileManager* ProjectileManager::m_instance = nullptr;
 ProjectileManager::ProjectileManager() = default;
 ProjectileManager::~ProjectileManager() = default;
 
+void ProjectileManager::Update()
+{
+	for (auto& ammoPool : m_ammoPools)
+	{
+		for (auto& ammo : ammoPool.second.ammoPool)
+		{
+			if (ammo->IsActive()) {
+				ammo->StartWrapper();
+				ammo->UpdateWrapper();
+				ammo->Render();
+			}
+		}
+	}
+}
+
 void ProjectileManager::UseAmmo(std::string name, Vector3 position, Vector3 moveDirection)
 {
 	AmmoPool& ammoPool = m_ammoPools.find(name)->second;

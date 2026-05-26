@@ -10,7 +10,7 @@ void PulseRifleState::Enter()
 
 void PulseRifleState::Update()
 {
-	if(g_pad[0]->IsPress(enButtonLMouse)){
+	if(g_pad[0]->IsPress(enButtonRB2)){
 		if (m_wepon->IsFier()) {
 			auto model = m_wepon->GetParent()->GetComponent<ViewModelComponent>();
 			model->PlayAnimation(1);

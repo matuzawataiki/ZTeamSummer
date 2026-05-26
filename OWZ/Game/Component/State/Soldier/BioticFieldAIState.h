@@ -5,7 +5,10 @@ class SkillBase;
 class BioticFieldAIState : public IAIState
 {
 public:
-	BioticFieldAIState() { m_statePriority = 150; }
+	BioticFieldAIState() { 
+		m_statePriority = 150; 
+		Active();
+	}
 
 private:
 	SkillBase* m_skill = nullptr;
@@ -16,11 +19,14 @@ public:
 	void SetSkill(SkillBase* skill) { m_skill = skill; }
 	void SetException(IAIState* exception) { m_exception = exception; }
 
-	void Enter() override { m_stateTime = 2; }
+	void Enter() override { 
+		m_stateTime = 2;
+		m_isIdle = false;
+	}
 	void Update() override;
 	void Exit() override {}
 
 	bool ChangeRequest(IAIState* nextState) override;
-
+	bool CanChange() override;
 };
 

@@ -84,9 +84,6 @@
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp">
       <Filter>InGameObject\Character\Playable</Filter>
     </ClCompile>
-    <ClCompile Include="Component\Math\TransformComponent.cpp">
-      <Filter>Component\Math</Filter>
-    </ClCompile>
     <ClCompile Include="Component\Graphics\ModelComponent.cpp">
       <Filter>Component\Graphics</Filter>
     </ClCompile>
@@ -103,10 +100,6 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
-    <ClCompile Include="Component\Math\TransformComponent.cpp" />
-    <ClCompile Include="Component\Math\Transform.cpp">
-      <Filter>Component\Math</Filter>
-    </ClCompile>
     <ClCompile Include="ProjectileManager.cpp" />
     <ClCompile Include="Component\Collision\ColliderComponent.cpp">
       <Filter>Component\Collision</Filter>
@@ -238,6 +231,8 @@
     <ClCompile Include="Mission\MissionBase.cpp" />
     <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Component\Collision\CharactorColliderComponent.cpp" />
+    <ClCompile Include="Component\State\General\IdleAIState.cpp" />
+    <ClCompile Include="Component\Math\TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -263,9 +258,6 @@
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h">
       <Filter>InGameObject\Character\Playable</Filter>
     </ClInclude>
-    <ClInclude Include="Component\Math\TransformComponent.h">
-      <Filter>Component\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Component\Graphics\ModelComponent.h">
       <Filter>Component\Graphics</Filter>
     </ClInclude>
@@ -282,12 +274,8 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
-    <ClInclude Include="Component\Math\TransformComponent.h" />
     <ClInclude Include="Util\Json\Json.h" />
     <ClInclude Include="Util\Json\json.hpp" />
-    <ClInclude Include="Component\Math\Transform.h">
-      <Filter>Component\Math</Filter>
-    </ClInclude>
     <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Component\Collision\CollisionDefine.h">
@@ -429,5 +417,7 @@
     <ClInclude Include="Mission\DestructionMission.h" />
     <ClInclude Include="Mission\MissionBase.h" />
     <ClInclude Include="Component\Collision\CharactorColliderComponent.h" />
+    <ClInclude Include="Component\State\General\IdleAIState.h" />
+    <ClInclude Include="Component\Math\TransformComponent.h" />
   </ItemGroup>
 </Project>

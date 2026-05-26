@@ -6,6 +6,8 @@ HitscanGunComponent::HitscanGunComponent(GunData gunData, AmmoData ammoData)
 {
 	m_gunData = gunData;
 	m_ammoData = ammoData;
+
+	m_ammoCounter = m_gunData.maxAmmo;
 }
 
 HitscanGunComponent::~HitscanGunComponent()
@@ -23,6 +25,7 @@ bool HitscanGunComponent::Fire(const Vector3& position, const Vector3& direction
 		m_ammoData.targetCategory
 	);
 	m_ammoCounter--;
+	m_fireRateCount = m_gunData.fireRate;
 	return true;
 }
 

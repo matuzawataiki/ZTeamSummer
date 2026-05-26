@@ -6,9 +6,13 @@
 #include "Component/Graphics/ModelComponent.h"
 #include "Component/Status/StatusComponent.h"
 
+HelixRocketAmmo::HelixRocketAmmo() = default;
+
+HelixRocketAmmo::~HelixRocketAmmo() = default;
+
+
 void HelixBlast::Init(AmmoData ammoData)
 {
-	AddComponent<TransformComponent>();
 	AddComponent<ColliderComponent>();
 
 	auto colliderComponent = GetComponent<ColliderComponent>();
@@ -18,11 +22,15 @@ void HelixBlast::Init(AmmoData ammoData)
 	colliderComponent->SetOnHitCallback([this](const HitResult& result) {
 		this->HitAmmo(result);
 		});
-
+	colliderComponent->Deactivate();
 }
 
 void HelixBlast::HitAmmo(const HitResult& hitResult)
 {
+	m_isHit = true;
+
+	if (hitResult.hitCategory == EnCollisionCategory::enCollisionCat_Environment) { return; }
+
 	auto transformComponent = GetComponent<TransformComponent>();
 	auto hitTransform = hitResult.hitObject->GetComponent<TransformComponent>();
 
@@ -52,48 +60,44 @@ void HelixBlast::HitAmmo(const HitResult& hitResult)
 	auto hitStatusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
 	hitStatusComponent->GetHP()->AddDamege(damage);
 
-	m_isHit = true;
 }
 
-
-HelixRocketAmmo::HelixRocketAmmo() = default;
-
-HelixRocketAmmo::~HelixRocketAmmo() = default;
+void HelixBlast::Reset()
+{
+	m_isHit = false;
+	auto collider = GetComponent<ColliderComponent>();
+	collider->Deactivate();
+}
 
 void HelixRocketAmmo::Init(AmmoData ammoData)
 {
-	AddComponent<TransformComponent>();
 	AddComponent<ModelComponent>();
-	AddComponent<ColliderComponent>();
 
 	m_speed = ammoData.speed;
 	m_mass = ammoData.mass;
 
-	auto colliderComponent = GetComponent<ColliderComponent>();
+	auto colliderComponent = AddComponent<ColliderComponent>();
 	colliderComponent->CreateSphere(ammoData.radius);
 	colliderComponent->SetCategory(ammoData.thisCategory);
 	colliderComponent->SetCategoryMask(ammoData.targetCategory);
 	colliderComponent->SetOnHitCallback([this](const HitResult& result) {
 		this->HitAmmo(result);
 		});
+	colliderComponent->UpdateWrapper();
 	colliderComponent->Deactivate();
 
 	auto modelComponent = GetComponent<ModelComponent>();
 	modelComponent->SetModel(ammoData.modelFilePath.c_str());
 
 	auto blast = std::make_unique<HelixBlast>();
-	blast->Init(ammoData);
 	m_blast = blast.get();
-	auto collider = m_blast->GetComponent<ColliderComponent>();
-	collider->Deactivate();
-	AddChildren("HelixBlast", std::move(blast));
+	AddChildren("HelixBlast",std::move(blast));
 
-
+	m_blast->Init(ammoData);
+	m_blast->UpdateWrapper();
+	m_blast->Deactivate();
 
 	m_transform = GetComponent<TransformComponent>();
-	auto blastTransformComponent = m_blast->GetComponent<TransformComponent>();
-	blastTransformComponent->SetParent(m_transform->GetTransform());
-
 }
 
 void HelixRocketAmmo::GoAmmo(Vector3 moveDirection, Vector3 position) 
@@ -106,6 +110,10 @@ void HelixRocketAmmo::GoAmmo(Vector3 moveDirection, Vector3 position)
 	rot.SetRotationDegZ(m_moveDirectiron.z);
 	transfomComponent->SetPosition(position);
 	transfomComponent->SetRotation(rot);
+
+	auto collider = GetComponent<ColliderComponent>();
+	collider->Active();
+	collider->UpdateWrapper();
 }
 
 void HelixRocketAmmo::Update()
@@ -115,12 +123,12 @@ void HelixRocketAmmo::Update()
 			m_isHit = false;
 			m_blast->Reset();
 
-			m_blast->GetComponent<ColliderComponent>()->Deactivate();
-			GetComponent<ColliderComponent>()->Deactivate();
+			m_blast->Deactivate();
+			Deactivate();
 		}
 	}
 	else {
-		m_transform->AddPosition(m_moveDirectiron * g_gameTime->GetFrameDeltaTime());
+		m_transform->AddPosition(m_moveDirectiron * m_speed * g_gameTime->GetFrameDeltaTime());
 	}
 }
 
@@ -128,9 +136,22 @@ void HelixRocketAmmo::HitAmmo(const HitResult& hitResult)
 {
 	if (m_isHit) { return; }
 
+	m_blast->Activate();
+	auto blastCollider = m_blast->GetComponent<ColliderComponent>();
+	blastCollider->Active();
+	m_blast->UpdateWrapper();
+	m_isHit = true;
+
+	if (hitResult.hitCategory == EnCollisionCategory::enCollisionCat_Environment) { return; }
+
+	auto model = GetComponent<ModelComponent>();
+	model->SetDrawFlag(false);
+
+	auto collider = GetComponent<ColliderComponent>();
+	collider->Deactivate();
+
 	auto statusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
 	statusComponent->GetHP()->AddDamege(30);
 
-	m_blast->GetComponent<ColliderComponent>()->Active();
-	m_isHit = true;
+
 }

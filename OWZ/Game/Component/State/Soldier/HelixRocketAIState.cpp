@@ -14,8 +14,13 @@ void HelixRocketAIState::Update()
 
 bool HelixRocketAIState::ChangeRequest(IAIState* nextState)
 {
-	if (m_statePriority <= nextState->GetPriority() && !m_lockFlag && m_skill->CanFire()) {
+	if (m_statePriority <= nextState->GetPriority() && !m_lockFlag) {
 		return true;
 	}
 	return false;
+}
+
+bool HelixRocketAIState::CanChange()
+{
+	return m_skill->CanFire();
 }

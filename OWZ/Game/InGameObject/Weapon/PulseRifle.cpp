@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "PulseRifle.h"
 #include "Component/Skill/HitscanGunComponent.h"
-#include "Component/Math/TransformComponent.h"
 
 PulseRifle::PulseRifle() = default;
 PulseRifle::~PulseRifle() = default;
@@ -30,10 +29,14 @@ bool PulseRifle::IsFier()
 	return hitscanGunComponent->CanFire();
 }
 
+int PulseRifle::GetAmmoCounter()
+{
+	auto hitscanGunComponent = GetComponent<HitscanGunComponent>();
+	return hitscanGunComponent->GetAmmoCounter();
+}
+
 bool PulseRifle::Start()
 {
-	AddComponent<TransformComponent>();
-
 	m_gunData.fireRate = 0.1;
 	m_gunData.maxAmmo = 30;
 
@@ -42,7 +45,6 @@ bool PulseRifle::Start()
 	m_ammoData.range = 1000;
 	m_ammoData.targetCategory = EnCollisionCategory::enCollisionCat_Enemy | EnCollisionCategory::enCollisionCat_Environment;
 
-	
 	AddComponent<HitscanGunComponent>(m_gunData, m_ammoData);
 	
 
