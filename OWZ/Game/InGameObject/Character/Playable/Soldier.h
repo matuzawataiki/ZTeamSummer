@@ -8,7 +8,8 @@ public:
 
 private:
 	ViewModelComponent* m_viewModelComponent;
-
+	float m_yaw = 0.0f;
+	float m_pitch = 0.0f;
 public:
 	bool Start() override;
 	void Update() override;

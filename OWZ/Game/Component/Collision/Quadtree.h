@@ -26,12 +26,12 @@ public:
 	};
 
 	struct Config {
-		float worldMinX = -500.0f;		// ワールドの最小X
-		float worldMinZ = -500.0f;		// ワールドの最小Z
-		float worldMaxX = 500.0f;		// ワールドの最大X
-		float worldMaxZ = 500.0f;		// ワールドの最大Z
-		int maxDepth = 5;				// 最大深度
-		int maxObjectsPerNode = 8;		// ノードあたりの最大オブジェクト数
+		float worldMinX = -10000.0f;		// ワールドの最小X
+		float worldMinZ = -10000.0f;		// ワールドの最小Z
+		float worldMaxX = 10000.0f;		// ワールドの最大X
+		float worldMaxZ = 30000.0f;		// ワールドの最大Z
+		int maxDepth = 6;				// 最大深度
+		int maxObjectsPerNode = 10;		// ノードあたりの最大オブジェクト数
 	};
 
 private:

@@ -232,7 +232,10 @@
     <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Component\Collision\CharactorColliderComponent.cpp" />
     <ClCompile Include="Component\State\General\IdleAIState.cpp" />
-    <ClCompile Include="Component\Math\TransformComponent.cpp" />
+    <ClCompile Include="TargetManager.cpp" />
+    <ClCompile Include="TargetBase.cpp" />
+    <ClCompile Include="GoalObject.cpp" />
+    <ClCompile Include="Scene\EndScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -418,6 +421,13 @@
     <ClInclude Include="Mission\MissionBase.h" />
     <ClInclude Include="Component\Collision\CharactorColliderComponent.h" />
     <ClInclude Include="Component\State\General\IdleAIState.h" />
-    <ClInclude Include="Component\Math\TransformComponent.h" />
+    <ClInclude Include="TargetManager.h" />
+    <ClInclude Include="TargetBase.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="GoalObject.h" />
+    <ClInclude Include="Scene\EndScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game1.rc" />
   </ItemGroup>
 </Project>

@@ -69,6 +69,24 @@ void Soldier::Update()
 	cameraPos.z++;
 	g_camera3D->SetTarget(cameraPos);
 
+
+	float x = g_pad[0]->GetRStickXF();
+	float y = g_pad[0]->GetRStickYF();
+
+	m_yaw += x * 1.5;
+	m_pitch += y * 1.5;
+
+	m_pitch = max(m_pitch, -89.0f);
+	m_pitch = min(m_pitch, 89.0f);
+
+
+	Quaternion yRot,pRot;
+	yRot.SetRotationDegY(m_yaw);
+	pRot.SetRotationDegX(-m_pitch);
+
+	Quaternion rotetion = yRot * pRot;
+
+	g_camera3D->RotateOriginTarget(rotetion);
 }
 
 void Soldier::Render()

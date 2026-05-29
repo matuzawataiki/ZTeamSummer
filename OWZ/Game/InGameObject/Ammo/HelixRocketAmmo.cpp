@@ -57,8 +57,8 @@ void HelixBlast::HitAmmo(const HitResult& hitResult)
 
 	damage += length > 0.001 ? length / 160 * 60 : 60;
 
-	auto hitStatusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
-	hitStatusComponent->GetHP()->AddDamege(damage);
+	//auto hitStatusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
+	//hitStatusComponent->GetHP()->AddDamege(damage);
 
 }
 
@@ -150,8 +150,8 @@ void HelixRocketAmmo::HitAmmo(const HitResult& hitResult)
 	auto collider = GetComponent<ColliderComponent>();
 	collider->Deactivate();
 
-	auto statusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
-	statusComponent->GetHP()->AddDamege(30);
+	//auto statusComponent = hitResult.hitObject->GetComponent<StatusComponent>();
+	//statusComponent->GetHP()->AddDamege(30);
 
 
 }

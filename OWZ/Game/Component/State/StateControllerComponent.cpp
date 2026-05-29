@@ -57,7 +57,7 @@ void StateControllerComponent::ChangeCheck()
 		return;
 	}
 
-	if (ChangeRequest(enButtonV, EnMainStateID::enSecondaryWeaponState)) {
+	if (ChangeRequest(enButtonLB2, EnMainStateID::enSecondaryWeaponState)) {
 		return;
 	}
 

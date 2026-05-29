@@ -8,4 +8,8 @@ private:
 
 public:
 	bool Start() override;
+
+	void Init(Vector3 position,Quaternion rotetion);
+
+	void Render() override;
 };

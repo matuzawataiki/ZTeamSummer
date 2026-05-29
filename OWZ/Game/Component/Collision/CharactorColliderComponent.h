@@ -17,8 +17,12 @@ private:
 public:
 	void Init();
 
+	bool IsJump() { return m_isJump; }
+
+	bool IsOnGround() { return m_isOnGround; }
+
 	void Update() override;
 
-	void SetMoveSpeed(Vector3& moveSpeed) {	m_moveSpeed = moveSpeed;}
+	void SetMoveSpeed(const Vector3& moveSpeed) {	m_moveSpeed = moveSpeed;}
 };
 

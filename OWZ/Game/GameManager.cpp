@@ -3,14 +3,12 @@
 #include "Scene/SceneManager.h"
 #include "Scene/TitleScene.h"
 #include "Component/Collision/CollisionManager.h"
-#include "ProjectileManager.h"
 
 GameManager::GameManager()
 {
-	CollisionManager::CreateInstance();
+	g_renderingEngine->DisableRaytracing();
 
-	ProjectileManager::CreateInstance();
-	//PhysicsWorld::GetInstance()->SetGravity(Vector3(0.0f, -50000.0f, 0.0f));
+	CollisionManager::CreateInstance();
 	m_sceneManager = std::make_unique<SceneManager>();
 	m_sceneManager->ChangeScene<TitleScene>();
 }
@@ -23,7 +21,6 @@ void GameManager::Update()
 {
 	m_sceneManager->Update();
 	CollisionManager::GetInstance()->Update();
-	ProjectileManager::GetInstance()->Update();
 }
 
 void GameManager::Draw()
