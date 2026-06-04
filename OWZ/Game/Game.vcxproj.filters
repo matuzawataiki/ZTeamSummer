@@ -90,13 +90,11 @@
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\SceneBase.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="InGameObject\Character\Playable\Soldier.cpp" />
-    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Scene\TitleScene.cpp" />
@@ -114,9 +112,6 @@
       <Filter>Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Component\Logic\CharacterMoveComponent.cpp">
-      <Filter>Component\Logic</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\Logic\InteractComponent.cpp">
       <Filter>Component\Logic</Filter>
     </ClCompile>
     <ClCompile Include="Component\State\General\FlyState.cpp">
@@ -224,12 +219,6 @@
     <ClCompile Include="Component\Status\StatusComponent.cpp">
       <Filter>Component\Status</Filter>
     </ClCompile>
-    <ClCompile Include="DummyEnemy.cpp" />
-    <ClCompile Include="Mission\ActivationMission.cpp" />
-    <ClCompile Include="Mission\AnnihilationMission.cpp" />
-    <ClCompile Include="Mission\DestructionMission.cpp" />
-    <ClCompile Include="Mission\MissionBase.cpp" />
-    <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="Component\Collision\CharactorColliderComponent.cpp" />
     <ClCompile Include="Component\State\General\IdleAIState.cpp" />
     <ClCompile Include="TargetManager.cpp" />
@@ -267,18 +256,13 @@
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="Parameter\IMasterParameter.h" />
-    <ClInclude Include="Parameter\ParameterManager.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="InGameObject\Character\Playable\Soldier.h" />
-    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Scene\TitleScene.h" />
-    <ClInclude Include="Util\Json\Json.h" />
-    <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Component\Collision\CollisionDefine.h">
@@ -297,9 +281,6 @@
       <Filter>Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Component\Logic\CharacterMoveComponent.h">
-      <Filter>Component\Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="Component\Logic\InteractComponent.h">
       <Filter>Component\Logic</Filter>
     </ClInclude>
     <ClInclude Include="Component\State\General\FlyState.h">
@@ -413,12 +394,6 @@
     <ClInclude Include="Component\State\StateEnum.h">
       <Filter>Component\State</Filter>
     </ClInclude>
-    <ClInclude Include="DummyEnemy.h" />
-    <ClInclude Include="Mission\MissionManager.h" />
-    <ClInclude Include="Mission\ActivationMission.h" />
-    <ClInclude Include="Mission\AnnihilationMission.h" />
-    <ClInclude Include="Mission\DestructionMission.h" />
-    <ClInclude Include="Mission\MissionBase.h" />
     <ClInclude Include="Component\Collision\CharactorColliderComponent.h" />
     <ClInclude Include="Component\State\General\IdleAIState.h" />
     <ClInclude Include="TargetManager.h" />

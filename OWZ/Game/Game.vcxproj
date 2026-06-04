@@ -228,7 +228,6 @@
     <ClCompile Include="Component\State\Soldier\HelixRocketState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\BioticFieldState.cpp" />
-    <ClCompile Include="DummyEnemy.cpp" />
     <ClCompile Include="Component\State\General\IdleAIState.cpp" />
     <ClCompile Include="Scene\EndScene.cpp" />
     <ClCompile Include="GoalObject.cpp" />
@@ -246,7 +245,6 @@
     <ClCompile Include="Component\Collision\ColliderComponent.cpp" />
     <ClCompile Include="Component\Graphics\ModelComponent.cpp" />
     <ClCompile Include="Component\Graphics\ViewModelComponent.cpp" />
-    <ClCompile Include="Component\Logic\InteractComponent.cpp" />
     <ClCompile Include="Component\State\General\FlyState.cpp" />
     <ClCompile Include="Component\State\General\IdleState.cpp" />
     <ClCompile Include="Component\State\StateControllerComponent.cpp" />
@@ -254,13 +252,7 @@
     <ClCompile Include="Component\State\IState.cpp" />
     <ClCompile Include="Component\Skill\GunComponent.cpp" />
     <ClCompile Include="Component\Logic\CharacterMoveComponent.cpp" />
-    <ClCompile Include="Mission\ActivationMission.cpp" />
-    <ClCompile Include="Mission\AnnihilationMission.cpp" />
-    <ClCompile Include="Mission\DestructionMission.cpp" />
-    <ClCompile Include="Mission\MissionBase.cpp" />
-    <ClCompile Include="Mission\MissionManager.cpp" />
     <ClCompile Include="TargetBase.cpp" />
-    <ClCompile Include="Parameter\ParameterManager.cpp" />
     <ClCompile Include="Component\Collision\Quadtree.cpp" />
     <ClCompile Include="InGameObject\Weapon\PulseRifle.cpp" />
     <ClCompile Include="ProjectileManager.cpp" />
@@ -281,7 +273,6 @@
     <ClCompile Include="Component\State\Soldier\SprintAIState.cpp" />
     <ClCompile Include="Component\State\Soldier\SprintState.cpp" />
     <ClCompile Include="InGameObject\Object\StageObject.cpp" />
-    <ClCompile Include="Status\Enemy\EnemyStatus.cpp" />
     <ClCompile Include="Component\State\StateMachineComponent.cpp" />
     <ClCompile Include="InGameObject\Skill\SkillBase.cpp" />
     <ClCompile Include="Component\Skill\SkillsComponent.cpp" />
@@ -301,7 +292,6 @@
     <ClInclude Include="Component\State\Soldier\BioticFieldAIState.h" />
     <ClInclude Include="Component\State\Soldier\BioticFieldState.h" />
     <ClInclude Include="Component\State\Soldier\HelixRocketState.h" />
-    <ClInclude Include="DummyEnemy.h" />
     <ClInclude Include="Component\State\General\IdleAIState.h" />
     <ClInclude Include="Scene\EndScene.h" />
     <ClInclude Include="GoalObject.h" />
@@ -320,7 +310,6 @@
     <ClInclude Include="Component\Collision\ColliderComponent.h" />
     <ClInclude Include="Component\Graphics\ModelComponent.h" />
     <ClInclude Include="Component\Graphics\ViewModelComponent.h" />
-    <ClInclude Include="Component\Logic\InteractComponent.h" />
     <ClInclude Include="Component\State\General\FlyState.h" />
     <ClInclude Include="Component\State\General\IdleState.h" />
     <ClInclude Include="Component\State\IState.h" />
@@ -328,15 +317,8 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Component\Skill\GunComponent.h" />
     <ClInclude Include="Component\Logic\CharacterMoveComponent.h" />
-    <ClInclude Include="Mission\ActivationMission.h" />
-    <ClInclude Include="Mission\AnnihilationMission.h" />
-    <ClInclude Include="Mission\DestructionMission.h" />
-    <ClInclude Include="Mission\MissionBase.h" />
-    <ClInclude Include="Mission\MissionManager.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="TargetBase.h" />
-    <ClInclude Include="Parameter\IMasterParameter.h" />
-    <ClInclude Include="Parameter\ParameterManager.h" />
     <ClInclude Include="Component\Collision\Quadtree.h" />
     <ClInclude Include="InGameObject\Weapon\PulseRifle.h" />
     <ClInclude Include="ProjectileManager.h" />
@@ -357,7 +339,6 @@
     <ClInclude Include="Component\State\Soldier\SprintAIState.h" />
     <ClInclude Include="Component\State\Soldier\SprintState.h" />
     <ClInclude Include="InGameObject\Object\StageObject.h" />
-    <ClInclude Include="Status\Enemy\EnemyStatus.h" />
     <ClInclude Include="Component\State\StateMachineComponent.h" />
     <ClInclude Include="InGameObject\Skill\SkillBase.h" />
     <ClInclude Include="Component\Skill\SkillsComponent.h" />
@@ -366,8 +347,6 @@
     <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Component\Collision\CollisionDefine.h" />
     <ClInclude Include="TargetManager.h" />
-    <ClInclude Include="Util\Json\Json.h" />
-    <ClInclude Include="Util\Json\json.hpp" />
     <ClInclude Include="Component\Skill\WeaponData.h" />
     <ClInclude Include="InGameObject\Weapon\WeaponBase.h" />
   </ItemGroup>
