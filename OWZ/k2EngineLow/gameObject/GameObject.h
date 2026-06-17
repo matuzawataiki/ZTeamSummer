@@ -13,11 +13,11 @@ namespace nsK2EngineLow
 		virtual void Render() {}
 
 	public:
-		bool IsStart() const {return m_isStart;}
-		bool IsActive() const {return m_isActive;}
+		bool IsStart() const { return m_isStart; }
+		bool IsActive() const { return m_isActive; }
 
-		void Activate() {m_isActive = true;}
-		void Deactivate() {m_isActive = false;}
+		void Activate() { m_isActive = true; }
+		void Deactivate() { m_isActive = false; }
 
 	public:
 		void UpdateWrapper();
@@ -32,14 +32,20 @@ namespace nsK2EngineLow
 			}
 		}
 
+		//NOTE:ムーブ後の空の変数を返していたので、ムーブ後も有効な変数を返すように修正しました。
 		template <typename T, class... Args>
 		T* AddComponent(Args&&... args) {
-			std::unique_ptr<T> t = std::make_unique<T>(std::forward<Args>(args)...);
-			t->SetOwner(this);
-			t->Active();
+			auto t = std::make_unique<T>(std::forward<Args>(args)...);
+
+			T* result = t.get();
+
+			result->SetOwner(this);
+			result->Active();
 			m_componentList.emplace(T::ID(), std::move(t));
-			return t.get();
+
+			return result;
 		}
+
 		template <typename T>
 		T* GetComponent() {
 			return static_cast<T*>(m_componentList.find(T::ID())->second.get());
@@ -49,7 +55,8 @@ namespace nsK2EngineLow
 		void AddChildren(std::string name, Args&&... args) {
 			std::unique_ptr<GameObject> gameObject = std::make_unique<T>(std::forward<Args>(args)...);
 			gameObject->SetParent(this);
-			m_children.emplace(name, gameObject);
+			//NOTE:ユニークをコピーしていたので、ムーブするように修正しました。
+			m_children.emplace(name, std::move(gameObject));
 		}
 
 		void AddChildren(std::string name, std::unique_ptr<GameObject> gameObject) {
